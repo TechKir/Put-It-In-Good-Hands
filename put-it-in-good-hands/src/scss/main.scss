@@ -1,0 +1,6 @@
+@import './settings/fonts';
+@import '../../node_modules/reset.css/reset.css';
+
+body{
+    font-family: $font-base;
+}
