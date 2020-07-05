@@ -14,29 +14,12 @@ body{
     background-color: $backgroundColor;
 }
 
-//home section :
-.navigation{
-    display:flex;
-    justify-content: space-between;
-    border-bottom: 1px solid black;
-}
-
-.hamburger{
-    padding:2vw;
-    display: inline-block;
+@mixin resetBtn{
     border:0;
     margin:0;
     background: transparent;
     border-style: none;
-}
-
-button:focus {outline:0;}
-
-.hamburgerBox{
-    width: 8vw;
-    height: 7vw;
-    display: inline-block;
-    position: relative;
+    cursor: pointer;
 }
 
 @mixin hamburgerLine {
@@ -46,6 +29,43 @@ button:focus {outline:0;}
     position: absolute;
 }
 
+@mixin button{
+    @include resetBtn;
+    padding:1vw;
+    font-size: 4vw;
+    color: $regularFontColor;
+    border:1px solid $regularFontColor;
+    width: 24vw;
+}
+
+//home section :
+.navigation{
+    display:flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    width: 100vw;
+}
+
+
+
+.hamburger{
+    padding:5vw;
+    display: inline-block;
+    @include resetBtn;
+}
+
+button:focus {outline:0;border: 2px solid $attentionColor;}
+
+.hamburgerBox{
+    width: 8vw;
+    height: 7vw;
+    display: inline-block;
+    position: relative;
+}
+
+
+
+
 .hamburgerInner{
     @include hamburgerLine;
     left: 0;
@@ -54,44 +74,52 @@ button:focus {outline:0;}
     transition: background-color .1s .2s ease-in-out;
     &:before,&:after{
         @include hamburgerLine;
-        top:10px;
+        top:2.5vw;
         left: 0;
         content:'';
         transition: transform .2s .2s ease-in-out;
     }
     &:before{
-        top: -10px;
+        top: -2.5vw;
     }
     &:after{
-        top:10px;
+        top:2.5vw;
     }
 }
 
 .hamburgerActive .hamburgerInner{
     background-color: transparent;
     &:before{
-        transform:translateY(10px) rotate(45deg)
+        transform:translateY(2.5vw) rotate(45deg)
     }
     &:after{
-        transform:translateY(-10px) rotate(-45deg)
+        transform:translateY(-2.5vw) rotate(-45deg)
     }
 }
 
 .navMenu{
+    font-size: 4vw;
+    background-color: $backgroundColor;
+    position: absolute;
     float: right;
-    transform:translateX(150px);
-    transition: transform .2s .2s ease-in-out;
+    //transform:translateX(100vw);
+    //transition: transform .2s .2s ease-in-out;
+    //opacity:0;
+    transition: opacity .4s ease-in-out;
+    margin-left: 56vw;
     .navOptions{
         list-style: none;
-        width: 30vw;
+        //width: 30vw;
         padding: 2vw;
         border: 1px solid black;
     }
 }
 
 .hiddenMenu{
-    transform:translateX(0px);
-    transition: transform .2s .2s ease-in-out;
+    //transform:translateX(100px);
+    //transition: transform .2s .2s ease-in-out;
+    opacity: 100;
+    transition: opacity .4s ease-in-out;
 }
 
 .homeImg{
@@ -99,6 +127,255 @@ button:focus {outline:0;}
     width: 20vw;
     height: 20vw;
     background: url(../assets/Home-Hero-Image.jpg) no-repeat right/cover
+}
+
+.mainIdea{
+    color: $darkGrey;
+    //margin: 6vw auto 6vw auto;
+    width: 100vw;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    h1{
+        font-size: 5vw;
+        padding: 11vw;
+    }
+}
+
+.decorationBox{
+    justify-content: center;
+    display: flex;
+    width: 100vw;
+    img{
+        height: 7vw;
+    }
+}
+
+.loginBox{
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.loginBtn{
+    @include button;
+}
+
+.threeColumns{
+    margin-top: 5vw;
+    // border-top:1px solid black;
+    // border-bottom:1px solid black;
+    background-image: url(../assets/3ColumnsBackground.png);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: $columnFontColor;
+    text-align: center;
+    padding: 2vw;
+}
+
+.column{
+    padding: 2vw;
+    h2{
+        font-size: 8vw;
+        padding: 1vw;
+    }
+    strong{
+        font-size: 4vw;
+        padding: 1vw;
+        font-weight: bolder;
+    }
+    p{
+        font-size: 3.5vw;
+        padding: 1vw;
+    }
+}
+
+.textUpDecoration{
+    text-align: center;
+    padding:8vw;
+    font-size: 5vw;
+    color: $boldFontColor;
+}
+
+.fourStepsBox{
+    margin-top: 5vw;
+    // border-top:1px solid black;
+    // border-bottom:1px solid black;
+    background-color: $altBackgroundColor;
+    width: 100vw;
+    padding: 6vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    div:nth-child(3){
+        margin-top: 2vw;
+    }
+    div:nth-child(4){
+        margin-top: 2vw;
+        h3{
+            margin-top: 2vw;
+        }
+    }
+}
+
+.stepImg{
+    display: inline-block;
+    width: 16vw;
+    height: 16vw;
+}
+
+.step{
+    text-align: center;
+    padding-left: 5vw;
+    width: 30vw;
+    justify-content: center;
+    h3{
+        color: $boldFontColor;
+        padding: 3vw 0;
+        &:after{
+            content: '';
+            display: block;
+            width: 25vw;
+            height: 2vw;
+            border-bottom: 1px solid $regularFontColor; 
+        }
+    }
+    p{
+        font-size: 3vw;
+    }
+}
+
+.putThingsBtn{
+    @include button;
+}
+
+.btnBox{
+    padding: 8vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutUsBox{
+    width: 100vw;
+    height: 60vw;
+    display: flex;
+    .aboutUs{
+        width: 50vw;
+        height: 60vw;
+        background-color: $altBackgroundColor;
+    }
+    .happyPeopleImg{
+        width: 50vw;
+        height: auto;
+        background-image: url(../assets/People.jpg);
+        background-size: cover;
+    }
+}
+
+.aboutUs{
+    color: $boldFontColor;
+    text-align: center;
+    h2{
+        padding-top: 6vw;       
+        font-weight: bolder;
+        font-size: 3.5vw;
+    }
+    div{
+        // justify-content: center;
+        // display: flex;
+        img{
+            width: 35vw;
+            height: 15vw;
+        }
+    }
+    p{
+        font-size: 3.5vw;
+    }
+    img{
+        width: 20vw;
+    }
+}
+
+.signature{
+    padding-top: 4vw;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.orgBtn{
+    @include button;
+    width: 30vw;
+    border: none;
+    margin:4vw;
+    color: $boldFontColor;
+}
+
+.orgText{
+    text-align: center;
+    color: $boldFontColor;
+    font-size: 4vw;
+    padding: 0 10vw 10vw 10vw;
+}
+
+.institutionsBaseInfo{
+    width: 100vw;
+    height: 100vw;
+    background-color: $altBackgroundColor;
+    text-align: center;
+}
+
+.enderBox{
+//display:flex;
+}
+
+.thingsImg2{
+    width: 100vw;
+    height: 50vw;
+    background-image: url(../assets/Background-Contact-Form.jpg);
+    background-size: cover;
+}
+
+.formHome1{
+    display: flex;
+    justify-content: center;
+}
+.formHome{
+    label{
+        display: block;
+        margin: auto;
+        padding: 3vw 0 1vw 0;
+        font-size: 4vw;
+        color: $boldFontColor;
+    }
+    input{
+        font-size: 4vw;
+        color: $boldFontColor;
+    }
+    textarea{
+        font-family: $font-base;
+        font-size: 4vw;
+        color: $boldFontColor;
+    }
+}
+
+.footerBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2vw;
+    p{
+
+        padding-right: 20vw;
+        padding-left: 25vw;
+        font-size: 2vw;
+    }
+    img{
+        width: 3vw;
+        height: auto;
+    }
 }
 
 // xs - max-width: 575px,
