@@ -5,7 +5,7 @@ import ContactForm from './ContactForm';
 
 export default () =>{
     return (
-        <div className='enderBox'>
+        <div id='section5'>
             <ThingsImg2/>
             <ContactForm/>
         </div>

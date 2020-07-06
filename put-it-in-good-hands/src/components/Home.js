@@ -3,7 +3,7 @@ import HomeNav from './Home/welcome_section/HomeNav';
 import MainIdea from './Home/welcome_section/MainIdea'
 import FourSteps from './Home/four_steps/FourSteps';
 import FourStepsInstruction from './Home/four_steps/FourStepsInstruction';
-import ThreeColumns from './Home/three_columns/ThreeColumns';
+import ThreeColumns from './Home/welcome_section/ThreeColumns';
 import PutThingsBtn from './Home/four_steps/PutThingsBtn';
 import AboutUsBox from './Home/about_us/AboutUsBox';
 import GrantedInstitutions from './Home/granted_institutions/GrantedInstitutions';

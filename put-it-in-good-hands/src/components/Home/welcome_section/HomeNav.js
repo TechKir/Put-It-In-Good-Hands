@@ -1,7 +1,14 @@
 import React,{useState} from 'react';
 import classNames from 'classnames';
 import ThingsImg from './ThingsImg';
-
+import { Link, animateScroll as scroll } from "react-scroll";
+import {
+    HashRouter,
+    Route,
+    Link as Link2,
+    Switch,
+    NavLink,
+    } from 'react-router-dom';
 
 export default () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -16,8 +23,22 @@ export default () => {
     if (isOpen){
         return (
             <>
-                <nav className={classNames('navigation',{hamburgerActive: isActive})}>
+                <nav className={classNames('navigation',{hamburgerActive: isActive})} id='section1'>
                     <ThingsImg/>
+                    <div className='loginBox'>
+                        <button className="btnLogin">
+                            <Link2
+                                to="/registration">
+                                Załóż konto
+                            </Link2>                 
+                        </button>
+                        <button className="btnLogin">
+                            <Link2
+                                to="/login">
+                                Zaloguj
+                            </Link2>                
+                        </button>
+                    </div>
                     <button className='hamburger' onClick={showNav}>
                         <span className='hamburgerBox'>
                             <span className='hamburgerInner'></span>
@@ -25,11 +46,61 @@ export default () => {
                     </button>
                 </nav>
                 <ul className='navMenu'>
-                    <li className="navOptions">Start</li>
-                    <li className="navOptions">O co chodzi?</li>
-                    <li className="navOptions">O nas</li>
-                    <li className="navOptions">Fundacja i organizacje</li>
-                    <li className="navOptions">Kontakt</li>              
+                    <li className="navOptions">
+                        <Link
+                            activeClass="active"
+                            to="section1"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}>
+                            Start
+                        </Link>          
+                    </li>
+                    <li className="navOptions">
+                        <Link
+                            activeClass="active"
+                            to="section2"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}>
+                            O co chodzi?
+                        </Link>
+                    </li>
+                    <li className="navOptions">
+                        <Link
+                            activeClass="active"
+                            to="section3"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}>
+                            o nas
+                        </Link>
+                    </li>
+                    <li className="navOptions">
+                        <Link
+                            activeClass="active"
+                            to="section4"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}>
+                            Fundacja i organizacje
+                        </Link>
+                    </li>
+                    <li className="navOptions">
+                        <Link
+                            activeClass="active"
+                            to="section5"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}>
+                            Kontakt
+                        </Link>                      
+                    </li>              
                 </ul> 
             </>
         )
@@ -46,22 +117,3 @@ export default () => {
         )
     }
 }
-
-
-{/* <>
-<nav className={classNames('navigation',{hamburgerActive: isActive})}>
-    <ThingsImg/>
-    <button className='hamburger' onClick={showNav}>
-        <span className='hamburgerBox'>
-            <span className='hamburgerInner'></span>
-        </span>
-    </button>
-</nav>
-<ul className={classNames('navMenu', {hiddenMenu: isOpen})}>
-    <li className="navOptions">Start</li>
-    <li className="navOptions">O co chodzi?</li>
-    <li className="navOptions">O nas</li>
-    <li className="navOptions">Fundacja i organizacje</li>
-    <li className="navOptions">Kontakt</li>              
-</ul> 
-</> */}

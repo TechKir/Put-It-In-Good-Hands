@@ -4,7 +4,7 @@ import HappyPeopleImg from './HappyPeopleImg';
 
 export default () =>{
     return (
-        <div className='aboutUsBox'>
+        <div className='aboutUsBox' id='section3'>
             <AboutUs/>
             <HappyPeopleImg/>
         </div>
