@@ -2,9 +2,8 @@ import React,{useState,useEffect} from 'react';
 
 export default (props) =>{
     
-    //const [kindOfOrg,setKindOfOrg]=useState(1);
     const [pagination, setPaginantion]=useState([{from:0,to:2},{from:3,to:5},{from:6,to:8}]);
-    const [paginationIndex,setPaginationIndex]=useState(0);
+
     const Fundations = [{name:'"Dbam o Zdrowie"', mission:'Pomoc osobom znajdującym się w trudnej sytuacji życiowej.', stuff:'ubrania, jedzenie, sprzęt AGD, meble, zabawki'},{name:'"Dla Dzieci"', mission:'Pomoc dzieciom ubogich rodzin', stuff:'ubrania, meble, zabawki'},{name:'"Bez Domu"', mission:'Pomoc osobom nie posiadających miejsca zamieszkania.', stuff:'ubrania, jedzenie, ciepłe koce'},{name:'"Szansa"', mission:'Pomoc osobom znajdującym się w trudnej sytuacji życiowej.', stuff:'ubrania, jedzenie, sprzęt AGD, meble, zabawki'},{name:'"Promyk nadzieji"', mission:'Pomoc dzieciom ubogich rodzin', stuff:'ubrania, meble, zabawki'},{name:'"Razem"', mission:'Pomoc osobom nie posiadających miejsca zamieszkania.', stuff:'ubrania, jedzenie, ciepłe koce'},{name:'"Nieść Pomoc"', mission:'Pomoc osobom znajdującym się w trudnej sytuacji życiowej.', stuff:'ubrania, jedzenie, sprzęt AGD, meble, zabawki'},{name:'"Nadzieja"', mission:'Pomoc dzieciom ubogich rodzin', stuff:'ubrania, meble, zabawki'},{name:'"Jesteśmy z Tobą"', mission:'Pomoc osobom nie posiadających miejsca zamieszkania.', stuff:'ubrania, jedzenie, ciepłe koce'}];
 
     const NonGovOrg = [{name:'"LOREM1"', mission:'Pomoc osobom znajdującym się w trudnej sytuacji życiowej.', stuff:'ubrania, jedzenie, sprzęt AGD, meble, zabawki'},{name:'"LOREM2"', mission:'Pomoc dzieciom ubogich rodzin', stuff:'ubrania, meble, zabawki'},{name:'"LOREM3"', mission:'Pomoc osobom nie posiadających miejsca zamieszkania.', stuff:'ubrania, jedzenie, ciepłe koce'},{name:'"LOREM4"', mission:'Pomoc osobom znajdującym się w trudnej sytuacji życiowej.', stuff:'ubrania, jedzenie, sprzęt AGD, meble, zabawki'},{name:'"LOREM5"', mission:'Pomoc dzieciom ubogich rodzin', stuff:'ubrania, meble, zabawki'},{name:'"LOREM6"', mission:'Pomoc osobom nie posiadających miejsca zamieszkania.', stuff:'ubrania, jedzenie, ciepłe koce'}];
@@ -12,45 +11,40 @@ export default (props) =>{
     const LocalCollections = [{name:'"IPSUM1"', mission:'Pomoc osobom znajdującym się w trudnej sytuacji życiowej.', stuff:'ubrania, jedzenie, sprzęt AGD, meble, zabawki'},{name:'"IPSUM2"', mission:'Pomoc dzieciom ubogich rodzin', stuff:'ubrania, meble, zabawki'},{name:'"IPSUM3"', mission:'Pomoc osobom nie posiadających miejsca zamieszkania.', stuff:'ubrania, jedzenie, ciepłe koce'}];
 
     //Fundations:
-    const btnQuantity = Fundations.length/3; //We need in a box 3 rows.
-    let btnArrayIndex=[];
+    const boxesQuantityF = Fundations.length/3; //We need in a box 3 rows.
+    let btnsF=[];
 
-    const btnGenerator = () => {
-        for (let i=0; i<btnQuantity;i++){           
-            btnArrayIndex.push(i)
+    const btnGeneratorF = () => {
+        for (let i=0; i<boxesQuantityF;i++){           
+            btnsF.push(i)
         }
         return  
-    }
-    btnGenerator()
+    };
+    btnGeneratorF();
 
     //NonGovOrg:
-    const btnsQuantity2 = NonGovOrg.length/3; //We need in a box 3 rows.
-    let btnsNonGovOrg=[];
+    const boxesQuantityNGO = NonGovOrg.length/3; //We need in a box 3 rows.
+    let btnsNGO=[];
 
-    const btnsGenerator2 = () => {
-        for (let i=0; i<btnsQuantity2;i++){           
-            btnsNonGovOrg.push(i)
+    const btnsGeneratorNGO = () => {
+        for (let i=0; i<boxesQuantityNGO;i++){           
+            btnsNGO.push(i)
         }
         return  
-    }
-    btnsGenerator2()
+    };
+    btnsGeneratorNGO();
 
     //LocalCollections:
-    const btnsQuantity3 = LocalCollections.length/3; //We need in a box 3 rows.
-    let btnsLocalCol=[];
+    const boxesQuantityLC = LocalCollections.length/3; //We need in a box 3 rows.
+    let btnsLC=[];
 
-    const btnsGenerator3 = () => {
-        for (let i=0; i<btnsQuantity3;i++){           
-            btnsLocalCol.push(i)
+    const btnsGeneratorLC = () => {
+        for (let i=0; i<boxesQuantityLC;i++){           
+            btnsLC.push(i)
         }
         return  
-    }
-    btnsGenerator3()
-
-    const handlePagination = index => {
-        console.log('zmieniam paginacje')           
-        return setPaginationIndex(index)
-    }
+    };
+    btnsGeneratorLC();
 
     switch (props.kindOfOrg) {
         case 1:
@@ -59,7 +53,7 @@ export default (props) =>{
                     <div className="orgBox">
                         {Fundations.map( (element, index) => {
 
-                            if(index>=pagination[paginationIndex].from && index<=pagination[paginationIndex].to){
+                            if(index>=pagination[props.paginationIndex].from && index<=pagination[props.paginationIndex].to){
                                 return (
                                     <>
                                         <div className='orgItem'>
@@ -73,9 +67,9 @@ export default (props) =>{
                         } )}
                     </div>
                     <div className='paginationBox'>{
-                    btnArrayIndex.length>1 ?
-                    btnArrayIndex.map( (element,index) => {
-                            return <button onClick={() => handlePagination(index)}>{index+1}</button>
+                    btnsF.length>1 ?
+                    btnsF.map( (element,index) => {
+                            return <button onClick={() => props.handlePagination(index)}>{index+1}</button>
                     })
                     : null}</div>   
                 </>
@@ -86,7 +80,7 @@ export default (props) =>{
                     <div className="orgBox">
                         {NonGovOrg.map( (element, index) => {
 
-                            if(index>=pagination[paginationIndex].from && index<=pagination[paginationIndex].to){
+                            if(index>=pagination[props.paginationIndex].from && index<=pagination[props.paginationIndex].to){
                                 return (
                                     <>
                                         <div className='orgItem'>
@@ -100,9 +94,9 @@ export default (props) =>{
                         } )}
                     </div>
                     <div className='paginationBox'>{
-                    btnsNonGovOrg.length>1 ?
-                    btnsNonGovOrg.map( (element,index) => {
-                            return <button onClick={() => handlePagination(index)}>{index+1}</button>
+                    btnsNGO.length>1 ?
+                    btnsNGO.map( (element,index) => {
+                            return <button onClick={() => props.handlePagination(index)}>{index+1}</button>
                     })
                     : null}</div>                   
                 </>
@@ -113,7 +107,7 @@ export default (props) =>{
                     <div className="orgBox">
                         {LocalCollections.map( (element, index) => {
 
-                            if(index>=pagination[paginationIndex].from && index<=pagination[paginationIndex].to){
+                            if(index>=pagination[props.paginationIndex].from && index<=pagination[props.paginationIndex].to){
                                 return (
                                     <>
                                         <div className='orgItem'>
@@ -128,9 +122,9 @@ export default (props) =>{
                     </div>
                     {}
                     <div className='paginationBox'>{
-                    btnsLocalCol.length>1 ?
-                    btnsLocalCol.map( (element,index) => {
-                            return <button onClick={() => handlePagination(index)}>{index+1}</button>
+                    btnsLC.length>1 ?
+                    btnsLC.map( (element,index) => {
+                            return <button onClick={() => props.handlePagination(index)}>{index+1}</button>
                     })
                     : null}</div>
                 </>
