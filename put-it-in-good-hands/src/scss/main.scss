@@ -273,6 +273,7 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    button:focus {outline:0;border: 2px solid $altBackgroundColor;}
 }
 
 .aboutUsBox{
@@ -334,7 +335,7 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     text-align: center;
     color: $boldFontColor;
     font-size: 4vw;
-    padding: 0 10vw 10vw 10vw;
+    padding: 0 10vw 7vw 10vw;
 }
 
 .institutionsBaseInfo{
@@ -388,6 +389,40 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
         width: 3vw;
         height: auto;
     }
+}
+
+.orgBox{
+    width: 100vw;
+    border: 1px solid black;
+    .orgItem{
+        padding: 2vw;
+        border: 1px dotted black;
+        h3{
+            font-size: 3.5vw;
+            padding: 0.5vw;
+        }
+        p{
+            font-size: 2.5vw;
+            padding: 1vw;
+        }
+    }
+}
+
+.paginationBox{
+    padding: 3vw;
+    display: flex;
+    justify-content: center;
+    button{
+        @include resetBtn;
+        margin: 1vw;
+        padding:1vw;
+        font-size: 4vw;
+        color: $regularFontColor;
+        //border:1px solid $regularFontColor;
+        //width: 25vw;
+        
+    }
+    button:focus {outline:0;border: 2px solid $altBackgroundColor;}
 }
 
 // xs - max-width: 575px,

@@ -2,6 +2,7 @@ import React from 'react';
 import decoration from '../../../assets/Decoration.svg'
 
 export default () => {
+
     return(
         <>
             <h2 className='textUpDecoration' id='section4'>

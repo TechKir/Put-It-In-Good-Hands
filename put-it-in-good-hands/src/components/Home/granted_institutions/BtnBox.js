@@ -3,12 +3,12 @@ import FundationBtn from './FundationBtn';
 import LocalCollectionBtn from './LocalCollectionBtn';
 import NonGovernOrgBtn from './NonGovernOrgBtn';
 
-export default () =>{
+export default (props) =>{
     return (
         <div className='btnBox'>
-            <LocalCollectionBtn/>
-            <NonGovernOrgBtn/>
-            <FundationBtn/>
+            <LocalCollectionBtn handleLocalCol={props.handleLocalCol}/>
+            <NonGovernOrgBtn handleNonGovOrg={props.handleNonGovOrg}/>
+            <FundationBtn handleFundation={props.handleFundation}/>
         </div>
     )
 }
