@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default () =>{
+export default (props) =>{
     return (
-        <button className='orgBtn'>
+        <button className='orgBtn' onClick={props.handleFundation}>
             Fundacjom
         </button>
     )
