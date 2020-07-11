@@ -97,8 +97,8 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     background-color: $backgroundColor;
     position: absolute;
     float: right;
-    //transform:translateX(100vw);
-    //transition: transform .2s .2s ease-in-out;
+    transform:translateX(100vw);
+    transition: transform .2s .2s ease-in-out;
     //opacity:0;
     transition: opacity .4s ease-in-out;
     margin-left: 56vw;
@@ -111,8 +111,8 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
 }
 
 .hiddenMenu{
-    //transform:translateX(100px);
-    //transition: transform .2s .2s ease-in-out;
+    transform:translateX(100px);
+    transition: transform .2s .2s ease-in-out;
     opacity: 100;
     transition: opacity .4s ease-in-out;
 }
@@ -269,6 +269,9 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     justify-content: center;
     align-items: center;
     button:focus {outline:0;border: 2px solid $altBackgroundColor;}
+    .active{
+        border: 2px solid $altBackgroundColor
+    }
 }
 
 .aboutUsBox{
@@ -368,6 +371,20 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
         font-size: 4vw;
         color: $boldFontColor;
     }
+    strong{
+        color:red;
+        font-weight: bolder;
+        font-family: $font-base;
+        font-size: 2.5vw;
+    }
+}
+
+.successText{
+    text-align: center;
+    font-family: $font-base;
+    font-size: 2.8vw;
+    font-weight: bolder;
+    color: rgb(40, 182, 40);
 }
 
 .footerBox{
@@ -419,6 +436,9 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
         color: $regularFontColor;
     }
     button:focus {outline:0;border: 2px solid $altBackgroundColor;}
+    .active{
+        border: 2px solid $altBackgroundColor
+    }
 }
 
 // xs - max-width: 575px,
