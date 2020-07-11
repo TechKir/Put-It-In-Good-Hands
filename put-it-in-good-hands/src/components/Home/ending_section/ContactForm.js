@@ -58,8 +58,8 @@ export default () => {
         }
 
         if(nameWarning== false && emailWarning == false && messageWarning == false){
-            //const formData=[userName,email,message];
-            let formData={name:userName, email:email, message: message}
+
+            const formData={name:userName, email:email, message: message}
             fetch('https://fer-api.coderslab.pl/v1/portfolio/contact', {
                 method:'POST',
                 headers:{
