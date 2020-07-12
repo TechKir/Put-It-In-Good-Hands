@@ -1,0 +1,67 @@
+@import './settings/fonts';
+@import './settings/colors';
+
+@mixin inputStyle{
+    margin:4vw 0;
+    width: 54vw;
+    height: 4vw;
+    font-size: 3vw;
+    border:none;
+    border-bottom: 1px solid black;
+    background-color: transparent;   
+}
+
+@mixin resetBtn{
+    border:0;
+    margin:0;
+    background: transparent;
+    border-style: none;
+    cursor: pointer;
+}
+
+@mixin button{
+    @include resetBtn;
+    padding:1vw;
+    font-size: 4vw;
+    color: $regularFontColor;
+    border:1px solid $regularFontColor;
+    width: 35vw;
+}
+
+.logFormBox{
+    display: flex;
+    justify-content: center;
+    .userBox{
+        background-color: $altBackgroundColor;
+        width: 66vw;
+        height: 40vw;
+        padding: 5vw 6vw;
+        color: $boldFontColor;
+        font-weight: bolder;
+        label{
+            font-size: 3vw;
+        }
+        input{
+            @include inputStyle
+        }
+    }
+    .userBoxReg{
+        height: 57vw;
+    }
+}
+
+.submitBox{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 5vw;
+}
+
+.formMargin{
+    margin-top: 10vw;
+}
+
+.mainPageBtn{
+    @include resetBtn;
+    @include button;
+
+}
