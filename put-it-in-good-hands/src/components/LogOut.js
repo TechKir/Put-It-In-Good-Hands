@@ -1,6 +1,6 @@
 import React from 'react';
-import decoration from '../assets/Decoration.svg'
-import HomeNav from './Home/welcome_section/HomeNav'
+import decoration from '../assets/Decoration.svg';
+import HomeNav from './Home/welcome_section/HomeNav';
 import {
     HashRouter,
     Route,
@@ -22,7 +22,10 @@ export default () => {
             </div>
             <div className='btnBox'>
                 <button className='mainPageBtn'>
-                    Strona główna
+                    <Link
+                        to="/">
+                            Strona główna
+                    </Link>                    
                 </button>
             </div>
 

@@ -2,7 +2,7 @@
 @import './settings/colors';
 
 @mixin inputStyle{
-    margin:4vw 0;
+    margin:3vw 0;
     width: 54vw;
     height: 4vw;
     font-size: 3vw;
@@ -44,6 +44,14 @@
         input{
             @include inputStyle
         }
+        strong{
+            color:red;
+            font-weight: bolder;
+            font-family: $font-base;
+            font-size: 2.5vw;
+            padding-bottom: 2vw;
+            display: block;
+        }
     }
     .userBoxReg{
         height: 57vw;
@@ -63,5 +71,26 @@
 .mainPageBtn{
     @include resetBtn;
     @include button;
+    padding: 2vw;
+    a{
+        text-decoration: none;
+        color: $regularFontColor;
+    }
+}
 
+.noBorderBtn{
+    background-color: transparent;
+    padding:1vw;
+    font-size: 4vw;
+    color: $regularFontColor;
+    width: 25vw;
+    border: none;
+    a{
+        text-decoration: none;
+        color: $boldFontColor;
+        font-size: 3.5vw;
+    }
+}
+.active{
+    border: 2px solid $altBackgroundColor
 }

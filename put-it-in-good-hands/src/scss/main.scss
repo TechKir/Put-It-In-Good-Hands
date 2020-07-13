@@ -1,6 +1,7 @@
 @import './settings/fonts';
 @import './settings/colors';
 @import '../../node_modules/reset.css/reset.css';
+@import './login-out-reg';
 
 *{
     box-sizing: border-box;
@@ -67,6 +68,7 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     top:50%;
     transform: translateY(-50%);
     transition: background-color .1s .2s ease-in-out;
+    
     &:before,&:after{
         @include hamburgerLine;
         top:2.5vw;
@@ -85,10 +87,10 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
 .hamburgerActive .hamburgerInner{
     background-color: transparent;
     &:before{
-        transform:translateY(2.5vw) rotate(45deg)
+        transform:translateY(2.5vw) rotate(45deg);
     }
     &:after{
-        transform:translateY(-2.5vw) rotate(-45deg)
+        transform:translateY(-2.5vw) rotate(-45deg);
     }
 }
 
@@ -97,10 +99,10 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     background-color: $backgroundColor;
     position: absolute;
     float: right;
-    transform:translateX(100vw);
+    //transform:translateX(100vw);
     transition: transform .2s .2s ease-in-out;
-    //opacity:0;
-    transition: opacity .4s ease-in-out;
+    // opacity:0;
+    // transition: opacity .4s ease-in-out;
     margin-left: 56vw;
     .navOptions{
         list-style: none;
@@ -110,11 +112,15 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     }
 }
 
+.active{
+    padding: 0.7vw;
+}
+
 .hiddenMenu{
-    transform:translateX(100px);
+    transform:translateX(-100vw);
     transition: transform .2s .2s ease-in-out;
-    opacity: 100;
-    transition: opacity .4s ease-in-out;
+    // opacity: 100;
+    // transition: opacity .4s ease-in-out;
 }
 
 .homeImg{
@@ -270,7 +276,7 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     align-items: center;
     button:focus {outline:0;border: 2px solid $altBackgroundColor;}
     .active{
-        border: 2px solid $altBackgroundColor
+        border: 2px solid $altBackgroundColor;
     }
 }
 
@@ -350,6 +356,45 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     background-size: cover;
 }
 
+.orgBox{
+    width: 100vw;
+    //border: 1px solid black;
+    .orgItem{
+        padding: 2vw;
+        //border: 1px dotted black;
+        h3{
+            font-size: 3.5vw;
+            padding: 0.5vw;
+        }
+        p{
+            font-size: 2.5vw;
+            padding: 1vw;
+        }
+    }
+    .orgItem:nth-child(2){
+        border-bottom: 1px solid $regularFontColor;
+        border-top: 1px solid $regularFontColor;;
+    }
+}
+
+.paginationBox{
+    padding: 3vw;
+    display: flex;
+    justify-content: center;
+    button{
+        @include resetBtn;
+        margin: 1vw;
+        padding:1vw;
+        font-size: 4vw;
+        color: $regularFontColor;
+    }
+    button:focus {outline:0;border: 2px solid $altBackgroundColor;}
+    .active{
+        border: 2px solid $altBackgroundColor
+    }
+}
+
+
 .formHome1{
     display: flex;
     justify-content: center;
@@ -400,44 +445,7 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     img{
         width: 3vw;
         height: auto;
-    }
-}
-
-.orgBox{
-    width: 100vw;
-    //border: 1px solid black;
-    .orgItem{
-        padding: 2vw;
-        //border: 1px dotted black;
-        h3{
-            font-size: 3.5vw;
-            padding: 0.5vw;
-        }
-        p{
-            font-size: 2.5vw;
-            padding: 1vw;
-        }
-    }
-    .orgItem:nth-child(2){
-        border-bottom: 1px solid $regularFontColor;
-        border-top: 1px solid $regularFontColor;;
-    }
-}
-
-.paginationBox{
-    padding: 3vw;
-    display: flex;
-    justify-content: center;
-    button{
-        @include resetBtn;
-        margin: 1vw;
-        padding:1vw;
-        font-size: 4vw;
-        color: $regularFontColor;
-    }
-    button:focus {outline:0;border: 2px solid $altBackgroundColor;}
-    .active{
-        border: 2px solid $altBackgroundColor
+        margin-left: 1vw;
     }
 }
 
@@ -459,3 +467,4 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
 // @media only screen and (min-width: 64.063em) { }
 // @media only screen and (min-width: 64.063em)
 // and (max-width: 90em) { }
+

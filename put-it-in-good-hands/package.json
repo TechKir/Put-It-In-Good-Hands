@@ -13,6 +13,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-scroll": "^1.7.16",
+    "react-transition-group": "^4.4.1",
     "reset.css": "^2.0.2"
   },
   "scripts": {
