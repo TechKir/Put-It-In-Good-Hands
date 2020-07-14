@@ -57,7 +57,7 @@ export default () => {
             setMessageWarning(false)
         }
 
-        if(nameWarning== false && emailWarning == false && messageWarning == false){
+        if(!nameWarning && emailWarning == false && messageWarning == false){
 
             const formData={name:userName, email:email, message: message}
             fetch('https://fer-api.coderslab.pl/v1/portfolio/contact', {
@@ -69,11 +69,17 @@ export default () => {
             })
             .then(response => response.json())
             .then(data => {
-                console.log('Success:',data);
-                setShowSuccessText(true);
-                setUserName('');
-                setEmail('');
-                setMessage('');
+                
+                if (data.status === "success") {
+                    console.log('Success:',data);
+                    setShowSuccessText(true);
+                    setUserName('');
+                    setEmail('');
+                    setMessage('');
+
+                    return
+                } 
+                console.warn(data.errors)
             })
             .catch(error => {
                 console.log('Error',error);

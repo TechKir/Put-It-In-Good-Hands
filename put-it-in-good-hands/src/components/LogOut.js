@@ -1,6 +1,7 @@
-import React from 'react';
+import React,{useEffect, useContext} from 'react';
 import decoration from '../assets/Decoration.svg';
 import HomeNav from './Home/welcome_section/HomeNav';
+import {AuthContext} from '../App'
 import {
     HashRouter,
     Route,
@@ -10,7 +11,10 @@ import {
     } from 'react-router-dom';
 
 export default () => {
-
+    const { setUser } = useContext(AuthContext);
+    useEffect(() => {
+        setUser(null)
+    }, [])
     return(
         <>
             <HomeNav/>

@@ -31,6 +31,7 @@
 .logFormBox{
     display: flex;
     justify-content: center;
+    margin-top:2vw;
     .userBox{
         background-color: $altBackgroundColor;
         width: 66vw;
@@ -65,7 +66,7 @@
 }
 
 .formMargin{
-    margin-top: 10vw;
+    margin-top: 5vw;
 }
 
 .mainPageBtn{

@@ -1,133 +1,165 @@
 {
-    "organizations": [
+  "organizations": [
+    {
+      "id": 1,
+      "name": "Fundacjom",
+      "desc": "Fundacja",
+      "items": [
         {
-            "id": 1,
-            "name": "Fundacjom",
-            "desc": "Fundacja",
-            "items" : [
-                {
-                  "type":"Fundacja",
-                  "name":"\"Dbam o Zdrowie\"",
-                  "mission":"Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-                  "stuff":"ubrania, jedzenie, sprzęt AGD, meble, zabawki"
-                },
-                {
-                  "type":"Fundacja",    
-                  "name":"\"Dla Dzieci\"",
-                  "mission":"Pomoc dzieciom ubogich rodzin",
-                  "stuff":"ubrania, meble, zabawki"
-                },
-                {
-                  "type":"Fundacja",  
-                  "name":"\"Bez Domu\"",
-                  "mission":"Pomoc osobom nie posiadających miejsca zamieszkania.",
-                  "stuff":"ubrania, jedzenie, ciepłe koce"
-                },
-                {
-                  "type":"Fundacja",
-                  "name":"\"Szansa\"",
-                  "mission":"Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-                  "stuff":"ubrania, jedzenie, sprzęt AGD, meble, zabawki"
-                },
-                {
-                  "type":"Fundacja",  
-                  "name":"\"Promyk nadzieji\"",
-                  "mission":"Pomoc dzieciom ubogich rodzin",
-                  "stuff":"ubrania, meble, zabawki"
-                },
-                {
-                  "type":"Fundacja",  
-                  "name":"\"Razem\"",
-                  "mission":"Pomoc osobom nie posiadających miejsca zamieszkania.",
-                  "stuff":"ubrania, jedzenie, ciepłe koce"
-                },
-                {
-                  "type":"Fundacja",  
-                  "name":"\"Nieść Pomoc\"",
-                  "mission":"Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-                  "stuff":"ubrania, jedzenie, sprzęt AGD, meble, zabawki"
-                },
-                {
-                  "type":"Fundacja",  
-                  "name":"\"Nadzieja\"",
-                  "mission":"Pomoc dzieciom ubogich rodzin",
-                  "stuff":"ubrania, meble, zabawki"
-                },
-                {
-                  "type":"Fundacja",  
-                  "name":"\"Jesteśmy z Tobą\"",
-                  "mission":"Pomoc osobom nie posiadających miejsca zamieszkania.",
-                  "stuff":"ubrania, jedzenie, ciepłe koce"
-                }
-              ]
+          "type": "Fundacja",
+          "name": "\"Dbam o Zdrowie\"",
+          "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+          "stuff": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
         },
         {
-            "id": 2,
-            "name": "Organizacjom pozarzadowym",
-            "desc": "Organizacja Pozarządowa",
-            "items" : [
-                {
-                  "type":"Organizacja Pozarządowa",  
-                  "name":"\"LOREM1\"",
-                  "mission":"Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-                  "stuff":"ubrania, jedzenie, sprzęt AGD, meble, zabawki"
-                },
-                {
-                  "type":"Organizacja Pozarządowa",  
-                  "name":"\"LOREM2\"",
-                  "mission":"Pomoc dzieciom ubogich rodzin",
-                  "stuff":"ubrania, meble, zabawki"
-                },
-                {
-                  "type":"Organizacja Pozarządowa",  
-                  "name":"\"LOREM3\"",
-                  "mission":"Pomoc osobom nie posiadających miejsca zamieszkania.",
-                  "stuff":"ubrania, jedzenie, ciepłe koce"
-                },
-                {
-                  "type":"Organizacja Pozarządowa",  
-                  "name":"\"LOREM4\"",
-                  "mission":"Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-                  "stuff":"ubrania, jedzenie, sprzęt AGD, meble, zabawki"
-                },
-                {
-                  "type":"Organizacja Pozarządowa",  
-                  "name":"\"LOREM5\"",
-                  "mission":"Pomoc dzieciom ubogich rodzin",
-                  "stuff":"ubrania, meble, zabawki"
-                },
-                {
-                  "type":"Organizacja Pozarządowa",  
-                  "name":"\"LOREM6\"",
-                  "mission":"Pomoc osobom nie posiadających miejsca zamieszkania.",
-                  "stuff":"ubrania, jedzenie, ciepłe koce"
-                }
-              ]
+          "type": "Fundacja",
+          "name": "\"Dla Dzieci\"",
+          "mission": "Pomoc dzieciom ubogich rodzin",
+          "stuff": "ubrania, meble, zabawki"
         },
         {
-            "id": 3,
-            "name": "Zbiórkom Lokalnym",
-            "desc": "Zbiórka Lokalna",
-            "items" : [
-                {
-                  "type":"Zbiórka Lokalna",  
-                  "name":"\"IPSUM1\"",
-                  "mission":"Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-                  "stuff":"ubrania, jedzenie, sprzęt AGD, meble, zabawki"
-                },
-                {
-                  "type":"Zbiórka Lokalna",  
-                  "name":"\"IPSUM2\"",
-                  "mission":"Pomoc dzieciom ubogich rodzin",
-                  "stuff":"ubrania, meble, zabawki"
-                },
-                {
-                  "type":"Zbiórka Lokalna",  
-                  "name":"\"IPSUM3\"",
-                  "mission":"Pomoc osobom nie posiadających miejsca zamieszkania.",
-                  "stuff":"ubrania, jedzenie, ciepłe koce"
-                }
-              ]
+          "type": "Fundacja",
+          "name": "\"Bez Domu\"",
+          "mission": "Pomoc osobom nie posiadających miejsca zamieszkania.",
+          "stuff": "ubrania, jedzenie, ciepłe koce"
+        },
+        {
+          "type": "Fundacja",
+          "name": "\"Szansa\"",
+          "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+          "stuff": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+        },
+        {
+          "type": "Fundacja",
+          "name": "\"Promyk nadzieji\"",
+          "mission": "Pomoc dzieciom ubogich rodzin",
+          "stuff": "ubrania, meble, zabawki"
+        },
+        {
+          "type": "Fundacja",
+          "name": "\"Razem\"",
+          "mission": "Pomoc osobom nie posiadających miejsca zamieszkania.",
+          "stuff": "ubrania, jedzenie, ciepłe koce"
+        },
+        {
+          "type": "Fundacja",
+          "name": "\"Nieść Pomoc\"",
+          "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+          "stuff": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+        },
+        {
+          "type": "Fundacja",
+          "name": "\"Nadzieja\"",
+          "mission": "Pomoc dzieciom ubogich rodzin",
+          "stuff": "ubrania, meble, zabawki"
+        },
+        {
+          "type": "Fundacja",
+          "name": "\"Jesteśmy z Tobą\"",
+          "mission": "Pomoc osobom nie posiadających miejsca zamieszkania.",
+          "stuff": "ubrania, jedzenie, ciepłe koce"
         }
-    ]
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Organizacjom pozarzadowym",
+      "desc": "Organizacja Pozarządowa",
+      "items": [
+        {
+          "type": "Organizacja Pozarządowa",
+          "name": "\"LOREM1\"",
+          "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+          "stuff": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+        },
+        {
+          "type": "Organizacja Pozarządowa",
+          "name": "\"LOREM2\"",
+          "mission": "Pomoc dzieciom ubogich rodzin",
+          "stuff": "ubrania, meble, zabawki"
+        },
+        {
+          "type": "Organizacja Pozarządowa",
+          "name": "\"LOREM3\"",
+          "mission": "Pomoc osobom nie posiadających miejsca zamieszkania.",
+          "stuff": "ubrania, jedzenie, ciepłe koce"
+        },
+        {
+          "type": "Organizacja Pozarządowa",
+          "name": "\"LOREM4\"",
+          "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+          "stuff": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+        },
+        {
+          "type": "Organizacja Pozarządowa",
+          "name": "\"LOREM5\"",
+          "mission": "Pomoc dzieciom ubogich rodzin",
+          "stuff": "ubrania, meble, zabawki"
+        },
+        {
+          "type": "Organizacja Pozarządowa",
+          "name": "\"LOREM6\"",
+          "mission": "Pomoc osobom nie posiadających miejsca zamieszkania.",
+          "stuff": "ubrania, jedzenie, ciepłe koce"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Zbiórkom Lokalnym",
+      "desc": "Zbiórka Lokalna",
+      "items": [
+        {
+          "type": "Zbiórka Lokalna",
+          "name": "\"IPSUM1\"",
+          "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+          "stuff": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+        },
+        {
+          "type": "Zbiórka Lokalna",
+          "name": "\"IPSUM2\"",
+          "mission": "Pomoc dzieciom ubogich rodzin",
+          "stuff": "ubrania, meble, zabawki"
+        },
+        {
+          "type": "Zbiórka Lokalna",
+          "name": "\"IPSUM3\"",
+          "mission": "Pomoc osobom nie posiadających miejsca zamieszkania.",
+          "stuff": "ubrania, jedzenie, ciepłe koce"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "email": "gabriela.tlomak@uj.edu.pl",
+      "password": "qqqqqqqq",
+      "id": 1
+    },
+    {
+      "email": "wojciech.kiryk@gmail.com",
+      "password": "aaaaaa",
+      "id": 2
+    },
+    {
+      "email": "wojciech.kiryk@gmail.com",
+      "password": "wwwwww",
+      "id": 3
+    },
+    {
+      "email": "wojciech.kiryk@gmail.com",
+      "password": "ssssss",
+      "id": 4
+    },
+    {
+      "email": "gabriela.tlomak@uj.edu.pl",
+      "password": "mmmmmm",
+      "id": 5
+    },
+    {
+      "email": "gabriela.tlomak@uj.edu.pl",
+      "password": "nnnnnn",
+      "id": 6
+    }
+  ]
 }

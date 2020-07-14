@@ -1,7 +1,8 @@
-import React,{useState} from 'react';
+import React,{useState, useContext} from 'react';
 import classnames from 'classnames';
 import ThingsImg from './ThingsImg';
 import { CSSTransition } from 'react-transition-group';
+import {AuthContext} from '../../../App'
 
 import { Link, animateScroll as scroll } from "react-scroll";
 import {
@@ -13,8 +14,9 @@ import {
     } from 'react-router-dom';
 
 export default () => {
-    const [isOpen, setIsOpen] = useState(false)
-    const [isActive, setIsActive]=useState(false)
+    const [isOpen, setIsOpen] = useState(false);
+    const [isActive, setIsActive]=useState(false);
+    const { user } = useContext(AuthContext)
 
 
     const showNav = () =>{
@@ -28,26 +30,39 @@ export default () => {
             <>
                 <nav className={classnames('navigation',{hamburgerActive: isActive})} id='section1'>
                     <ThingsImg/>
-                    <div className='loginBox'>
-                        <button className="btnLogin">
-                            <Link2
-                                to="/registration">
-                                Załóż konto
-                            </Link2>                 
-                        </button>
-                        <button className="btnLogin">
-                            <Link2
-                                to="/login">
-                                Zaloguj
-                            </Link2>                
-                        </button>
-                    </div>
+                    {user ?                                             
+                        <div className='loginBox'>
+                            <button className="btnLogin">
+                                    Witaj użytkowniku               
+                            </button>
+                            <button className="btnLogin">
+                                    Oddaj rzeczy              
+                            </button>
+                        </div> :
+
+                        <div className='loginBox'>
+                            <button className="btnLogin">
+                                <Link2
+                                    to="/registration">
+                                    Załóż konto
+                                </Link2>                 
+                            </button>
+                            <button className="btnLogin">
+                                <Link2
+                                    to="/login">
+                                    Zaloguj
+                                </Link2>                
+                            </button>
+                        </div> 
+                    }
+
                     <button className='hamburger' onClick={showNav}>
                         <span className='hamburgerBox'>
                             <span className='hamburgerInner'></span>
                         </span>
-                    </button>
+                    </button>                  
                 </nav>
+
                 <ul className='navMenu'>
                     <li className="navOptions">
                         <Link

@@ -1,9 +1,10 @@
-import React,{useState} from 'react';
+import React,{useState, useContext} from 'react';
 import decoration from '../assets/Decoration.svg';
 import HomeNav from './Home/welcome_section/HomeNav';
+import {AuthContext} from '../App'
 import classnames from 'classnames';
 import {
-    HashRouter,
+    useHistory,
     Route,
     Link,
     Switch,
@@ -11,13 +12,16 @@ import {
     } from 'react-router-dom';
 
 export default () => {
-
+    const history = useHistory()
+    const { setUser } = useContext(AuthContext)
     const [activeLoginBtn]=useState(true);
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
 
     const [passwordWarning,setPasswordWarning]=useState(false);
     const [emailWarning,setEmailWarning]=useState(false);
+    const [homeActive,setHomeActive]=useState(false);
+    const [userData,setUserData]=useState(null)
 
     const handleEmail= (e) => {
         setEmail(e.target.value)
@@ -29,7 +33,7 @@ export default () => {
 
     //Login process validation:
     const handleSubmit = (e) => {
-
+        e.preventDefault()
         function validateEmail(email) {
             const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(String(email).toLowerCase());
@@ -49,6 +53,22 @@ export default () => {
             return
         }else{
             setPasswordWarning(false)
+        }
+
+        if(emailWarning == false && passwordWarning== false){
+
+            fetch(`http://localhost:3005/users?email=${email}&password=${password}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:',data);
+                    if(data.length>0){
+                        history.push('/')
+                        setUser(data[0])
+                    }
+                })
+                .catch(error => {
+                    console.log('Error',error);
+                })
         }
     };
 
@@ -83,11 +103,11 @@ export default () => {
                         </Link>                 
                     </button>
                     <button type='submit' className={classnames('noBorderBtn', { active: activeLoginBtn == true })}>
-                            Zaloguj się              
+
+                        Zaloguj się
                     </button>
                 </div>
             </form>
-
         </>
     )
 }
