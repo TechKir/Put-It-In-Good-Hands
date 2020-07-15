@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import {AuthContext} from '../../../App';
 import {
     HashRouter,
     Route,
@@ -6,23 +7,24 @@ import {
     Switch,
     useHistory,
     } from 'react-router-dom';
-    import {AuthContext} from '../../../App'
     
 export default () =>{
+
     const {user} = useContext(AuthContext);
-    const history = useHistory()
+    const history = useHistory();
+
     const handleOnClick = () => {
-        const direction = user ? '/oddaj-rzeczy' : "/login"
-        history.push(direction)
-    }
+        const direction = user ? '/leave-things' : "/login";
+        history.push(direction);
+    };
 
     return (
         <div className='btnBox'>
-            <button className='putThingsBtn' onClick={handleOnClick}>
 
-                        ODDAJ RZECZY
-  
+            <button className='putThingsBtn' onClick={handleOnClick}>
+                ODDAJ RZECZY
             </button>
+
         </div>
     )
 }

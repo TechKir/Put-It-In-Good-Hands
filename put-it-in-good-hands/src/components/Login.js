@@ -1,7 +1,7 @@
-import React,{useState, useContext} from 'react';
+import React,{useState, useEffect, useContext} from 'react';
 import decoration from '../assets/Decoration.svg';
 import HomeNav from './Home/welcome_section/HomeNav';
-import {AuthContext} from '../App'
+import {AuthContext} from '../App';
 import classnames from 'classnames';
 import {
     useHistory,
@@ -12,16 +12,18 @@ import {
     } from 'react-router-dom';
 
 export default () => {
-    const history = useHistory()
-    const { setUser } = useContext(AuthContext)
+    const history = useHistory();
+    const { setUser,setIsHome } = useContext(AuthContext);
+
+    useEffect( () => {
+        setIsHome(false);
+    },[])
+
     const [activeLoginBtn]=useState(true);
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
-
-    const [passwordWarning,setPasswordWarning]=useState(false);
     const [emailWarning,setEmailWarning]=useState(false);
-    const [homeActive,setHomeActive]=useState(false);
-    const [userData,setUserData]=useState(null)
+    const [passwordWarning,setPasswordWarning]=useState(false);
 
     const handleEmail= (e) => {
         setEmail(e.target.value)
@@ -55,7 +57,7 @@ export default () => {
             setPasswordWarning(false)
         }
 
-        if(emailWarning == false && passwordWarning== false){
+        if(!emailWarning && !passwordWarning){
 
             fetch(`http://localhost:3005/users?email=${email}&password=${password}`)
                 .then(response => response.json())
@@ -75,6 +77,7 @@ export default () => {
     return(
         <>
             <HomeNav/>
+
             <h2 className='textUpDecoration' id='section4'>
                 Zaloguj się
             </h2>
@@ -85,6 +88,7 @@ export default () => {
             <form onSubmit={handleSubmit} className='formMargin'>
                 <div className='logFormBox'>
                     <div className='userBox'>
+
                         <label>Email</label>
                         <input type="text" name="email" placeholder='e-mail' value={email} onChange={handleEmail}></input>
                         <div>{emailWarning ? <strong>Podany email jest nieprawidłowy!</strong> : null}</div>
@@ -92,20 +96,23 @@ export default () => {
                         <label>Hasło</label>
                         <input type="password" name="hasło" placeholder='hasło' value={password} onChange={handlePassword}></input>
                         <div>{passwordWarning ? <strong>Podane hasło jest za krótkie!</strong> : null}</div>
+
                     </div>
                 </div>
                 
                 <div className='submitBox'>
+
                     <button className="noBorderBtn">
                         <Link
                             to="/registration">
                                 Załóż konto
                         </Link>                 
                     </button>
-                    <button type='submit' className={classnames('noBorderBtn', { active: activeLoginBtn == true })}>
 
+                    <button type='submit' className={classnames('noBorderBtn', { active: activeLoginBtn })}>
                         Zaloguj się
                     </button>
+
                 </div>
             </form>
         </>

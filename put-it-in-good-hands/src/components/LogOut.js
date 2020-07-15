@@ -1,7 +1,7 @@
 import React,{useEffect, useContext} from 'react';
+import {AuthContext} from '../App';
 import decoration from '../assets/Decoration.svg';
 import HomeNav from './Home/welcome_section/HomeNav';
-import {AuthContext} from '../App'
 import {
     HashRouter,
     Route,
@@ -11,10 +11,13 @@ import {
     } from 'react-router-dom';
 
 export default () => {
-    const { setUser } = useContext(AuthContext);
+
+    const { setUser, setIsHome } = useContext(AuthContext);
     useEffect(() => {
-        setUser(null)
-    }, [])
+        setUser(null);
+        setIsHome(false);
+    }, []);
+
     return(
         <>
             <HomeNav/>
@@ -32,7 +35,6 @@ export default () => {
                     </Link>                    
                 </button>
             </div>
-
         </>
     )
 }

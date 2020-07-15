@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import decoration from '../../../assets/Decoration.svg';
 
 export default () => {
@@ -25,7 +25,7 @@ export default () => {
     };
 
 
-    //form validation:
+    //Form validation:
     const handleSubmit = (e) => {
         e.preventDefault()
         function validateEmail(email) {
@@ -57,7 +57,7 @@ export default () => {
             setMessageWarning(false)
         }
 
-        if(!nameWarning && emailWarning == false && messageWarning == false){
+        if(!nameWarning && !emailWarning && !messageWarning){
 
             const formData={name:userName, email:email, message: message}
             fetch('https://fer-api.coderslab.pl/v1/portfolio/contact', {
@@ -76,7 +76,6 @@ export default () => {
                     setUserName('');
                     setEmail('');
                     setMessage('');
-
                     return
                 } 
                 console.warn(data.errors)
@@ -120,7 +119,6 @@ export default () => {
 
                 </form>
             </div>
-
         </>
     )
 }
