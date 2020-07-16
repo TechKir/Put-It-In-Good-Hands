@@ -4,7 +4,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Registration from './components/Registration';
 import LogOut from './components/LogOut';
-import LeaveThingsForm from './components/LeaveThingsForm/LeaveThingsForm';
+import LeaveThingsSection from './components/LeaveThingsSection/LeaveThingsSection.js';
 
 export const AuthContext = createContext(null); 
 //Czy ten null dalej tam jest pod useContext a my mozemy sobie wybierac po nim i tak value takie jakie sobie wprowadzimy? Czy null dalej tam jest a my korzystamy tylko z value ktore destrukturyzujemy?
@@ -28,7 +28,7 @@ function App() {
             <Route path='/login' component={Login}/>
             <Route path='/registration' component={Registration}/>
             <Route path='/logout' component={LogOut}/>
-            <Route path='/leave-things' component={LeaveThingsForm}/>
+            <Route path='/leave-things' component={LeaveThingsSection}/>
           </Switch>
         </HashRouter>
       </div>

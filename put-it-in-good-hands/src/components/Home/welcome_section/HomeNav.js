@@ -150,7 +150,8 @@ export default () => {
                         </li>
                         <li className="navOptions">
                             <Link2
-                                to='section5'>
+                                to='/'
+                                >
                                 Kontakt
                             </Link2>                      
                         </li>              
