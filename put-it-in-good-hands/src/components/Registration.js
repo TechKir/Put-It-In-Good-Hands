@@ -1,7 +1,8 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect, useContext} from 'react';
 import decoration from '../assets/Decoration.svg';
 import classnames from 'classnames';
 import HomeNav from './Home/welcome_section/HomeNav';
+import {AuthContext} from '../App';
 import {
     HashRouter,
     Route,
@@ -10,7 +11,13 @@ import {
     NavLink,
     } from 'react-router-dom';
 
+
 export default () => {
+
+    const {setIsHome} = useContext(AuthContext);
+    useEffect( () => {
+        setIsHome(true);
+    },[])
 
     const [activeRegBtn]=useState(true);
     const [email,setEmail]=useState('');
@@ -20,6 +27,7 @@ export default () => {
     const [passwordWarning,setPasswordWarning]=useState(false);
     const [repeatPasswordWarning,setRepeatPasswordWarning]=useState(false);
     const [emailWarning,setEmailWarning]=useState(false);
+    const [showSuccessText,setShowSuccessText]=useState(false);
 
     const handleEmail= (e) => {
         setEmail(e.target.value)
@@ -35,7 +43,7 @@ export default () => {
 
     //Login process validation:
     const handleSubmit = (e) => {
-
+        e.preventDefault()
         function validateEmail(email) {
             const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(String(email).toLowerCase());
@@ -65,7 +73,31 @@ export default () => {
             setRepeatPasswordWarning(false)
         }
 
+        if(!emailWarning && !passwordWarning && !repeatPasswordWarning ){
+
+            const userData={email:email, password: password}
+            fetch('http://localhost:3005/users', {
+                method:'POST',
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify(userData)
+            })
+            .then(response => response.json())
+            .then(data => { 
+                
+                console.log('Success:',data);
+                setShowSuccessText(true);
+                setEmail('');
+                setPassword('');
+                setRepeatPassword('');
+            })
+            .catch(error => {
+                console.log('Error',error);
+            })
+        }
     };
+
     return(
         <>
             <HomeNav/>
@@ -77,9 +109,12 @@ export default () => {
             </div>
 
             <form onSubmit={handleSubmit} className='formMargin'>
+                <div className='successText'>{showSuccessText ? <strong>Konto zostało założone!<br/>Możesz się zalogować.</strong> : null}</div>
+
                 <div className='logFormBox'>
                     <div className='userBox userBoxReg'>
-                    <label>Email</label>
+
+                        <label>Email</label>
                         <input type="text" name="email" placeholder='e-mail' value={email} onChange={handleEmail}></input>
                         <div>{emailWarning ? <strong>Podany email jest nieprawidłowy!</strong> : null}</div>
 
@@ -90,21 +125,25 @@ export default () => {
                         <label>Powtórz hasło</label>
                         <input type="password" name="Powtórz hasło" placeholder='Powtórz hasło' value={repeatPassword} onChange={handleRepeatPassword}></input>
                         <div>{repeatPasswordWarning ? <strong>Hasła różnią się od siebie!</strong> : null}</div>
+
                     </div>
                 </div>
                 
                 <div className='submitBox'>
+
                     <button className="noBorderBtn">
                         <Link
                             to="/login">
                                 Zaloguj się
                         </Link>                 
                     </button>
-                    <button type='submit' className={classnames('noBorderBtn', { active: activeRegBtn == true })}>      Załóż konto             
+
+                    <button type='submit' className={classnames('noBorderBtn', { active: activeRegBtn == true })}>
+                        Załóż konto             
                     </button>
+
                 </div>
             </form>
-
         </>
     )
 }

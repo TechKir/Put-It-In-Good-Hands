@@ -1,5 +1,7 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import {AuthContext} from '../../../App';
 import {
+    useHistory,
     HashRouter,
     Route,
     Link,
@@ -8,20 +10,41 @@ import {
     } from 'react-router-dom';
 
 export default () => {
+    const {user}=useContext(AuthContext)
+
     return(
-        <div className='leaveStuffBox'>
-            <button className="btn">
-                <Link
+        <>
+            {user ? 
+            <div className='leaveStuffBox'>
+                <button className="btn">
+                    <Link
+                        to="/leave-things">
+                            ODDAJ RZECZY
+                    </Link>                 
+                </button>
+                <button className="btn">
+                    <Link
+                    to="/leave-things">
+                        ZORGANIZUJ ZBIÓRKĘ
+                    </Link>                
+                </button>
+            </div>   
+            : 
+            <div className='leaveStuffBox'>
+                <button className="btn">
+                    <Link
+                        to="/login">
+                            ODDAJ RZECZY
+                    </Link>                 
+                </button>
+                <button className="btn">
+                    <Link
                     to="/login">
-                        ODDAJ RZECZY
-                </Link>                 
-            </button>
-            <button className="btn">
-                <Link
-                to="/login">
-                    ZORGANIZUJ ZBIÓRKĘ
-                </Link>                
-            </button>
-        </div>
+                        ZORGANIZUJ ZBIÓRKĘ
+                    </Link>                
+                </button>
+            </div>   
+            }
+        </>
     )
 }
