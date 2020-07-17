@@ -45,6 +45,66 @@ const LeaveThingsForm = () => {
         setWhoHelp(result)
     }
 
+    const [whatOrg, setWhatOrg]=useState('');
+
+    const handleOrg = (e) => {
+        const {value}=e.target;
+        setWhatOrg(value)
+    }
+
+    //Step 4:
+
+    const [userData,setUserData]=useState({street:'',city:'', zipCode:'', phoneNo:'',date:'', hour:'', comments:''});
+
+    const handleStreet = (e) => {
+        const {value}=e.target;
+        setUserData( prevState => {
+            return {...prevState, street:value}
+        })
+    }
+
+    const handleCity = (e) => {
+        const {value}=e.target;
+        setUserData( prevState => {
+            return {...prevState, city:value}
+        })
+    }
+
+    const handleZipCode = (e) => {
+        const {value}=e.target;
+        setUserData( prevState => {
+            return {...prevState, zipCode:value}
+        })
+    }
+
+    const handlePhoneNo= (e) => {
+        const {value}=e.target;
+        setUserData( prevState => {
+            return {...prevState, phoneNo:value}
+        })
+    }
+
+    const handleDate= (e) => {
+        const {value}=e.target;
+        setUserData( prevState => {
+            return {...prevState, date:value}
+        })
+    }
+
+    const handleHour= (e) => {
+        const {value}=e.target;
+        setUserData( prevState => {
+            return {...prevState, hour:value}
+        })
+    }
+
+    const handleComments= (e) => {
+        const {value}=e.target;
+        setUserData( prevState => {
+            return {...prevState, comments:value}
+        })
+    }
+    
     switch (step) {
         case 1:
             return (
@@ -106,17 +166,20 @@ const LeaveThingsForm = () => {
                     <input type="checkbox" name="dzieciom" value='dzieciom' onChange={handleWhoHelp}></input>
                     <label>dzieciom</label>
 
-                    <input type="checkbox" name="samotnym matkom"></input>
+                    <input type="checkbox" name="samotnym matkom" value='samotnym matkom' onChange={handleWhoHelp}></input>
                     <label>samotnym matkom</label>
 
-                    <input type="checkbox" name="bezdomnym"></input>
+                    <input type="checkbox" name="bezdomnym" value='bezdomnym' onChange={handleWhoHelp}></input>
                     <label>bezdomnym</label>
 
-                    <input type="checkbox" name="niepełnosprawnym"></input>
+                    <input type="checkbox" name="niepełnosprawnym" value='niepełnosprawnym' onChange={handleWhoHelp}></input>
                     <label>niepełnosprawnym</label>
 
-                    <input type="checkbox" name="osobom starszym"></input>
+                    <input type="checkbox" name="osobom starszym" value='osobom starszym' onChange={handleWhoHelp}></input>
                     <label>osobom starszym</label>
+
+                    <h2>Wpisz nazwę konretnej organizacji:</h2>
+                    <textarea value={whatOrg} onChange={handleOrg}></textarea>
 
                     <div className='btnBox'>
                         <button className='btn' onClick={() => setStep(2)}>Wstecz</button>
@@ -129,6 +192,27 @@ const LeaveThingsForm = () => {
             return (
                 <div className='leaveThingsForm'>
                     <div className='btnBox'>
+                        <label>Ulica:</label>
+                        <input value={userData.street} onChange={handleStreet}></input>
+
+                        <label>Miasto:</label>
+                        <input value={userData.city} onChange={handleCity}></input>
+
+                        <label>Kod pocztowy:</label>
+                        <input value={userData.zipCode} onChange={handleZipCode}></input>
+
+                        <label>Telefon:</label>
+                        <input value={userData.phoneNo} onChange={handlePhoneNo}></input>
+                      
+                        <label>Data:</label>
+                        <input value={userData.data} onChange={handleDate}></input>
+
+                        <label>Godzina:</label>
+                        <input value={userData.hour} onChange={handleHour}></input>
+
+                        <label>Uwagi dla kuriera:</label>
+                        <input value={userData.comments} onChange={handleComments}></input>
+
                         <button className='btn' onClick={() => setStep(3)}>Wstecz</button>
                         <button className='btn' onClick={() => setStep(5)}>Dalej</button>
                     </div>
