@@ -111,19 +111,19 @@ const LeaveThingsForm = () => {
                 <div className='leaveThingsForm'>
                     <form onSubmit={() => setStep(2)}>
                         <label> ubrania, które nadają się do ponownego użycia</label>
-                        <input type="radio" name="things" value='goodClothes' onChange={handleThings}></input>
+                        <input type="radio" name="things" value='ubrania, które nadają się do ponownego użycia' onChange={handleThings}></input>
 
                         <label> ubrania do wyrzucenia</label>
-                        <input type="radio" name="things" value='trashClothes' onChange={handleThings}></input>
+                        <input type="radio" name="things" value='ubrania do wyrzucenia' onChange={handleThings}></input>
 
                         <label> zabawki</label>
-                        <input type="radio" name="things" value='toys' onChange={handleThings}></input>
+                        <input type="radio" name="things" value='zabawki' onChange={handleThings}></input>
 
                         <label> Książki</label>
-                        <input type="radio" name="things" value='books' onChange={handleThings}></input>
+                        <input type="radio" name="things" value='Książki' onChange={handleThings}></input>
 
                         <label> inne</label>
-                        <input type="radio" name="things" value='other' onChange={handleThings}></input>
+                        <input type="radio" name="things" value='inne' onChange={handleThings}></input>
 
                         <div className='btnBox'>
                             <button type='submit' className='btn' >Dalej</button>
@@ -222,15 +222,39 @@ const LeaveThingsForm = () => {
         case 5:
             return (
                 <div className='leaveThingsForm'>
+                    <div>
+                        <h1>Podsumowanie twojej darowizny</h1>
+
+                        <strong>Oddajesz:</strong>
+                        <p>{quantOfBags} {quantOfBags==1 ? "worek" : "worki"}, {kindOfThings}, {whoHelp.map( (element,index) => <span key={index}>{element} </span> )}</p>
+                        <p>dla lokalizacji: {town}</p>
+
+                        <strong>Adres odbioru:</strong>
+                        <p>Ulica</p><span> {userData.street}</span>
+                        <p>Miasto</p><span> {userData.city}</span>
+                        <p>Kod pocztowy</p><span> {userData.zipCode}</span>
+                        <p>Numer telefonu</p><span> {userData.phoneNo}</span>
+                        <br></br>
+                        <strong>Termin odbioru:</strong>
+                        <p>Data</p><span> {userData.date}</span>
+                        <p>Godzina</p><span> {userData.hour}</span>
+                        <p>Uwagi dla kuriera</p><span> {userData.comments}</span>
+                    </div>  
                     <div className='btnBox'>
                         <button className='btn' onClick={() => setStep(4)}>Wstecz</button>
-                        <button className='btn' onClick={() => setStep(6)}>Dalej</button>
+                        <button className='btn' onClick={() => setStep(6)}>Potwierdzam</button>
                     </div>
                 </div>
             )
 
         case 6:
-            return <p>thank you</p>
+            return (
+                <div>
+                    <h1>Dziękujemy za wypełnienie formularza.</h1>
+                    <p>Na maila prześlemy wszelkie</p>
+                    <p>informacje o odbiorze.</p>
+                </div>
+            )
             default: 
                     return null;
     }
