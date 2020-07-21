@@ -1,4 +1,5 @@
-import React,{useState, useEffect,} from 'react';
+import React,{useState, useEffect, useContext} from 'react';
+import {AuthContext} from '../../App';
 //import Step1 from './Steps/Step1';
 // import Step2 from './Steps/Step2';
 // import Step3 from './Steps/Step3';
@@ -9,6 +10,11 @@ import React,{useState, useEffect,} from 'react';
 const LeaveThingsForm = () => {
 
     const [step,setStep]=useState(1);
+    const {setIsHome} = useContext(AuthContext);
+
+    useEffect( () => {
+        setIsHome(false);
+    },[])
 
     //Step 1:
     const [kindOfThings,setKindOfThings]=useState(null);
@@ -110,20 +116,39 @@ const LeaveThingsForm = () => {
             return (
                 <div className='leaveThingsForm'>
                     <form onSubmit={() => setStep(2)}>
-                        <label> ubrania, które nadają się do ponownego użycia</label>
-                        <input type="radio" name="things" value='ubrania, które nadają się do ponownego użycia' onChange={handleThings}></input>
+                        {/* <div className='step1'>
+                            
+                        </div> */}
 
-                        <label> ubrania do wyrzucenia</label>
-                        <input type="radio" name="things" value='ubrania do wyrzucenia' onChange={handleThings}></input>
+                        <span>krok 1/4</span>
+                        
+                        <h1>Zaznacz co chcesz oddać:</h1><br/>
 
-                        <label> zabawki</label>
-                        <input type="radio" name="things" value='zabawki' onChange={handleThings}></input>
+                        <div className='step1Element'>
+                            <input type="radio" name="things" value='ubrania, które nadają się do ponownego użycia' onChange={handleThings}></input>
+                            <label> ubrania, które nadają się do ponownego użycia</label><br/>
+                        </div>
 
-                        <label> Książki</label>
-                        <input type="radio" name="things" value='Książki' onChange={handleThings}></input>
+                        <div className='step1Element'>
+                            <input type="radio" name="things" value='ubrania do wyrzucenia' onChange={handleThings}></input>
+                            <label> ubrania do wyrzucenia</label><br/>
+                        </div>
 
-                        <label> inne</label>
-                        <input type="radio" name="things" value='inne' onChange={handleThings}></input>
+                        <div className='step1Element'>
+                            <input type="radio" name="things" value='zabawki' onChange={handleThings}></input>
+                            <label> zabawki</label><br/>
+                        </div>
+
+                        <div className='step1Element'>
+                            <input type="radio" name="things" value='książki' onChange={handleThings}></input>
+                            <label> książki</label><br/>
+                        </div>
+
+                        <div className='step1Element'>
+                            <input type="radio" name="things" value='inne' onChange={handleThings}></input>
+                            <label> inne</label><br/>
+                        </div>
+
 
                         <div className='btnBox'>
                             <button type='submit' className='btn' >Dalej</button>
@@ -136,13 +161,19 @@ const LeaveThingsForm = () => {
         case 2:
             return (
                 <div className='leaveThingsForm'>
-                    <select onChange={handleBags}>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                    <span>krok 2/4</span>
+                    <h1>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h1><br/>
+                    <div className='step2Box'>
+                        <p>Liczba 60l worków:</p>
+                        <select onChange={handleBags}>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+
         <div className='btnBox'>
                         <button className='btn' onClick={() => setStep(1)}>Wstecz</button>
                         <button className='btn' onClick={() => setStep(3)}>Dalej</button>
