@@ -52,6 +52,18 @@
         font-weight: bolder;
         color: $boldFontColor;
     }
+    h2{
+        margin-top: 2vw;
+        padding: 3vw 0;
+        font-size: 3.5vw;
+        font-weight: bolder;
+        color: $boldFontColor;
+    }
+    textarea{
+        width: 60vw;
+        height: 15vw;
+        background-color: $altBackgroundColor;
+    }
     // margin-top:-1vw;
     // background-image: url(../assets/Background-Form.jpg);
     // background-repeat: no-repeat;
@@ -98,7 +110,7 @@
     }
 }
 
-.step1Element{
+.chooseElement{
     display: flex;
     align-items: center;
     padding: 2vw 0;
@@ -111,6 +123,7 @@
             content: '';
             display: block;
             background-color: $altBackgroundColor;
+            //border-radius: 5vw;
             border: 1px solid $regularFontColor;
             width: 4.5vw;
             height: 4.5vw;
@@ -121,6 +134,58 @@
                 background-color: $attentionColor;
             }
         }
+    }
+}
+
+.chooseElements{
+    display: flex;
+    align-items: center;
+    padding: 2vw 0;
+    // input[type="checkbox"] {
+    //     display:none;
+    // }
+    input{
+        margin-right: 3vw;
+        //display: none;
+        // width: 4.5vw;
+        // height: 4.5vw;
+        //color:$attentionColor;
+        &:before{
+            content: '';
+            display: inline-block;
+            position: relative;
+            padding: 1vw;
+            background-color: $altBackgroundColor;
+            border: 1px solid $regularFontColor;
+            // width: 4.5vw;
+            // height: 4.5vw;
+            box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .7), 0px 0px 1px rgba(255, 255, 255, .8);
+        }
+        &:checked {
+            &:before{
+                background-color: $attentionColor;
+            }
+        }   
+    }
+}
+
+.chooseElementsBox{
+    display: flex;
+    flex-wrap: wrap;
+    :nth-child(1) input:before{
+        content:'dzieciom';
+    }
+    :nth-child(2) input:before{
+        content:'samotnym matkom';
+    }
+    :nth-child(3) input:before{
+        content:'bezdomnym';
+    }
+    :nth-child(4) input:before{
+        content:'niepełnosprawnym';
+    }
+    :nth-child(5) input:before{
+        content:'osobom starszym';
     }
 }
 
@@ -137,5 +202,20 @@
         font-size: 3vw;
         border: 1px solid $regularFontColor;
         background-color: transparent;
+        option{
+            background-color: $altBackgroundColor;
+        }
+    }
+}
+
+.citySelect{
+    margin:5vw 0 2vw 0;
+    width: 36vw;
+    height: 5vw;
+    font-size: 3vw;
+    border: 1px solid $regularFontColor;
+    background-color: transparent;
+    option{
+        background-color: $altBackgroundColor;
     }
 }

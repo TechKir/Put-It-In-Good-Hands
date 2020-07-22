@@ -124,27 +124,27 @@ const LeaveThingsForm = () => {
                         
                         <h1>Zaznacz co chcesz oddać:</h1><br/>
 
-                        <div className='step1Element'>
+                        <div className='chooseElement'>
                             <input type="radio" name="things" value='ubrania, które nadają się do ponownego użycia' onChange={handleThings}></input>
                             <label> ubrania, które nadają się do ponownego użycia</label><br/>
                         </div>
 
-                        <div className='step1Element'>
+                        <div className='chooseElement'>
                             <input type="radio" name="things" value='ubrania do wyrzucenia' onChange={handleThings}></input>
                             <label> ubrania do wyrzucenia</label><br/>
                         </div>
 
-                        <div className='step1Element'>
+                        <div className='chooseElement'>
                             <input type="radio" name="things" value='zabawki' onChange={handleThings}></input>
                             <label> zabawki</label><br/>
                         </div>
 
-                        <div className='step1Element'>
+                        <div className='chooseElement'>
                             <input type="radio" name="things" value='książki' onChange={handleThings}></input>
                             <label> książki</label><br/>
                         </div>
 
-                        <div className='step1Element'>
+                        <div className='chooseElement'>
                             <input type="radio" name="things" value='inne' onChange={handleThings}></input>
                             <label> inne</label><br/>
                         </div>
@@ -184,8 +184,11 @@ const LeaveThingsForm = () => {
         case 3:
             return (
                 <div className='leaveThingsForm'>
-                    <h2>Wybierz miasto:</h2>
-                    <select onChange={handleTown}>
+
+                    <span>krok 3/4</span>
+
+                    <h1>Lokalizacja:</h1>                    
+                    <select className='citySelect' onChange={handleTown}>
                         <option value="Poznań">Poznań</option>
                         <option value="Warszawa">Warszawa</option>
                         <option value="Kraków">Kraków</option>
@@ -194,20 +197,30 @@ const LeaveThingsForm = () => {
                     </select>
 
                     <h2>Komu chcesz pomóc:</h2>
-                    <input type="checkbox" name="dzieciom" value='dzieciom' onChange={handleWhoHelp}></input>
-                    <label>dzieciom</label>
 
-                    <input type="checkbox" name="samotnym matkom" value='samotnym matkom' onChange={handleWhoHelp}></input>
-                    <label>samotnym matkom</label>
 
-                    <input type="checkbox" name="bezdomnym" value='bezdomnym' onChange={handleWhoHelp}></input>
-                    <label>bezdomnym</label>
+                    <div className='chooseElementsBox'>
+                        <div className='chooseElements'>
+                            <input type='checkbox' name="dzieciom" value='dzieciom' onChange={handleWhoHelp}></input>
+                        </div>
 
-                    <input type="checkbox" name="niepełnosprawnym" value='niepełnosprawnym' onChange={handleWhoHelp}></input>
-                    <label>niepełnosprawnym</label>
+                        <div className='chooseElements'>
+                            <input type='checkbox' name="samotnym matkom" value='samotnym matkom' onChange={handleWhoHelp}></input>
+                        </div>
 
-                    <input type="checkbox" name="osobom starszym" value='osobom starszym' onChange={handleWhoHelp}></input>
-                    <label>osobom starszym</label>
+                        <div className='chooseElements'>
+                            <input type='checkbox' name="bezdomnym" value='bezdomnym' onChange={handleWhoHelp}></input>
+                        </div>
+
+                        <div className='chooseElements'>
+                            <input type='checkbox' name="niepełnosprawnym" value='niepełnosprawnym' onChange={handleWhoHelp}></input>
+                        </div>
+
+                        <div className='chooseElements'>
+                            <input type='checkbox' name="osobom starszym" value='osobom starszym' onChange={handleWhoHelp}></input>
+                        </div>
+                    </div>
+                                                            
 
                     <h2>Wpisz nazwę konretnej organizacji:</h2>
                     <textarea value={whatOrg} onChange={handleOrg}></textarea>
