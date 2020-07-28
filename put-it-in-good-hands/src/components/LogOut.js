@@ -12,10 +12,11 @@ import {
 
 export default () => {
 
-    const { setUser, setIsHome } = useContext(AuthContext);
+    const { setUser, setIsHome, setIsForm } = useContext(AuthContext);
     useEffect(() => {
         setUser(null);
         setIsHome(false);
+        setIsForm(false);
     }, []);
 
     return(

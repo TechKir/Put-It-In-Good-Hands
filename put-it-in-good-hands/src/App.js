@@ -11,6 +11,7 @@ export const AuthContext = createContext(null);
 
 function App() {
   const [isHome,setIsHome]=useState(false);
+  const [isForm,setIsForm]=useState(false)
   // const setHome = () => setIsHome(false);
 
   const [user, sUser] = useState(null);
@@ -20,7 +21,7 @@ function App() {
 
   return (
     <AuthContext.Provider 
-    value={{user,setUser,isHome,setIsHome}}>
+    value={{user,setUser,isHome,setIsHome, isForm, setIsForm}}>
       <div className="App">
         <HashRouter>
           <Switch>
