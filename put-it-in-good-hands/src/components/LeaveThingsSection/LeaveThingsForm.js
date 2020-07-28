@@ -1,5 +1,6 @@
 import React,{useState, useEffect, useContext} from 'react';
 import {AuthContext} from '../../App';
+import decoration from '../../assets/Decoration.svg'
 //import Step1 from './Steps/Step1';
 // import Step2 from './Steps/Step2';
 // import Step3 from './Steps/Step3';
@@ -37,7 +38,7 @@ const LeaveThingsForm = () => {
         setTown(value)
     }
 
-    const [whoHelp,setWhoHelp]=useState([])
+    const [whoHelp,setWhoHelp]=useState([]);
     const handleWhoHelp= (e) => {
         const {value} = e.target;
         const copy = [...whoHelp];
@@ -51,8 +52,13 @@ const LeaveThingsForm = () => {
         setWhoHelp(result)
     }
 
-    const [whatOrg, setWhatOrg]=useState('');
+    const [isActiveColor1,setIsActiveColor1]=useState(false);
+    const [isActiveColor2,setIsActiveColor2]=useState(false);
+    const [isActiveColor3,setIsActiveColor3]=useState(false);
+    const [isActiveColor4,setIsActiveColor4]=useState(false);
+    const [isActiveColor5,setIsActiveColor5]=useState(false);
 
+    const [whatOrg, setWhatOrg]=useState('');
     const handleOrg = (e) => {
         const {value}=e.target;
         setWhatOrg(value)
@@ -201,28 +207,39 @@ const LeaveThingsForm = () => {
 
                     <div className='chooseElementsBox'>
                         <div className='chooseElements'>
-                            <input type='checkbox' name="dzieciom" value='dzieciom' onChange={handleWhoHelp}></input>
+                            <label style={ isActiveColor1 ? {backgroundColor:'#FAD648'} : { backgroundColor:'#F0F1F1'}}>dzieciom
+                                <input type='checkbox' name="dzieciom" value='dzieciom' onClick ={() => setIsActiveColor1(prevState=>!prevState)} onChange={handleWhoHelp}></input>
+                            </label>
                         </div>
 
                         <div className='chooseElements'>
-                            <input type='checkbox' name="samotnym matkom" value='samotnym matkom' onChange={handleWhoHelp}></input>
+                            <label style={ isActiveColor2 ? {backgroundColor:'#FAD648'} : { backgroundColor:'#F0F1F1'}}>samotnym matkom
+                                <input type='checkbox' name="samotnym matkom" value='samotnym matkom' onClick ={() => setIsActiveColor2(prevState=>!prevState)} onChange={handleWhoHelp}></input>
+                            </label>
                         </div>
 
                         <div className='chooseElements'>
-                            <input type='checkbox' name="bezdomnym" value='bezdomnym' onChange={handleWhoHelp}></input>
+                            <label style={ isActiveColor3 ? {backgroundColor:'#FAD648'} : { backgroundColor:'#F0F1F1'}}>bezdomnym
+                                <input type='checkbox' name="bezdomnym" value='bezdomnym' onClick ={() => setIsActiveColor3(prevState=>!prevState)} onChange={handleWhoHelp}></input>
+                            </label>
+
                         </div>
 
                         <div className='chooseElements'>
-                            <input type='checkbox' name="niepełnosprawnym" value='niepełnosprawnym' onChange={handleWhoHelp}></input>
+                            <label style={ isActiveColor4 ? {backgroundColor:'#FAD648'} : { backgroundColor:'#F0F1F1'}}>niepełnosprawnym
+                                <input type='checkbox' name="niepełnosprawnym" value='niepełnosprawnym' onClick ={() => setIsActiveColor4(prevState=>!prevState)} onChange={handleWhoHelp}></input>
+                            </label>
                         </div>
 
                         <div className='chooseElements'>
-                            <input type='checkbox' name="osobom starszym" value='osobom starszym' onChange={handleWhoHelp}></input>
+                            <label style={ isActiveColor5 ? {backgroundColor:'#FAD648'} : { backgroundColor:'#F0F1F1'}}>osobom starszym
+                                <input type='checkbox' name="osobom starszym" value='osobom starszym' onClick ={() => setIsActiveColor5(prevState=>!prevState)} onChange={handleWhoHelp}></input>
+                            </label>
                         </div>
                     </div>
                                                             
 
-                    <h2>Wpisz nazwę konretnej organizacji:</h2>
+                    <h2>Wpisz nazwę konretnej organizacji (opcjonalnie):</h2>
                     <textarea value={whatOrg} onChange={handleOrg}></textarea>
 
                     <div className='btnBox'>
@@ -235,28 +252,38 @@ const LeaveThingsForm = () => {
         case 4:
             return (
                 <div className='leaveThingsForm'>
+                    <div className='formDateBoxes'>
+
+                        <div className='dateBox'>
+                        <h2>Adres odbioru:</h2>
+                            <label>Ulica:</label>
+                            <input value={userData.street} onChange={handleStreet}></input>
+
+                            <label>Miasto:</label>
+                            <input value={userData.city} onChange={handleCity}></input>
+
+                            <label>Kod pocztowy:</label>
+                            <input value={userData.zipCode} onChange={handleZipCode}></input>
+
+                            <label>Telefon:</label>
+                            <input value={userData.phoneNo} onChange={handlePhoneNo}></input>
+                        </div>
+
+                        <div className='dateBox'>
+                            <h2>Data odbioru:</h2>
+                            <label>Data:</label>
+                            <input value={userData.data} onChange={handleDate}></input>
+
+                            <label>Godzina:</label>
+                            <input value={userData.hour} onChange={handleHour}></input>
+
+                            <label>Uwagi dla kuriera:</label>
+                            <input className='lastInput' value={userData.comments} onChange={handleComments}></input>
+                        </div>
+                        
+
+                    </div>
                     <div className='btnBox'>
-                        <label>Ulica:</label>
-                        <input value={userData.street} onChange={handleStreet}></input>
-
-                        <label>Miasto:</label>
-                        <input value={userData.city} onChange={handleCity}></input>
-
-                        <label>Kod pocztowy:</label>
-                        <input value={userData.zipCode} onChange={handleZipCode}></input>
-
-                        <label>Telefon:</label>
-                        <input value={userData.phoneNo} onChange={handlePhoneNo}></input>
-                      
-                        <label>Data:</label>
-                        <input value={userData.data} onChange={handleDate}></input>
-
-                        <label>Godzina:</label>
-                        <input value={userData.hour} onChange={handleHour}></input>
-
-                        <label>Uwagi dla kuriera:</label>
-                        <input value={userData.comments} onChange={handleComments}></input>
-
                         <button className='btn' onClick={() => setStep(3)}>Wstecz</button>
                         <button className='btn' onClick={() => setStep(5)}>Dalej</button>
                     </div>
@@ -266,38 +293,56 @@ const LeaveThingsForm = () => {
         case 5:
             return (
                 <div className='leaveThingsForm'>
-                    <div>
-                        <h1>Podsumowanie twojej darowizny</h1>
+
+                    <div className='sumUp'>
+                        <h1 className='h1Padding'>Podsumowanie twojej darowizny</h1>
 
                         <strong>Oddajesz:</strong>
-                        <p>{quantOfBags} {quantOfBags==1 ? "worek" : "worki"}, {kindOfThings}, {whoHelp.map( (element,index) => <span key={index}>{element} </span> )}</p>
+                        <p>{quantOfBags} {quantOfBags==1 ? "worek" : "worki"}, {kindOfThings}, {whoHelp.map( (element,index) => <p key={index}>{element} </p> )}</p>
                         <p>dla lokalizacji: {town}</p>
+                    </div>
 
-                        <strong>Adres odbioru:</strong>
-                        <p>Ulica</p><span> {userData.street}</span>
-                        <p>Miasto</p><span> {userData.city}</span>
-                        <p>Kod pocztowy</p><span> {userData.zipCode}</span>
-                        <p>Numer telefonu</p><span> {userData.phoneNo}</span>
-                        <br></br>
-                        <strong>Termin odbioru:</strong>
-                        <p>Data</p><span> {userData.date}</span>
-                        <p>Godzina</p><span> {userData.hour}</span>
-                        <p>Uwagi dla kuriera</p><span> {userData.comments}</span>
-                    </div>  
+                    <div className='formDateBoxes'>
+                        <div className='dateBox'>
+                            <h2>Adres odbioru:</h2>
+
+                            <p>Ulica: {userData.street}</p>
+                            <p>Miasto: {userData.city}</p>
+                            <p>Kod pocztowy: {userData.zipCode}</p>
+                            <p>Numer telefonu: {userData.phoneNo}</p>
+
+                        </div>
+
+                        <div className='dateBox'>
+
+                            <h2>Data odbioru:</h2>
+                            <p>Data: {userData.date}</p>
+                            <p>Godzina: {userData.hour}</p>
+                            <p>Uwagi dla kuriera: {userData.comments}</p>
+
+                        </div>
+                    </div>
                     <div className='btnBox'>
                         <button className='btn' onClick={() => setStep(4)}>Wstecz</button>
                         <button className='btn' onClick={() => setStep(6)}>Potwierdzam</button>
                     </div>
-                </div>
+                </div>                
             )
 
         case 6:
             return (
-                <div>
-                    <h1>Dziękujemy za wypełnienie formularza.</h1>
-                    <p>Na maila prześlemy wszelkie</p>
-                    <p>informacje o odbiorze.</p>
-                </div>
+                <>
+                    <div className='lastStepThanks'>
+                        <h1>Dziękujemy za wypełnienie formularza.</h1>
+                        <p>Na maila prześlemy wszelkie</p>
+                        <p>informacje o odbiorze.</p>
+                    </div>
+                    <div className='decorationBox' style={{backgroundColor:'#F0F1F1', padding:'5vw'}}>
+                        <img src={decoration} alt='decoration'/>
+                    </div>
+                </>
+
+                
             )
             default: 
                     return null;

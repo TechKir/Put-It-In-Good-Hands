@@ -60,8 +60,8 @@
         color: $boldFontColor;
     }
     textarea{
-        width: 60vw;
-        height: 15vw;
+        width: 81vw;
+        height: 6vw;
         background-color: $altBackgroundColor;
     }
     // margin-top:-1vw;
@@ -110,6 +110,11 @@
     }
 }
 
+.chooseElementsBox{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .chooseElement{
     display: flex;
     align-items: center;
@@ -123,6 +128,7 @@
             content: '';
             display: block;
             background-color: $altBackgroundColor;
+            transition: background-color 0.5s ease;
             //border-radius: 5vw;
             border: 1px solid $regularFontColor;
             width: 4.5vw;
@@ -141,12 +147,15 @@
     display: flex;
     align-items: center;
     padding: 2vw 0;
-    // input[type="checkbox"] {
-    //     display:none;
-    // }
+    label{
+        border: 1px solid $regularFontColor;
+        padding: 1.5vw;
+        margin-right: 1.5vw;
+        transition: background-color 0.5s ease;
+    }
     input{
+        display: none;
         margin-right: 3vw;
-        //display: none;
         // width: 4.5vw;
         // height: 4.5vw;
         //color:$attentionColor;
@@ -161,31 +170,6 @@
             // height: 4.5vw;
             box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .7), 0px 0px 1px rgba(255, 255, 255, .8);
         }
-        &:checked {
-            &:before{
-                background-color: $attentionColor;
-            }
-        }   
-    }
-}
-
-.chooseElementsBox{
-    display: flex;
-    flex-wrap: wrap;
-    :nth-child(1) input:before{
-        content:'dzieciom';
-    }
-    :nth-child(2) input:before{
-        content:'samotnym matkom';
-    }
-    :nth-child(3) input:before{
-        content:'bezdomnym';
-    }
-    :nth-child(4) input:before{
-        content:'niepełnosprawnym';
-    }
-    :nth-child(5) input:before{
-        content:'osobom starszym';
     }
 }
 
@@ -211,11 +195,67 @@
 .citySelect{
     margin:5vw 0 2vw 0;
     width: 36vw;
-    height: 5vw;
+    height: 7vw;
+    font-family: $font-base;
+    color: $regularFontColor;
     font-size: 3vw;
     border: 1px solid $regularFontColor;
     background-color: transparent;
     option{
         background-color: $altBackgroundColor;
     }
+}
+
+.formDateBoxes{
+    display:flex;
+    //flex-wrap: wrap;
+    justify-content: center;
+    .dateBox{
+        width: 60vw;
+        padding-left: 3vw;
+
+        h2{
+            font-size: 3.5vw;
+        }
+        label{
+            font-size: 3.5vw;
+            margin-top:2vw;
+        }
+        input{
+            margin-right: 3vw;
+            width: 40vw;
+            height: 5vw;
+            background-color: $altBackgroundColor;
+            border:0.1vw solid $regularFontColor
+        }
+        .lastInput{
+            height: 14vw;
+        }
+        span{
+            font-size:4vw;
+        }
+        p{
+            padding: 1.5vw 0;
+            font-size: 3.5vw;
+        }
+    }
+}
+
+.h1Padding{
+    padding: 2vw 0;
+
+}
+
+.sumUp{
+    padding: 6vw 3vw;
+    strong, h1, p{
+        font-size: 3.5vw;
+    }
+}
+
+.lastStepThanks{
+    background-color: $altBackgroundColor;
+    text-align: center;
+    padding: 5vw;
+    padding-top: 10vw;
 }
