@@ -13,10 +13,11 @@ import {
 
 export default () => {
     const history = useHistory();
-    const { setUser,setIsHome } = useContext(AuthContext);
+    const { setUser,setIsHome,setIsForm } = useContext(AuthContext);
 
     useEffect( () => {
         setIsHome(false);
+        setIsForm(false);
     },[])
 
     const [activeLoginBtn]=useState(true);

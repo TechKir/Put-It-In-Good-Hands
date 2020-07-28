@@ -14,9 +14,10 @@ import {
 
 export default () => {
 
-    const {setIsHome} = useContext(AuthContext);
+    const {setIsHome, setIsForm} = useContext(AuthContext);
     useEffect( () => {
-        setIsHome(true);
+        setIsHome(false);
+        setIsForm(false);
     },[])
 
     const [activeRegBtn]=useState(true);

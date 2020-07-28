@@ -25,14 +25,237 @@
     background-size: cover;
 }
 
+.mainTheme{
+    color: $darkGrey;
+    width: 100vw;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    h1{
+        font-size: 5vw;
+        padding: 8vw;
+        line-height: 8vw;
+        // font-size: 5vw;
+        // padding: 8vw;
+        // width: 100vw;
+    }
+}
+
 .leaveThingsForm{
+    span{
+        font-size: 2.5vw;
+        padding-bottom: 8vw;
+        display: block;
+    }
+    h1{
+        font-size: 4.5vw;
+        font-weight: bolder;
+        color: $boldFontColor;
+    }
+    h2{
+        margin-top: 2vw;
+        padding: 3vw 0;
+        font-size: 3.5vw;
+        font-weight: bolder;
+        color: $boldFontColor;
+    }
+    textarea{
+        width: 81vw;
+        height: 6vw;
+        background-color: $altBackgroundColor;
+    }
     // margin-top:-1vw;
     // background-image: url(../assets/Background-Form.jpg);
     // background-repeat: no-repeat;
     // //background-size: cover;
     // background-position: left;
+    padding: 4vw 2vw;;
     background-color: $altBackgroundColor;
-    width: 100vw;
-    height: 100vw;
 }
 
+.formImg1{
+    background-size: cover;
+    width: 20vw;
+    height: 20vw;
+    background: url(../assets/Form-Hero-Image.jpg) no-repeat right/cover
+}
+
+.form4Steps{
+    display: flex;
+    justify-content: center;
+    margin-top: 4vw;
+    font-size: 5vw;
+}
+
+.formStepsContainer{
+    margin-left: -3vw;
+    padding: 10vw 0;
+    display: flex;
+    justify-content: center;
+    font-size: 4vw;
+    .formStep{
+        margin-left: 4vw;
+        width: 19.5vw;
+        height: 19.5vw;
+        border:1px solid $altBackgroundColor;
+        box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .7), 0px 0px 1px rgba(255, 255, 255, .8);
+        transform:rotate(45deg);
+        div{
+            transform:rotate(-45deg);
+            span{
+                margin-left:6vw;
+            }
+
+        }
+    }
+}
+
+.chooseElementsBox{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chooseElement{
+    display: flex;
+    align-items: center;
+    padding: 2vw 0;
+    input{
+        margin-right: 3vw;
+        width: 4.5vw;
+        height: 4.5vw;
+        color:$attentionColor;
+        &:before{
+            content: '';
+            display: block;
+            background-color: $altBackgroundColor;
+            transition: background-color 0.5s ease;
+            //border-radius: 5vw;
+            border: 1px solid $regularFontColor;
+            width: 4.5vw;
+            height: 4.5vw;
+            box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .7), 0px 0px 1px rgba(255, 255, 255, .8);
+        }
+        &:checked {
+            &:before{
+                background-color: $attentionColor;
+            }
+        }
+    }
+}
+
+.chooseElements{
+    display: flex;
+    align-items: center;
+    padding: 2vw 0;
+    label{
+        border: 1px solid $regularFontColor;
+        padding: 1.5vw;
+        margin-right: 1.5vw;
+        transition: background-color 0.5s ease;
+    }
+    input{
+        display: none;
+        margin-right: 3vw;
+        // width: 4.5vw;
+        // height: 4.5vw;
+        //color:$attentionColor;
+        &:before{
+            content: '';
+            display: inline-block;
+            position: relative;
+            padding: 1vw;
+            background-color: $altBackgroundColor;
+            border: 1px solid $regularFontColor;
+            // width: 4.5vw;
+            // height: 4.5vw;
+            box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .7), 0px 0px 1px rgba(255, 255, 255, .8);
+        }
+    }
+}
+
+.step2Box{
+    display: flex;
+    align-items: center;
+    p{
+        font-size: 3vw;;
+    }
+    select{
+        margin-left:2vw;
+        width: 42vw;
+        height: 4vw;
+        font-size: 3vw;
+        border: 1px solid $regularFontColor;
+        background-color: transparent;
+        option{
+            background-color: $altBackgroundColor;
+        }
+    }
+}
+
+.citySelect{
+    margin:5vw 0 2vw 0;
+    width: 36vw;
+    height: 7vw;
+    font-family: $font-base;
+    color: $regularFontColor;
+    font-size: 3vw;
+    border: 1px solid $regularFontColor;
+    background-color: transparent;
+    option{
+        background-color: $altBackgroundColor;
+    }
+}
+
+.formDateBoxes{
+    display:flex;
+    //flex-wrap: wrap;
+    justify-content: center;
+    .dateBox{
+        width: 60vw;
+        padding-left: 3vw;
+
+        h2{
+            font-size: 3.5vw;
+        }
+        label{
+            font-size: 3.5vw;
+            margin-top:2vw;
+        }
+        input{
+            margin-right: 3vw;
+            width: 40vw;
+            height: 5vw;
+            background-color: $altBackgroundColor;
+            border:0.1vw solid $regularFontColor
+        }
+        .lastInput{
+            height: 14vw;
+        }
+        span{
+            font-size:4vw;
+        }
+        p{
+            padding: 1.5vw 0;
+            font-size: 3.5vw;
+        }
+    }
+}
+
+.h1Padding{
+    padding: 2vw 0;
+
+}
+
+.sumUp{
+    padding: 6vw 3vw;
+    strong, h1, p{
+        font-size: 3.5vw;
+    }
+}
+
+.lastStepThanks{
+    background-color: $altBackgroundColor;
+    text-align: center;
+    padding: 5vw;
+    padding-top: 10vw;
+}

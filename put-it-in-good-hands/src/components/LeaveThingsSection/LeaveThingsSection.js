@@ -1,16 +1,35 @@
-import React,{useState, useEffect,} from 'react';
+import React,{useState, useEffect,useContext} from 'react';
+import HomeNav from '../Home/welcome_section/HomeNav';
 import YellowBelt from './YellowBelt';
+import MainTheme from './MainTheme';
+import StepsInstruction from './StepsInstruction';
 import BearImg from './BearImg';
 import LeaveThingsForm from './LeaveThingsForm';
+import EnderBox from '../Home/ending_section/EnderBox';
+import FooterBox from '../Home/ending_section/footer/FooterBox';
+import {AuthContext} from '../../App';
+
 
 
 const LeaveThingsSection = () => {
 
+    const {setIsForm, setIsHome}=useContext(AuthContext);
+
+    useEffect ( () => {
+        setIsForm(true);
+        setIsHome(false);
+    },[])
+
     return (
         <>
+            <HomeNav/>
+            <MainTheme/>
+            <StepsInstruction/>
             <YellowBelt/>
             {/* <BearImg/> */}
-            <LeaveThingsForm/>            
+            <LeaveThingsForm/>  
+            <EnderBox/>
+            <FooterBox/>          
         </>
     )
 }

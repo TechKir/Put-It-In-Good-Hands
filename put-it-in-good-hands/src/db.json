@@ -240,6 +240,11 @@
       "email": "gabriela.tlomak@uj.edu.pl",
       "password": "pppppp",
       "id": 22
+    },
+    {
+      "email": "gabriela.tlomak@uj.edu.pl",
+      "password": "ooooooo",
+      "id": 23
     }
   ]
 }
