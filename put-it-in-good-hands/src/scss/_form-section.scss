@@ -119,6 +119,9 @@
     display: flex;
     align-items: center;
     padding: 2vw 0;
+    label{
+        font-size: 3.5vw;
+    }
     input{
         margin-right: 3vw;
         width: 4.5vw;
@@ -149,6 +152,7 @@
     padding: 2vw 0;
     label{
         border: 1px solid $regularFontColor;
+        font-size: 3.5vw;
         padding: 1.5vw;
         margin-right: 1.5vw;
         transition: background-color 0.5s ease;
@@ -258,4 +262,15 @@
     text-align: center;
     padding: 5vw;
     padding-top: 10vw;
+}
+
+.alert{
+    text-align: center;
+    height: 3.5vw;
+    strong{
+        font-family: $font-base;
+        color: red;
+        font-size: 3.5vw;
+        font-weight: bolder;
+    }
 }

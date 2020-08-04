@@ -1,11 +1,11 @@
 import React,{useState, useEffect,} from 'react';
 
-const YellowBelt = () => {
+const YellowBelt = props => {
 
     return (
         <div className='yellowBelt'>
             <h1>Ważne!</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nobis ratione possimus quam, facilis animi minima dignissimos.</p>
+            <p>{props.text}</p>
         </div>
     )
 }

@@ -1,6 +1,5 @@
 import React,{useState, useEffect,useContext} from 'react';
 import HomeNav from '../Home/welcome_section/HomeNav';
-import YellowBelt from './YellowBelt';
 import MainTheme from './MainTheme';
 import StepsInstruction from './StepsInstruction';
 import BearImg from './BearImg';
@@ -25,7 +24,6 @@ const LeaveThingsSection = () => {
             <HomeNav/>
             <MainTheme/>
             <StepsInstruction/>
-            <YellowBelt/>
             {/* <BearImg/> */}
             <LeaveThingsForm/>  
             <EnderBox/>
