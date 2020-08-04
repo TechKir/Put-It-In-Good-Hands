@@ -139,6 +139,23 @@
     {
       "email": "wojciech.kiryk@gmail.com",
       "password": "aaaaaa",
+      "actualOrder": {
+        "kindOfThings": "książki",
+        "quantOfBags": "2",
+        "town": "Kraków",
+        "whoHelp": [
+          "samotnym matkom",
+          "osobom starszym"
+        ],
+        "whatOrg": "",
+        "street": "Wesele 24",
+        "city": "Kraków",
+        "zipCode": "30-127",
+        "phoneNo": "667949351",
+        "date": "2020-07-28",
+        "hour": "22:19",
+        "comments": "dsd"
+      },
       "id": 2
     },
     {
@@ -246,5 +263,8 @@
       "password": "ooooooo",
       "id": 23
     }
+  ],
+  "usersd": [
+    {}
   ]
 }
