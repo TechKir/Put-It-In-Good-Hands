@@ -13,7 +13,7 @@ const LeaveThingsForm = () => {
 
     //Logic:
     const [step,setStep]=useState(1);
-    const {user,setIsHome} = useContext(AuthContext);
+    const {user,setIsHome,isTogether} = useContext(AuthContext);
     const [alert,setAlert]=useState(false);
 
     useEffect( () => {
@@ -56,6 +56,11 @@ const LeaveThingsForm = () => {
             setAlert(true);
         };
     }; 
+
+    const prevStep2 = () => {
+        setStep(1);
+        setAlert(false);
+    }
 
     //Step 3:
     const [town,setTown]=useState('wybierz');
@@ -105,6 +110,11 @@ const LeaveThingsForm = () => {
             setStep(4)
         };
     };
+
+    const prevStep3 = () => {
+        setStep(2);
+        setAlert(false);
+    }
 
     //Step 4:
 
@@ -181,6 +191,11 @@ const LeaveThingsForm = () => {
         // End Validation
     } 
 
+    const prevStep4 = () => {
+        setStep(3);
+        setAlert(false);
+    }
+
     //Step 5:
 
     const handleStep5 = () => {
@@ -218,7 +233,7 @@ const LeaveThingsForm = () => {
         case 1:
             return (
                 <>
-                    <YellowBelt text='Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu bedziemy wiedzieć komu najlepiej je przekazać.'/>
+                    <YellowBelt text={isTogether ? 'Powiedz znajomym o akcji i zbierzcie więcej rzeczy w jedno miejsce!' : 'Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu bedziemy wiedzieć komu najlepiej je przekazać.'}/>
                     <div className='leaveThingsForm'>
                         <form onSubmit={handleStep1}>
                             {/* <div className='step1'>
@@ -286,7 +301,7 @@ const LeaveThingsForm = () => {
 
                     {alert ? <div className='alert'><strong >Wybierz ilość worków do oddania</strong></div> : null}
                     <div className='btnBox'>
-                            <button className='btn' onClick={() => setStep(1)}>Wstecz</button>
+                            <button className='btn' onClick={prevStep2}>Wstecz</button>
                             <button className='btn' onClick={handleStep2}>Dalej</button>
                         </div>
                     </div>
@@ -354,7 +369,7 @@ const LeaveThingsForm = () => {
 
                         {alert ? <div className='alert'><strong >{alertText}</strong></div> : null}
                         <div className='btnBox'>
-                            <button className='btn' onClick={() => setStep(2)}>Wstecz</button>
+                            <button className='btn' onClick={prevStep3}>Wstecz</button>
                             <button className='btn' onClick={handleStep3}>Dalej</button>
                         </div>
                     </div>
@@ -400,7 +415,7 @@ const LeaveThingsForm = () => {
                         {alert ? <div className='alert'> <strong>{alertText}</strong></div> : null}
 
                         <div className='btnBox'>
-                            <button className='btn' onClick={() => setStep(3)}>Wstecz</button>
+                            <button className='btn' onClick={prevStep4}>Wstecz</button>
                             <button className='btn' onClick={handleStep4}>Dalej</button>
                         </div>
                     </div>

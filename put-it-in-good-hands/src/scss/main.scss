@@ -155,6 +155,9 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
 .loginBox{
     display: flex;
     align-items: center;
+    h1{
+        font-size: 3.5vw;
+    }
 }
 
 .leaveStuffBox{
@@ -411,6 +414,7 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     input{
         font-size: 4vw;
         color: $boldFontColor;
+        width: 61vw;
     }
     textarea{
         font-family: $font-base;

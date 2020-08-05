@@ -10,19 +10,19 @@ import {
     } from 'react-router-dom';
 
 export default () => {
-    const {user}=useContext(AuthContext)
+    const {user, setIsTogether}=useContext(AuthContext)
 
     return(
         <>
             {user ? 
             <div className='leaveStuffBox'>
-                <button className="btn">
+                <button className="btn" onClick={() => setIsTogether(false)}>
                     <Link
                         to="/leave-things">
                             ODDAJ RZECZY
                     </Link>                 
                 </button>
-                <button className="btn">
+                <button className="btn" onClick={() => setIsTogether(true)}>
                     <Link
                     to="/leave-things">
                         ZORGANIZUJ ZBIÓRKĘ

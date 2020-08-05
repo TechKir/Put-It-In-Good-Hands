@@ -132,20 +132,14 @@
   ],
   "users": [
     {
-      "email": "gabriela.tlomak@uj.edu.pl",
-      "password": "qqqqqqqq",
-      "id": 1
-    },
-    {
       "email": "wojciech.kiryk@gmail.com",
       "password": "aaaaaa",
       "actualOrder": {
-        "kindOfThings": "książki",
+        "kindOfThings": "inne",
         "quantOfBags": "2",
-        "town": "Kraków",
+        "town": "Warszawa",
         "whoHelp": [
-          "samotnym matkom",
-          "osobom starszym"
+          "samotnym matkom"
         ],
         "whatOrg": "",
         "street": "Wesele 24",
@@ -153,115 +147,20 @@
         "zipCode": "30-127",
         "phoneNo": "667949351",
         "date": "2020-07-28",
-        "hour": "22:19",
-        "comments": "dsd"
+        "hour": "23:15",
+        "comments": ""
       },
       "id": 2
     },
     {
-      "email": "wojciech.kiryk@gmail.com",
-      "password": "wwwwww",
+      "email": "gabriela.tlomak@uj.edu.pl",
+      "password": "zzzzzz",
       "id": 3
     },
     {
-      "email": "wojciech.kiryk@gmail.com",
-      "password": "ssssss",
+      "email": "lomak@uj.edu.pl",
+      "password": "ffddss",
       "id": 4
-    },
-    {
-      "email": "gabriela.tlomak@uj.edu.pl",
-      "password": "mmmmmm",
-      "id": 5
-    },
-    {
-      "email": "gabriela.tlomak@uj.edu.pl",
-      "password": "nnnnnn",
-      "id": 6
-    },
-    {
-      "email": "wojciech.kiryk@gmail.com",
-      "password": "yyyyyy",
-      "id": 7
-    },
-    {
-      "email": "wojciech.kiryk@gmail.com",
-      "password": "cccccc",
-      "id": 8
-    },
-    {
-      "email": "wojciech.kiryk@gmail.com",
-      "password": "cccccc",
-      "id": 9
-    },
-    {
-      "email": "wojciech.kiryk@gmail.com",
-      "password": "cccccc",
-      "id": 10
-    },
-    {
-      "email": "wojciech.kiryk@gmail.com",
-      "password": "cccccc",
-      "id": 11
-    },
-    {
-      "email": "wojciech.kiryk@gmail.com",
-      "password": "ccccccc",
-      "id": 12
-    },
-    {
-      "email": "wojciech.kiryk@gmail.com",
-      "password": "ccccccc",
-      "id": 13
-    },
-    {
-      "email": "wojciech.kiryk@gmail.com",
-      "password": "ccccccc",
-      "id": 14
-    },
-    {
-      "email": "wojciech.kiryk@gmail.com",
-      "password": "ccccccc",
-      "id": 15
-    },
-    {
-      "email": "wojciech.kiryk@gmail.com",
-      "password": "ccccccc",
-      "id": 16
-    },
-    {
-      "email": "wojciech.kiryk@gmail.com",
-      "password": "rrrrrr",
-      "id": 17
-    },
-    {
-      "email": "wojciech.kiryk@gmail.com",
-      "password": "rrrrrr",
-      "id": 18
-    },
-    {
-      "email": "wojciech.kiryk@gmail.com",
-      "password": "rrrrrr",
-      "id": 19
-    },
-    {
-      "email": "wojciech.kiryk@gmail.com",
-      "password": "gggggg",
-      "id": 20
-    },
-    {
-      "email": "gabriela.tlomak@uj.edu.pl",
-      "password": "rrsdfsdf",
-      "id": 21
-    },
-    {
-      "email": "gabriela.tlomak@uj.edu.pl",
-      "password": "pppppp",
-      "id": 22
-    },
-    {
-      "email": "gabriela.tlomak@uj.edu.pl",
-      "password": "ooooooo",
-      "id": 23
     }
   ],
   "usersd": [

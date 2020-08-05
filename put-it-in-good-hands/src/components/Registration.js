@@ -24,6 +24,7 @@ export default () => {
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
     const [repeatPassword, setRepeatPassword]=useState('');
+    const [alertText, setAlertText]=useState('');
 
     const [passwordWarning,setPasswordWarning]=useState(false);
     const [repeatPasswordWarning,setRepeatPasswordWarning]=useState(false);
@@ -44,7 +45,11 @@ export default () => {
 
     //Login process validation:
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        setEmailWarning(false);
+        setPasswordWarning(false);
+        setRepeatPasswordWarning(false);
+
         function validateEmail(email) {
             const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(String(email).toLowerCase());
@@ -52,50 +57,47 @@ export default () => {
 
         if(validateEmail(email) == false){
             e.preventDefault()
+            setAlertText('Podany email jest nieprawidłowy!')
             setEmailWarning(true)
-            return
-        }else{
-            setEmailWarning(false)
-        }
-
-        if(password.length < 6){
+        } else if(password.length < 6){
             e.preventDefault()
+            setAlertText('Podane hasło jest za krótkie!')
             setPasswordWarning(true)
-            return
-        }else{
-            setPasswordWarning(false)
-        }
-
-        if((password.length < 6) || (repeatPassword !== password)){
+        } else if(repeatPassword !== password){
             e.preventDefault()
+            setAlertText('Hasła różnią się od siebie!')
             setRepeatPasswordWarning(true)
-            return
-        }else{
-            setRepeatPasswordWarning(false)
-        }
-
-        if(!emailWarning && !passwordWarning && !repeatPasswordWarning ){
+        } else {
 
             const userData={email:email, password: password}
-            fetch('http://localhost:3005/users', {
-                method:'POST',
-                headers:{
-                    'Content-Type': 'application/json'
-                },
-                body:JSON.stringify(userData)
-            })
-            .then(response => response.json())
-            .then(data => { 
-                
-                console.log('Success:',data);
-                setShowSuccessText(true);
-                setEmail('');
-                setPassword('');
-                setRepeatPassword('');
-            })
-            .catch(error => {
-                console.log('Error',error);
-            })
+            fetch(`http://localhost:3005/users?email=${email}`)
+                .then(response => response.json())
+                .then(data => {
+                    //console.log('Success:',data);
+                    if(data.length > 0){
+                        setAlertText('Pod podanym adresem email zostało już założone konto. Jeżeli nie pamiętasz hasła wypełnij formularz kontaktowy.');
+                        setRepeatPasswordWarning(true);
+                    } else {
+                        fetch('http://localhost:3005/users', {
+                            method:'POST',
+                            headers:{
+                                'Content-Type': 'application/json'
+                            },
+                            body:JSON.stringify(userData)
+                        })
+                        .then(response => response.json())
+                        .then(data => {                            
+                            //console.log('Success:',data);
+                            setShowSuccessText(true);
+                            setEmail('');
+                            setPassword('');
+                            setRepeatPassword('');
+                        })
+                        .catch(error => {
+                            console.log('Error',error);
+                        })
+                    }
+                })
         }
     };
 
@@ -117,15 +119,15 @@ export default () => {
 
                         <label>Email</label>
                         <input type="text" name="email" placeholder='e-mail' value={email} onChange={handleEmail}></input>
-                        <div>{emailWarning ? <strong>Podany email jest nieprawidłowy!</strong> : null}</div>
+                        <div>{emailWarning ? <strong>{alertText}</strong> : null}</div>
 
                         <label>Hasło</label>
                         <input type="password" name="hasło" placeholder='hasło' value={password} onChange={handlePassword}></input>
-                        <div>{passwordWarning ? <strong>Podane hasło jest za krótkie!</strong> : null}</div>
+                        <div>{passwordWarning ? <strong>{alertText}</strong> : null}</div>
 
                         <label>Powtórz hasło</label>
                         <input type="password" name="Powtórz hasło" placeholder='Powtórz hasło' value={repeatPassword} onChange={handleRepeatPassword}></input>
-                        <div>{repeatPasswordWarning ? <strong>Hasła różnią się od siebie!</strong> : null}</div>
+                        <div>{repeatPasswordWarning ? <strong>{alertText}</strong> : null}</div>
 
                     </div>
                 </div>

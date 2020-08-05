@@ -28,37 +28,25 @@ export default () => {
     //Form validation:
     const handleSubmit = (e) => {
         e.preventDefault()
+        setNameWarning(false);
+        setEmailWarning(false);
+        setMessageWarning(false);
+        
         function validateEmail(email) {
             const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(String(email).toLowerCase());
-        }
+        };
 
         if((userName.indexOf(' ') > -1) || userName.length==0){
             e.preventDefault()
             setNameWarning(true)
-            return
-        }else{
-            setNameWarning(false)
-        }
-
-        if(validateEmail(email) == false){
+        } else if(validateEmail(email) == false){
             e.preventDefault()
             setEmailWarning(true)
-            return
-        }else{
-            setEmailWarning(false)
-        }
-        
-        if(message.length < 120){
+        } else if(message.length < 120){
             e.preventDefault()
             setMessageWarning(true)
-            return
-        }else{
-            setMessageWarning(false)
-        }
-
-        if(!nameWarning && !emailWarning && !messageWarning){
-
+        } else {
             const formData={name:userName, email:email, message: message}
             fetch('https://fer-api.coderslab.pl/v1/portfolio/contact', {
                 method:'POST',
@@ -72,6 +60,7 @@ export default () => {
                 
                 if (data.status === "success") {
                     console.log('Success:',data);
+                    
                     setShowSuccessText(true);
                     setUserName('');
                     setEmail('');
