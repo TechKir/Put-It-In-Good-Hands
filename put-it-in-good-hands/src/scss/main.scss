@@ -10,12 +10,20 @@
     margin:0;
 }
 
+
+
 body{
     font-family: $font-base;
     color:$regularFontColor ;
     background-color: $backgroundColor;
+
 }
 
+body, html {
+    overflow-x: hidden; 
+    width: 100vw;
+  }
+  
 @mixin resetBtn{
     border:0;
     margin:0;
@@ -46,8 +54,14 @@ body{
     justify-content: space-between;
     border-bottom: 1px solid black;
     width: 100vw;
+    background-color: white;
+    z-index: 100;
 }
 
+.emptyDiv{
+    width: 100vw;
+    height: 70px;
+}
 .hamburger{
     padding:5vw;
     display: inline-block;
@@ -96,21 +110,42 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
 }
 
 .navMenu{
+    transition: transform .4s ease-in-out;
+    transform:translateY(-80vw);
     font-size: 4vw;
     background-color: $backgroundColor;
     position: absolute;
     float: right;
-    //transform:translateX(100vw);
-    transition: transform .2s .2s ease-in-out;
-    // opacity:0;
-    // transition: opacity .4s ease-in-out;
     margin-left: 56vw;
     .navOptions{
         list-style: none;
-        //width: 30vw;
         padding: 2vw;
         border: 1px solid black;
+        width: 45vw;
     }
+}
+
+.hideNav{
+    opacity:0;
+    transition: 0.25s;
+}
+
+.scrolled{
+    position: fixed;
+    z-index: 100;
+    transition: 0.25s;
+    width: 100px;
+    transition: 0.25s;
+    nav{
+        transition: 0.25s;
+        div, span, button{
+            opacity:100;
+            transition: 0.25s;
+        }
+    }
+}
+.notScrolled{
+    transition: 0.25s;
 }
 
 .active{
@@ -120,15 +155,15 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
 .hiddenMenu{
     transform:translateX(-100vw);
     transition: transform .2s .2s ease-in-out;
-    // opacity: 100;
-    // transition: opacity .4s ease-in-out;
 }
 
 .homeImg{
+    
     background-size: cover;
     width: 20vw;
     height: 20vw;
-    background: url(../assets/Home-Hero-Image.jpg) no-repeat right/cover
+    background: url(../assets/Home-Hero-Image.jpg) no-repeat right/cover;
+    transition: 0.25s;
 }
 
 .mainIdea{
@@ -153,11 +188,20 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
 }
 
 .loginBox{
+    transition: transform .4s ease-in-out;
+    transform:translateY(-20vw);  
     display: flex;
     align-items: center;
     h1{
         font-size: 3.5vw;
+        transform:translateY(20vw);
     }
+}
+
+.menuActive{
+    transition: transform .4s ease-in-out;
+    transform:translateY(0vw);
+    transform:translateX(0vw);
 }
 
 .leaveStuffBox{
@@ -183,6 +227,14 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     }
 }
 
+.btnLogout{
+    a{
+        text-decoration: none;
+        color: $regularFontColor;
+        border-style: none;
+    }
+}
+
 .threeColumns{
     margin-top: 5vw;
     background-image: url(../assets/3ColumnsBackground.png);
@@ -192,29 +244,35 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     color: $columnFontColor;
     text-align: center;
     padding: 2vw;
+
 }
 
 .column{
     padding: 2vw;
     h2{
+        color:$columnFontColor;
         font-size: 8vw;
         padding: 1vw;
+        font-weight: 300;
     }
     strong{
         font-size: 4vw;
         padding: 1vw;
-        font-weight: bolder;
+        //font-weight: bolder;
+        display: inline-block;
     }
     p{
-        font-size: 3.5vw;
+        font-size: 3.7vw;
         padding: 1vw;
+        font-family: $font-alt;
+        font-weight: 300;
     }
 }
 
 .textUpDecoration{
     text-align: center;
     padding:8vw;
-    font-size: 5vw;
+    font-size: 4vw;
     color: $boldFontColor;
 }
 
@@ -251,6 +309,7 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     h3{
         color: $boldFontColor;
         padding: 3vw 0;
+        font-size: 3.5vw;
         &:after{
             content: '';
             display: block;
@@ -284,6 +343,18 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     }
 }
 
+.btnBoxMenu{
+    padding: 6vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    button:focus {outline:0;border: 2px solid $altBackgroundColor;}
+    .active{
+        border: 2px solid $altBackgroundColor;
+    }
+}
+
 .aboutUsBox{
     width: 100vw;
     height: 60vw;
@@ -306,19 +377,17 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     text-align: center;
     h2{
         padding-top: 6vw;       
-        font-weight: bolder;
-        font-size: 3.5vw;
+        font-size: 4vw;
     }
     div{
-        // justify-content: center;
-        // display: flex;
         img{
             width: 35vw;
-            height: 15vw;
+            height: 12vw;
         }
     }
     p{
-        font-size: 3.5vw;
+        font-size: 3.3vw;
+        padding: 0 4vw;
     }
     img{
         width: 20vw;
@@ -454,6 +523,273 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     }
 }
 
+@media screen and (min-width:576px) and (max-width:768px){
+    .column{
+        width: 37vw;
+        h2{
+            font-size: 7vw;
+            padding: 1vw;
+        }
+        strong{
+            font-size: 3vw;
+            padding: 1vw;
+            font-weight: normal;
+        }
+        p{
+            font-size: 2.7vw;
+            padding: 1vw;
+        }
+    }
+
+    .textUpDecoration {
+        font-size: 4vw;
+    }
+    .decorationBox {
+        img{
+            height: 5vw;
+        }
+    }
+
+    .fourStepsBox{
+        div:nth-child(3){
+            margin-top: 0vw;
+            h3{
+                padding-top: 1vw;
+            }
+        }
+    }
+    
+    .stepImg{
+        width: 12vw;
+        height: 12vw;
+    }
+    
+    .step{
+        width: 28vw;
+        h3{
+            font-size: 2.5vw;
+            padding: 2vw 0;
+            &:after{
+                margin-left: 1.5vw;
+                width: 20vw;
+            }
+        }
+        p{
+            font-size: 2.5vw;
+        }
+    }
+    
+    .putThingsBtn {
+        font-size: 3vw;
+        width: 20vw;
+    }
+    
+    .aboutUs{
+        div{
+            img{
+                width: 26vw;
+                height: 10vw;
+            }
+        }
+        h2{      
+            font-size: 3.2vw;
+        }
+
+        p{
+            font-size: 2.5vw;
+        }
+    }
+    .aboutUsBox{
+        width: 100vw;
+        height: 49vw;
+        display: flex;
+        .aboutUs{
+            width: 50vw;
+            height: 49vw;
+            background-color: $altBackgroundColor;
+        }
+        .happyPeopleImg{
+            width: 50vw;
+            height: auto;
+            background-image: url(../assets/People.jpg);
+            background-size: cover;
+        }
+    }
+
+    .btnBox {
+        padding: 8vw;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+@media screen and (min-width:769px){
+    .column{
+        width: 32vw;
+        h2{
+            font-size: 5vw;
+            padding: 1vw;
+        }
+        strong{
+            font-size: 1.7vw;
+            padding: 1vw;
+            font-weight: normal;
+        }
+        p{
+            font-size: 1.6vw;
+            padding: 1vw;
+        }
+    }
+    .textUpDecoration {
+        margin-top: 1vw;
+        font-size: 3vw;
+        padding: 3vw;
+    }
+    .decorationBox {
+        img{
+            height: 3vw;
+        }
+    }
+
+    .fourStepsBox{
+        div:nth-child(3){
+            margin-top: 0vw;
+            h3{
+                padding-top: 1vw;
+            }
+        }
+        div:nth-child(4){
+            margin-top: 0vw;
+            h3{
+                margin-top: 0vw;
+            }
+        }
+    }
+    
+    .stepImg{
+        width: 10vw;
+        height: 10vw;
+    }
+    
+    .step{
+        width: 22vw;
+        h3{
+            font-size: 2vw;
+            padding: 2vw 0;
+            &:after{
+                margin-left: 1.5vw;
+                width: 15vw;
+            }
+        }
+        p{
+            font-size: 2vw;
+        }
+    }
+
+    .putThingsBtn {
+        font-size: 2vw;
+        width: 17vw;
+    }
+
+    .aboutUs{
+        div{
+            img{
+                width: 20vw;
+                height: 10vw;
+            }
+        }
+
+        h2{      
+            font-size: 3.2vw;
+        }
+
+        p{
+            font-size: 2.5vw;
+        }
+    }
+
+    .aboutUsBox{
+        width: 100vw;
+        height: 49vw;
+        display: flex;
+        .aboutUs{
+            width: 50vw;
+            height: 49vw;
+            background-color: $altBackgroundColor;
+        }
+        .happyPeopleImg{
+            width: 50vw;
+            height: auto;
+            background-image: url(../assets/People.jpg);
+            background-size: cover;
+        }
+    }
+
+    .btnBox {
+        padding: 0vw;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .orgBtn {
+        font-size: 2vw;
+        width: 16vw;
+        margin:2vw;
+    }
+
+    .orgText {
+        font-size: 2vw;
+        padding: 2vw 23vw 7vw 23vw;
+    }
+
+    .orgBox .orgItem {
+        margin: 0 13vw;
+        h3{
+            font-size: 2vw;
+            padding:1vw;
+        }
+        p{
+            font-size: 1.5vw;
+        }
+    }
+
+    .paginationBox button {
+        font-size: 2vw;
+    }
+}
+
+
+// @media screen and (min-width: 768px) {
+//     .hamburger {
+//       display: none;
+//     }
+//     .homeImg{
+//         width: 50vw;
+//         height: 50vw;
+//     }
+//     .loginBox {
+//         transition: transform .4s ease-in-out;
+//         transform: translateY(0vw);
+//         display: flex;
+//         align-items: center;
+//         justify-content: end;
+//     }
+//     .navMenu {
+//         transition: transform .4s ease-in-out;
+//         transform: translateY(0vw);
+//         font-size: 4vw;
+//         background-color: white;
+//         //position: absolute;
+//         display: flex;
+//         //float: right;
+//         margin-left: 56vw;
+//     }
+// }
 // xs - max-width: 575px,
 // sm - min-width: 576px,
 // md - min-width: 768px,

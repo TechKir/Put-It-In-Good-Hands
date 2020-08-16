@@ -10,7 +10,7 @@ export default () => {
             </div>
             <div className="column">
                 <h2>5</h2>
-                <strong>WSPARTYCH INSTYTUCJI</strong>
+                <strong>WSPARTYCH ORGANIZACJI</strong>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt veniam natus quasi, sed minus nam dolore doloremque.</p>        
             </div>
             <div className="column">

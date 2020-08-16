@@ -10,7 +10,7 @@ export default () =>{
             <div>
                 <img src={decoration} alt='decoration'/>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus cum deleniti nihil rem?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus cum deleniti nihil rem? Ullam rem expedita itaque sit quia porro.</p>
             <div className='signature'>
                 <img src={signature} alt='signature'/>
             </div>

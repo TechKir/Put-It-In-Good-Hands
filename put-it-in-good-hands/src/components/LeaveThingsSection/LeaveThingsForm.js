@@ -162,13 +162,13 @@ const LeaveThingsForm = () => {
         //end validation functions:
 
         //Validation:
-        if (userData.street<=2){
+        if (userData.street.length<2){
             setAlert(true);
             setAlertText('Nazwa ulicy musi mieć conajmniej 2 znaki')
         } else if (streetResult==false){
             setAlert(true);
             setAlertText('musisz podać numer domu lub mieszkania')
-        } else if (userData.city<=2){
+        } else if (userData.city.length<2){
             setAlert(true);
             setAlertText('Nazwa miasta musi mieć conajmniej 2 znaki')
         } else if (zipCodeResult==false){
@@ -197,17 +197,37 @@ const LeaveThingsForm = () => {
     }
 
     //Step 5:
-
+    //https://api.jsonbin.io/b/5f33d16adddf413f95c29b5a/1/users/${user.id}`
+    //`http://localhost:3005/users/${user.id}`
+    
     const handleStep5 = () => {
         setStep(6);
+        //try:
+        //  const orderData={email:user.email, password: user.password, actualOrder:{ kindOfThings:kindOfThings, quantOfBags:quantOfBags, town:town, whoHelp:whoHelp, whatOrg:whatOrg, street:userData.street ,city:userData.city, zipCode:userData.zipCode, phoneNo:userData.phoneNo,date:userData.date, hour:userData.hour, comments:userData.comments}}
+
+
+        // let req = new XMLHttpRequest();
+
+        // req.onreadystatechange = () => {
+        // if (req.readyState == XMLHttpRequest.DONE) {
+        //     console.log(req.responseText);
+        // }
+        // };
+
+        // req.open("PUT", "https://api.jsonbin.io/b/5f366d20af209d1016bb551b", false);
+        // req.setRequestHeader("Content-Type", "application/json");
+        // req.setRequestHeader("secret-key", '$2b$10$M6Q4bMpPEsBhfFlxLJYb7.n2rEhov49oqpT6bvKJDGvlNYvjXlqj6')
+        // req.setRequestHeader("versioning", false)
+        // req.send(JSON.stringify(orderData));
 
         const orderData={email:user.email, password: user.password, actualOrder:{ kindOfThings:kindOfThings, quantOfBags:quantOfBags, town:town, whoHelp:whoHelp, whatOrg:whatOrg, street:userData.street ,city:userData.city, zipCode:userData.zipCode, phoneNo:userData.phoneNo,date:userData.date, hour:userData.hour, comments:userData.comments}}
+
         fetch(`http://localhost:3005/users/${user.id}`,{
             method:'PUT',
             headers:{
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body:JSON.stringify(orderData)
+            body:JSON.stringify(orderData),
         })
         .then(response => response.json())
         .then(data => console.log('Success:',data))
@@ -234,7 +254,7 @@ const LeaveThingsForm = () => {
             return (
                 <>
                     <YellowBelt text={isTogether ? 'Powiedz znajomym o akcji i zbierzcie więcej rzeczy w jedno miejsce!' : 'Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu bedziemy wiedzieć komu najlepiej je przekazać.'}/>
-                    <div className='leaveThingsForm'>
+                    <div className='leaveThingsForm' id='section-form'>
                         <form onSubmit={handleStep1}>
                             {/* <div className='step1'>
                                 

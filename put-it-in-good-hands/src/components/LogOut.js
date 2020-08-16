@@ -1,7 +1,7 @@
 import React,{useEffect, useContext} from 'react';
 import {AuthContext} from '../App';
 import decoration from '../assets/Decoration.svg';
-import HomeNav from './Home/welcome_section/HomeNav';
+import ThingsImg from './Home/welcome_section/ThingsImg';
 import {
     HashRouter,
     Route,
@@ -21,7 +21,10 @@ export default () => {
 
     return(
         <>
-            <HomeNav/>
+            <nav className='navigation'>
+                <ThingsImg/>                           
+            </nav>       
+
             <h2 className='textUpDecoration' id='section4'>
                 Wylogowanie nastąpiło <br/> pomyślnie
             </h2>

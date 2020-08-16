@@ -4,7 +4,7 @@ import SocialMedia from '../footer/SocialMedia';
 
 export default () =>{
     return (
-        <div className='footerBox'>
+        <div className='footerBox' id='section5'>
             <Copywrite/>
             <SocialMedia/>
         </div>

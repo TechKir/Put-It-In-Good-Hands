@@ -5,7 +5,7 @@ import ContactForm from './ContactForm';
 
 export default () =>{
     return (
-        <div id='section5'>
+        <div >
             <ThingsImg2/>
             <ContactForm/>
         </div>

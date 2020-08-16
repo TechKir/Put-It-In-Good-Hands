@@ -135,35 +135,43 @@
       "email": "wojciech.kiryk@gmail.com",
       "password": "aaaaaa",
       "actualOrder": {
-        "kindOfThings": "inne",
+        "kindOfThings": "zabawki",
         "quantOfBags": "2",
-        "town": "Warszawa",
+        "town": "Wrocław",
         "whoHelp": [
-          "samotnym matkom"
+          "dzieciom"
         ],
         "whatOrg": "",
-        "street": "Wesele 24",
+        "street": "Zwierzyniecka 24 ING",
         "city": "Kraków",
-        "zipCode": "30-127",
+        "zipCode": "31-105",
         "phoneNo": "667949351",
-        "date": "2020-07-28",
-        "hour": "23:15",
+        "date": "2020-08-11",
+        "hour": "16:39",
         "comments": ""
       },
-      "id": 2
+      "id": 1
     },
     {
       "email": "gabriela.tlomak@uj.edu.pl",
       "password": "zzzzzz",
-      "id": 3
-    },
-    {
-      "email": "lomak@uj.edu.pl",
-      "password": "ffddss",
-      "id": 4
+      "actualOrder": {
+        "kindOfThings": "ubrania, które nadają się do ponownego użycia",
+        "quantOfBags": "2",
+        "town": "Kraków",
+        "whoHelp": [
+          "samotnym matkom"
+        ],
+        "whatOrg": "",
+        "street": "Zwierz 33",
+        "city": "Kraków",
+        "zipCode": "31-105",
+        "phoneNo": "667949351",
+        "date": "2020-08-04",
+        "hour": "21:59",
+        "comments": ""
+      },
+      "id": 2
     }
-  ],
-  "usersd": [
-    {}
   ]
 }

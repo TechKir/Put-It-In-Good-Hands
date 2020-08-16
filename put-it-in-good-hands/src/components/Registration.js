@@ -1,7 +1,7 @@
 import React,{useState, useEffect, useContext} from 'react';
 import decoration from '../assets/Decoration.svg';
 import classnames from 'classnames';
-import HomeNav from './Home/welcome_section/HomeNav';
+import LoginNav from './LoginNav';
 import {AuthContext} from '../App';
 import {
     HashRouter,
@@ -75,7 +75,7 @@ export default () => {
                 .then(data => {
                     //console.log('Success:',data);
                     if(data.length > 0){
-                        setAlertText('Pod podanym adresem email zostało już założone konto. Jeżeli nie pamiętasz hasła wypełnij formularz kontaktowy.');
+                        setAlertText('Istnieje już konto pod podanym adresem email. Jeżeli nie pamiętasz hasła wypełnij formularz kontaktowy.');
                         setRepeatPasswordWarning(true);
                     } else {
                         fetch('http://localhost:3005/users', {
@@ -103,7 +103,7 @@ export default () => {
 
     return(
         <>
-            <HomeNav/>
+            <LoginNav/>
             <h2 className='textUpDecoration' id='section4'>
                 Załóż konto
             </h2>

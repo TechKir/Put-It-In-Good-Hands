@@ -4,7 +4,7 @@ import LeaveStuffBox from './LeaveStuffBox';
 export default () => {
     return(
         <>
-            <header className='mainIdea'>
+            <header className='mainIdea' id='section1'>
                 <h1>Zacznij pomagać!<br/>Oddaj niechciane rzeczy w zaufane ręce</h1>
             </header>
             <LeaveStuffBox/>

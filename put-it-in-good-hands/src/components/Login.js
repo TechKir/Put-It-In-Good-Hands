@@ -1,8 +1,9 @@
 import React,{useState, useEffect, useContext} from 'react';
 import decoration from '../assets/Decoration.svg';
-import HomeNav from './Home/welcome_section/HomeNav';
+import LoginNav from './LoginNav';
 import {AuthContext} from '../App';
 import classnames from 'classnames';
+import ThingsImg from './Home/welcome_section/ThingsImg';
 import {
     useHistory,
     Route,
@@ -75,8 +76,8 @@ export default () => {
 
     return(
         <>
-            <HomeNav/>
-
+            <LoginNav/>
+            
             <h2 className='textUpDecoration' id='section4'>
                 Zaloguj się
             </h2>
