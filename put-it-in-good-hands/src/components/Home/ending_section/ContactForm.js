@@ -76,7 +76,7 @@ export default () => {
     };
 
     return (
-        <>
+        <div className='formHomeBox'>
             <h2 className='textUpDecoration'>
                 Skontaktuj się z nami
             </h2>
@@ -108,6 +108,6 @@ export default () => {
 
                 </form>
             </div>
-        </>
+        </div>
     )
 }

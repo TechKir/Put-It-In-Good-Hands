@@ -27,30 +27,30 @@ export default () => {
         setIsActive(prevState => !prevState)
     };
 
-    useEffect ( () => {
-        window.addEventListener('scroll', () => {
-            const isTop = window.scrollY < 170;           
-            if (isTop == false){
-                setScrooled(true)
-            } else{
-                setScrooled(false)
-            }
+    // useEffect ( () => {
+    //     window.addEventListener('scroll', () => {
+    //         const isTop = window.scrollY < 170;           
+    //         if (isTop == false){
+    //             setScrooled(true)
+    //         } else{
+    //             setScrooled(false)
+    //         }
 
-            console.log(window.scrollY)
-            const isHide = (window.scrollY > 70 && window.scrollY < 270);
-            if(isHide == false){
-                setIsHide(false)
-            } else{
-                setIsHide(true)
-            }
-        })
+    //         console.log(window.scrollY)
+    //         const isHide = (window.scrollY > 70 && window.scrollY < 270);
+    //         if(isHide == false){
+    //             setIsHide(false)
+    //         } else{
+    //             setIsHide(true)
+    //         }
+    //     })
         
-        const clearWindow = () => {
-            window.removeEventListener('scroll')
-        } 
+    //     const clearWindow = () => {
+    //         window.removeEventListener('scroll')
+    //     } 
         
-        return () => clearWindow
-    },[])
+    //     return () => clearWindow
+    // },[])
 
 //className={scrooled ? 'scrolled' : 'notScrolled'} className={isHide ? 'hideNav' : ''}
     return (

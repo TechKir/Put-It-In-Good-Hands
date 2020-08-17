@@ -690,6 +690,7 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     }
 
     .putThingsBtn {
+        margin: 2vw 0;
         font-size: 2vw;
         width: 17vw;
     }
@@ -761,7 +762,136 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     .paginationBox button {
         font-size: 2vw;
     }
+
+    .formHome {
+        label {
+            padding: 2vw 0 1vw 0;
+            font-size: 2vw;
+        }
+        input {
+            font-size: 2vw;
+            color: #3C3C3C;
+            width: 31.5vw;
+            background: transparent;
+        }
+        textarea {
+            font-size: 2vw;
+            background: transparent;
+        }
+    }
+
+    .formHomeBox{
+        position: absolute;
+        left: 60vw;
+        top: 281vw;
+    }
+
+    .thingsImg2 {
+        height: 57vw;
+    }
+
+    .footerBox {
+        position: absolute;
+        left: 12vw;
+        top: 330vw;
+        margin-top: 2vw;
+        padding-bottom: 0vw;
+        p{
+            font-size: 1.5vw;
+            padding-left: 30vw;
+        }
+        img{
+            width: 2vw;
+        }
+    }
+    .decorationBox {
+         width: auto;
+    }
+
+    .loginBox {
+        transition: transform .4s ease-in-out;
+        transform: translateY(0vw);
+        display: flex;
+        height: 7vw;
+        font-size: 2vw;
+        width: 15vw;
+        margin-right: 1.5vw;
+
+    }
+
+    .btnLogin{
+        border: none;
+    }
+
+    .navMenu {
+        transition: transform .4s ease-in-out;
+        transform: translateY(0vw);
+        font-size: 4vw;
+        background-color: white;
+        position: absolute;
+        margin-left: 43vw;
+        display: inline;
+        font-size: 1.5vw;
+        top:7vw;
+
+        .navOptions {
+            display: inline;
+            list-style: none;
+            padding: 2vw;
+            border: none; 
+            width: auto;
+        }
+    }
+    .hamburger {
+        display: none;
+    }
+
+    .btnLogin {
+        font-size: 1vw;
+        width: 11vw;
+    }
+    .homeImg {
+        width: 47vw;
+        height: 47vw;
+    }
+
+    .mainIdea {
+        width: 50vw;
+        h1 {
+            font-size: 2vw;
+            padding: 6vw;
+        
+        }
+    }
+    .btn {
+        width: 16vw;
+        font-size: 2vw;
+        a {
+
+        font-size: 2vw;
+        }
+    }
+
+    .leaveStuffBox {
+        width: 50vw;
+    }
+
+    .firstSectionBox{
+        width: 50vw;
+        position: absolute;
+        top: 11vw;
+        left: 47vw;
+    }
+    .threeColumns{
+        margin-top: 0vw;
+    }
+
+    .navigation {
+
+        border-bottom: none; 
+    }
 }
+
 
 
 // @media screen and (min-width: 768px) {
