@@ -45,16 +45,22 @@ export default () =>{
                     return (
                         <div key={index} className='orgItem'>
                             <h3>{item.type} {item.name}</h3>
-                            <p> Cel i misja: {item.mission}</p>
-                            <p> {item.stuff}</p>
+                            <div>
+                                <p> Cel i misja: {item.mission}</p>
+                                <p> {item.stuff}</p>
+                            </div>
                         </div>
                     )
                 })}
             </div>
             <div className='paginationBox'>
-                {getOrg()?.items.length > orgsPerPage && <Pagination orgsPerPage={orgsPerPage} totalOrgItems={getOrg()?.items.length} paginate={paginate} currentPage={currentPage}/>}
+                {getOrg()?.items.length && <Pagination orgsPerPage={orgsPerPage} totalOrgItems={getOrg()?.items.length} paginate={paginate} currentPage={currentPage}/>}
             </div>
 
         </>
     )
 }
+
+//prevous condition:
+//getOrg()?.items.length > orgsPerPage && 
+// i change that because when pagination is not rendered, lower section gets up and footer section what have 'position absolute' and seted up by 'top=277vw' goes to low and that broke layout. Without RWD this problem will not exist. Better to hide pagination in this case.

@@ -87,17 +87,22 @@ export default () => {
 
             <div className='formHome1'>
                 <form onSubmit={handleSubmit} className='formHome'>
+                    <div className='bigScreenFlex'>
+                        <div>
+                            <label>Wpis swoje imię</label>
+                            <input type="text" name="imie" placeholder='imię' value={userName} onChange={handleUserName}/>
+                            <div>{nameWarning ? <strong>Podane imię jest nieprawidłowe!</strong> : null}</div>
+                        </div>
 
-                    <label>Wpis swoje imię</label>
-                    <input type="text" name="imie" placeholder='imię' value={userName} onChange={handleUserName}/>
-                    <div>{nameWarning ? <strong>Podane imię jest nieprawidłowe!</strong> : null}</div>
-
-                    <label>Wpisz swój email</label>
-                    <input type="text" name="email" placeholder='e-mail' value={email} onChange={handleEmail} />
-                    <div>{emailWarning ? <strong>Podany email jest nieprawidłowy!</strong> : null}</div>
+                        <div>
+                        <label>Wpisz swój email</label>
+                            <input type="text" name="email" placeholder='e-mail' value={email} onChange={handleEmail} />
+                            <div>{emailWarning ? <strong>Podany email jest nieprawidłowy!</strong> : null}</div>
+                        </div>
+                    </div>
 
                     <label>Wpisz swoją wiadomość</label> 
-                    <textarea rows="3" cols="30" name="texarea" placeholder='twoja wiadomość' value={message} onChange={handleMessage}></textarea>
+                    <textarea rows="3" cols="30" name="texarea" placeholder='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga veritatis debitis id aut ab nihil, deleniti numquam minima explicabo porro fugit sit.' value={message} onChange={handleMessage}></textarea>
                     <div>{messageWarning ? <strong>Wiadomość musi mieć conajmniej 120 znaków!</strong> : null}</div>
                     
                     <div className='btnBox'>

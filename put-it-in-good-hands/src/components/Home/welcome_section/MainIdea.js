@@ -4,13 +4,13 @@ import LeaveStuffBox from './LeaveStuffBox';
 export default () => {
     return(
         <div className='firstSectionBox'>
-            <header className='mainIdea' id='section1'>
+            <header className='mainIdea' >
                 <h1>Zacznij pomagać!<br/>Oddaj niechciane rzeczy w zaufane ręce</h1>
             </header>
-            <LeaveStuffBox/>
             <div className='decorationBox'>
                 <img src={decoration} alt='decoration'/>
             </div>
+            <LeaveStuffBox/>
         </div>
     )
 }

@@ -103,7 +103,14 @@ export default () => {
 
     return(
         <>
-            <LoginNav/>
+            <div className='mainPage'>
+                <button className='btn'>
+                    <Link
+                        to="/">
+                        Strona Główna
+                    </Link>
+                </button>
+            </div>
             <h2 className='textUpDecoration' id='section4'>
                 Załóż konto
             </h2>

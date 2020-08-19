@@ -20,11 +20,7 @@ export default () => {
     }, []);
 
     return(
-        <>
-            <nav className='navigation'>
-                <ThingsImg/>                           
-            </nav>       
-
+        <> 
             <h2 className='textUpDecoration' id='section4'>
                 Wylogowanie nastąpiło <br/> pomyślnie
             </h2>

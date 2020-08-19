@@ -54,7 +54,7 @@ export default () => {
 
 //className={scrooled ? 'scrolled' : 'notScrolled'} className={isHide ? 'hideNav' : ''}
     return (
-        <div className={classnames({hideNav: isHide,scrolled:scrooled})} >
+        <div className={classnames({hideNav: isHide,scrolled:scrooled})} id='section1'>
             <nav className={classnames('navigation',{hamburgerActive: isActive})}>
                 {isForm ? <FormImg1/> : <ThingsImg/> }
                 {user ?                                             
@@ -71,14 +71,14 @@ export default () => {
                     <div className={classnames('loginBox',{menuActive: isActive})}>
                         <button className="btnLogin">
                             <Link2
-                                to="/registration">
-                                Załóż konto
-                            </Link2>                 
-                        </button>
-                        <button className="btnLogin">
-                            <Link2
                                 to="/login">
                                 Zaloguj
+                            </Link2>                 
+                        </button>
+                        <button className="btnLogin active">
+                            <Link2
+                                to="/registration">
+                                Załóż konto
                             </Link2>                
                         </button>
                     </div> 
@@ -130,7 +130,7 @@ export default () => {
             </ul>
             :
             <ul className={classnames('navMenu',{menuActive: isActive})}>
-                <li className="navOptions">
+                <li className="navOptions" >
                     <Link
                         activeClass="active"
                         to="section1"
@@ -171,7 +171,7 @@ export default () => {
                         smooth={true}
                         offset={-70}
                         duration={500}>
-                        Fundacja i organizacje
+                        Fundacje i organizacje
                     </Link>
                 </li>
                 <li className="navOptions">
