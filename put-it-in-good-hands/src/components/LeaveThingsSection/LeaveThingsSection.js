@@ -22,11 +22,26 @@ const LeaveThingsSection = () => {
     return (
         <>
             <HomeNav/>
-            <MainTheme/>
-            <StepsInstruction/>
+            <div className='formSectionRWD'>
+                <MainTheme/>
+                <StepsInstruction/>
+            </div>
+
             {/* <BearImg/> */}
             <LeaveThingsForm/>  
-            <EnderBox/>
+
+            {/* <div >
+                <ThingsImg2/>
+                <ContactForm/>
+            </div>
+
+            <div className='footerBox' id='section5'>
+                <p>Copyright by Coders Lab</p>
+                <img src={FbIcon} alt='facebook'/>
+                <img src={InstaIcon} alt='instagram'/>
+            </div> */}
+
+            <EnderBox />
             <FooterBox/>          
         </>
     )

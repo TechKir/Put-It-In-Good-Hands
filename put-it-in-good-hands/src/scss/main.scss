@@ -554,6 +554,17 @@ a:hover{
 .mainPage{
     display: flex;
     justify-content: flex-end;
+    padding: 4vw;
+
+}
+
+.marginCorrect{
+    margin: 0;
+    border: none;
+}
+
+.logMarginCorrect{
+    margin-top: 15vw;
 }
 
 @media screen and (min-width:576px) and (max-width:768px){
@@ -960,8 +971,18 @@ a:hover{
         font-size: 2vw;
         width: 15vw;
         margin-right: 4.5vw;
+
         .active{
             border: 2px solid $attentionColor;
+        }
+        h1 {
+            font-size: 1.3vw;
+            position: absolute;
+            top: -17vw;
+            right: -8vw;
+            width: 50vw;
+            font-weight: bolder;
+            text-align: center;
         }
     }
 
@@ -975,10 +996,12 @@ a:hover{
         font-size: 4vw;
         background-color: white;
         position: absolute;
-        margin-left: 47vw;
-        display: inline;
+        margin-left: 50vw;
+        display: flex;
+        justify-content: center;
         font-size: 1.2vw;
-        top:7vw;
+        top: 7vw;
+        width: 50vw;
 
         .navOptions {
             display: inline;
@@ -986,7 +1009,7 @@ a:hover{
             padding: 0;
             border: none; 
             width: auto;
-            margin-left: 3vw;
+            margin-left: 1.5vw;
             a{
                 padding: 0.5vw;
             }
@@ -1048,8 +1071,346 @@ a:hover{
     .formHome strong {
         font-size: 1vw;
     }
-}
 
+    .logFormBox .userBox {
+        width: 42vw;
+        height: 27vw;
+        label {
+            font-size: 1.6vw;
+        }
+        input {
+            font-size: 1.6vw;
+            margin: 1.5vw 0;
+            width: 28vw;
+        }
+        strong {
+            font-size: 1.3vw;
+        }
+
+    }
+
+    .logFormBox .userBoxReg {
+        height: 38vw;
+    }
+
+    .noBorderBtn {
+        padding: 1vw 0;
+        font-size: 2vw;
+        width: 19.5vw;
+        margin-bottom: 4vw;
+        a{
+            font-size: 2vw;
+        }
+    }
+
+    .fontCorrect{
+        font-size: 3vw;
+    }
+
+    .mainPageBtn {
+        font-size: 2vw;
+        width: 20vw;
+        padding: 1vw;
+    }
+    .logMarginCorrect{
+        margin-top: 15vw;
+    }
+
+    .mainPage{
+        padding: 2vw;
+    }
+
+    .navMarginCorrect{
+        margin-left: 1.5vw !important;
+    }
+
+    .navMenu .navOptions a {
+        padding: 0.5vw;
+        &:hover{
+            color: $attentionColor;
+        }
+    }
+
+    .formImg1 {
+        width: 47vw;
+        height: 47vw;
+    }
+
+    .mainTheme h1 {
+        font-size: 2vw;
+        padding: 0.5vw;
+        line-height: 3vw;
+    }
+
+    .form4Steps {
+        font-size: 2vw;
+    }
+
+    .formStepsContainer {
+        padding: 4vw 0;
+        font-size: 1.2vw;
+        .formStep{
+            margin-left: 2vw;
+            width: 9.5vw;
+            height: 9.5vw;
+            div{
+                margin-top: 3vw;
+                transform: rotate(-45deg);
+                width: 7vw;
+                span{
+                    margin-left: 2vw;
+                    font-size: 1.4vw;
+                }
+            }
+        }
+    }
+
+    .strongMargin{
+        margin-left: 2vw;
+        display: inline-block;
+    }
+
+    .formSectionRWD{
+        position: absolute;
+        left: 20vw;
+        top: 12vw;
+    }
+
+    .yellowBelt{
+        h1{
+            padding-bottom: 1vw;
+            font-size: 1.6vw;
+            font-weight: bolder;
+        }
+        p {
+            font-size: 1.3vw;
+        }
+    }
+
+    .leaveThingsForm span {
+        font-size: 1.5vw;
+    }
+
+    .leaveThingsForm h1 {
+        font-size: 1.6vw;
+        font-weight: bolder;
+        color: #3C3C3C;
+    }
+
+
+    .chooseElement label {
+        font-size: 1.3vw;
+    }
+
+    .chooseElement input:before {
+        width: 2vw;
+        height: 2vw;
+    }
+    .chooseElement input {
+        margin-right: 2vw;
+        width: 2vw;
+        height: 2vw;
+    }
+    .chooseElement {
+        display: flex;
+        align-items: center;
+        padding: 1vw 0;
+    }
+
+    .btnBoxCorrect{
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .btnCorrect{
+        width: 10vw;
+        height: 3vw;
+        padding: 0;
+        font-size: 1.3vw;
+    }
+
+    .formHomeBox2 {
+        position: absolute;
+        left: 60vw;
+        top: 115vw;
+    }
+
+    .footerBoxCorrect {
+        position: absolute;
+        left: 12vw;
+        top: 161vw;
+        padding-bottom: 0vw;
+    }
+
+    .alert strong {
+        padding-top: 2vw;
+        display: flex;
+        font-size: 1.2vw;
+    }
+
+    .step2Box {
+        p {
+            font-size: 1.3vw;
+        }
+        select {
+            width: 14vw;
+            height: 2vw;
+            font-size: 1.3vw;
+        }
+    }
+
+    .leaveThingsForm {
+        height: 47.2vw;
+        h2 {
+            margin-top: 0;
+            padding: 0;
+            font-size: 1.6vw;
+            font-weight: bolder;
+            color: #3C3C3C;
+        }
+        textarea {
+            resize: none;
+            width: 27vw;
+            height: 3vw;
+            margin-top: 2vw;
+            font-size: 1.3vw;
+        }
+    }
+
+    .citySelect {
+        margin: 2vw 0 2vw 0;
+        width: 14vw;
+        height: 2vw;
+        font-size: 1.3vw;
+    }
+
+    .chooseElementsBox {
+        padding: 0;
+        width: 50vw;
+    }
+
+    .chooseElements {
+        padding: 1vw 1vw 1vw 0;
+        label {
+            font-size: 1.3vw;
+            padding: 0.5vw;
+        }
+    }
+
+    .formDateBoxes .dateBox h2 {
+        font-size: 1.6vw;
+    }
+
+    .formDateBoxes .dateBox label {
+        font-size: 1.6vw;
+        /* margin-top: 2vw; */
+    }
+
+    .formDateBoxes .dateBox input {
+        margin-right: 3vw;
+        width: 15vw;
+        height: 2vw;
+        background-color: #F0F1F1;
+        border: 0.1vw solid #737373;
+        margin-top: 2vw;
+    }
+
+    .formDateBoxes .dateBox {
+        width: 29vw;
+        padding-left: 3vw;
+    }
+
+    .formDateBoxes {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .formDateBoxes .dateBox label {
+        font-size: 1.6vw;
+        margin-top: 1vw;
+        display: block;
+    }
+
+    .formDateBoxes .dateBox input {
+        width: 15vw;
+        height: 2vw;
+        margin-top: 0;
+        font-size: 1.4vw;
+    }
+
+    .formDateBoxes .dateBox .lastInput {
+        height: 6.5vw;
+    }
+
+    .formDateBoxes .dateBox {
+        width: 29vw;
+        padding-left: 0vw;
+    }
+
+    .sumUp strong, .sumUp h1, .sumUp p {
+        font-size: 1.6vw;
+    }
+    
+    .formDateBoxes .dateBox p {
+        padding: 0.5vw 0;
+        font-size: 1.6vw;
+    }
+
+    .sumUp {
+        padding: 3vw 0vw;
+    }
+}    
+
+@media screen and (min-width:1020px){
+    .logFormBox .userBox {
+        padding: 3vw 6vw;
+        width: 31vw;
+        height: 26vw;
+        label {
+            font-size: 1vw;
+        }
+        input {
+            font-size: 1vw;
+            margin: 1.5vw 0;
+            width: 19vw;
+            height: 2vw;
+        }
+        strong {
+            font-size: 1vw;
+            
+        }
+        
+
+    }
+    .logFormBox .userBoxReg {
+        height: 25vw;
+    }
+
+    .noBorderBtn {
+        padding: 1vw 0;
+        font-size: 1.2vw;
+        width: 19.5vw;
+        margin-bottom: 4vw;
+        a{
+            font-size: 1.1vw;
+        }
+    }
+
+    .fontCorrect{
+        font-size: 2vw;
+    }
+
+    .logFormBox{
+        .boxSizeCorrect{
+            height: 20vw;
+        }
+    }
+
+    .mainPage{
+        padding: 2vw;
+    }
+
+}
 
 
 // @media screen and (min-width: 768px) {

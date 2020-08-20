@@ -104,14 +104,14 @@ export default () => {
     return(
         <>
             <div className='mainPage'>
-                <button className='btn'>
+                <button className='btn marginCorrect'>
                     <Link
                         to="/">
                         Strona Główna
                     </Link>
                 </button>
             </div>
-            <h2 className='textUpDecoration' id='section4'>
+            <h2 className='textUpDecoration fontCorrect' id='section4'>
                 Załóż konto
             </h2>
             <div className='decorationBox'>
@@ -126,14 +126,14 @@ export default () => {
 
                         <label>Email</label>
                         <input type="text" name="email" placeholder='e-mail' value={email} onChange={handleEmail}></input>
-                        <div>{emailWarning ? <strong>{alertText}</strong> : null}</div>
 
                         <label>Hasło</label>
-                        <input type="password" name="hasło" placeholder='hasło' value={password} onChange={handlePassword}></input>
-                        <div>{passwordWarning ? <strong>{alertText}</strong> : null}</div>
+                        <input type="password" name="hasło" placeholder='hasło' value={password} onChange={handlePassword}></input>                       
 
                         <label>Powtórz hasło</label>
                         <input type="password" name="Powtórz hasło" placeholder='Powtórz hasło' value={repeatPassword} onChange={handleRepeatPassword}></input>
+                        <div>{emailWarning ? <strong>{alertText}</strong> : null}</div>
+                        <div>{passwordWarning ? <strong>{alertText}</strong> : null}</div>
                         <div>{repeatPasswordWarning ? <strong>{alertText}</strong> : null}</div>
 
                     </div>

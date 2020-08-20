@@ -21,8 +21,8 @@ export default () => {
 
     return(
         <> 
-            <h2 className='textUpDecoration' id='section4'>
-                Wylogowanie nastąpiło <br/> pomyślnie
+            <h2 className='textUpDecoration logMarginCorrect fontCorrect' id='section4'>
+                Wylogowanie nastąpiło <br/> pomyślnie!
             </h2>
             <div className='decorationBox'>
                 <img src={decoration} alt='decoration'/>

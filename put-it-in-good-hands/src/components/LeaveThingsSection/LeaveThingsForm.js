@@ -290,8 +290,8 @@ const LeaveThingsForm = () => {
                             </div>
 
                             {alert ? <div className='alert'><strong >Wybierz kategorie, którą chcesz oddać</strong></div> : null}
-                            <div className='btnBox'>
-                                <button type='submit' className='btn' >Dalej</button>
+                            <div className='btnBox btnBoxCorrect'>
+                                <button type='submit' className='btn btnCorrect' >Dalej</button>
                             </div>
                         </form>
 
@@ -320,9 +320,9 @@ const LeaveThingsForm = () => {
                         </div>
 
                     {alert ? <div className='alert'><strong >Wybierz ilość worków do oddania</strong></div> : null}
-                    <div className='btnBox'>
-                            <button className='btn' onClick={prevStep2}>Wstecz</button>
-                            <button className='btn' onClick={handleStep2}>Dalej</button>
+                    <div className='btnBox btnBoxCorrect'>
+                            <button className='btn btnCorrect' onClick={prevStep2}>Wstecz</button>
+                            <button className='btn btnCorrect' onClick={handleStep2}>Dalej</button>
                         </div>
                     </div>
                 </>
@@ -388,9 +388,9 @@ const LeaveThingsForm = () => {
                         <textarea value={whatOrg} onChange={handleOrg}></textarea>
 
                         {alert ? <div className='alert'><strong >{alertText}</strong></div> : null}
-                        <div className='btnBox'>
-                            <button className='btn' onClick={prevStep3}>Wstecz</button>
-                            <button className='btn' onClick={handleStep3}>Dalej</button>
+                        <div className='btnBox btnBoxCorrect'>
+                            <button className='btn btnCorrect' onClick={prevStep3}>Wstecz</button>
+                            <button className='btn btnCorrect' onClick={handleStep3}>Dalej</button>
                         </div>
                     </div>
                 </>
@@ -434,9 +434,9 @@ const LeaveThingsForm = () => {
 
                         {alert ? <div className='alert'> <strong>{alertText}</strong></div> : null}
 
-                        <div className='btnBox'>
-                            <button className='btn' onClick={prevStep4}>Wstecz</button>
-                            <button className='btn' onClick={handleStep4}>Dalej</button>
+                        <div className='btnBox btnBoxCorrect'>
+                            <button className='btn btnCorrect' onClick={prevStep4}>Wstecz</button>
+                            <button className='btn btnCorrect' onClick={handleStep4}>Dalej</button>
                         </div>
                     </div>
                 </>
@@ -474,9 +474,9 @@ const LeaveThingsForm = () => {
 
                         </div>
                     </div>
-                    <div className='btnBox'>
-                        <button className='btn' onClick={() => setStep(4)}>Wstecz</button>
-                        <button className='btn' onClick={handleStep5}>Potwierdzam</button>
+                    <div className='btnBox btnBoxCorrect'>
+                        <button className='btn btnCorrect' onClick={() => setStep(4)}>Wstecz</button>
+                        <button className='btn btnCorrect' onClick={handleStep5}>Potwierdzam</button>
                     </div>
                 </div>                
             );

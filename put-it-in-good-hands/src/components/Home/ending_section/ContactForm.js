@@ -1,7 +1,10 @@
-import React,{useState} from 'react';
+import React,{useState, useContext} from 'react';
 import decoration from '../../../assets/Decoration.svg';
-
+import classnames from 'classnames';
+import {AuthContext} from '../../../App';
 export default () => {
+
+    const {isForm} = useContext(AuthContext);
 
     const [userName,setUserName]=useState('');
     const [email,setEmail]=useState('');
@@ -74,9 +77,9 @@ export default () => {
             })
         }
     };
-
+//className='formHomeBox'
     return (
-        <div className='formHomeBox'>
+        <div  className={classnames('formHomeBox',{formHomeBox2:isForm})}>
             <h2 className='textUpDecoration'>
                 Skontaktuj się z nami
             </h2>

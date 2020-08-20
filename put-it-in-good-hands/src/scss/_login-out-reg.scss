@@ -63,6 +63,9 @@
     display: flex;
     justify-content: space-around;
     padding-top: 5vw;
+    .active{
+        border: 2px solid $attentionColor;
+    }
 }
 
 .formMargin{
@@ -95,3 +98,4 @@
 .active{
     border: 2px solid $altBackgroundColor
 }
+
