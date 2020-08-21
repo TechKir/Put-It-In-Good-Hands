@@ -135,19 +135,20 @@
       "email": "wojciech.kiryk@gmail.com",
       "password": "aaaaaa",
       "actualOrder": {
-        "kindOfThings": "zabawki",
+        "kindOfThings": "ubrania, które nadają się do ponownego użycia",
         "quantOfBags": "2",
-        "town": "Wrocław",
+        "town": "Warszawa",
         "whoHelp": [
-          "dzieciom"
+          "samotnym matkom",
+          "osobom starszym"
         ],
         "whatOrg": "",
-        "street": "Zwierzyniecka 24 ING",
+        "street": "Zwierz 33",
         "city": "Kraków",
         "zipCode": "31-105",
         "phoneNo": "667949351",
-        "date": "2020-08-11",
-        "hour": "16:39",
+        "date": "2020-08-12",
+        "hour": "16:19",
         "comments": ""
       },
       "id": 1
@@ -156,19 +157,20 @@
       "email": "gabriela.tlomak@uj.edu.pl",
       "password": "zzzzzz",
       "actualOrder": {
-        "kindOfThings": "ubrania, które nadają się do ponownego użycia",
+        "kindOfThings": "zabawki",
         "quantOfBags": "2",
-        "town": "Kraków",
+        "town": "Warszawa",
         "whoHelp": [
-          "samotnym matkom"
+          "samotnym matkom",
+          "osobom starszym"
         ],
         "whatOrg": "",
-        "street": "Zwierz 33",
+        "street": "Wesele, 26",
         "city": "Kraków",
-        "zipCode": "31-105",
-        "phoneNo": "667949351",
-        "date": "2020-08-04",
-        "hour": "21:59",
+        "zipCode": "30-127",
+        "phoneNo": "884779582",
+        "date": "2020-08-14",
+        "hour": "14:56",
         "comments": ""
       },
       "id": 2

@@ -2,7 +2,6 @@ import React,{useState, useEffect,useContext} from 'react';
 import HomeNav from '../Home/welcome_section/HomeNav';
 import MainTheme from './MainTheme';
 import StepsInstruction from './StepsInstruction';
-import BearImg from './BearImg';
 import LeaveThingsForm from './LeaveThingsForm';
 import EnderBox from '../Home/ending_section/EnderBox';
 import FooterBox from '../Home/ending_section/footer/FooterBox';
@@ -26,23 +25,12 @@ const LeaveThingsSection = () => {
                 <MainTheme/>
                 <StepsInstruction/>
             </div>
-
-            {/* <BearImg/> */}
             <LeaveThingsForm/>  
 
-            {/* <div >
-                <ThingsImg2/>
-                <ContactForm/>
-            </div>
-
-            <div className='footerBox' id='section5'>
-                <p>Copyright by Coders Lab</p>
-                <img src={FbIcon} alt='facebook'/>
-                <img src={InstaIcon} alt='instagram'/>
-            </div> */}
-
-            <EnderBox />
-            <FooterBox/>          
+            {/* it was necessery to set up below components deeper - it helps me push additional CSS classes in step 5 and 6. Exacly ~'correctPositions' */}
+            {/* <EnderBox />
+            <FooterBox/>           */}
+            
         </>
     )
 }

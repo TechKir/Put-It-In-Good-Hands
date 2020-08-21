@@ -8,6 +8,9 @@ import YellowBelt from './YellowBelt';
 // import Step4 from './Steps/Step4';
 // import Summary from './Steps/Summary';
 // import Thanks from './Steps/Thanks';
+import EnderBox from '../Home/ending_section/EnderBox';
+import FooterBox from '../Home/ending_section/footer/FooterBox';
+import BearImg from './BearImg';
 
 const LeaveThingsForm = () => {
 
@@ -256,9 +259,6 @@ const LeaveThingsForm = () => {
                     <YellowBelt text={isTogether ? 'Powiedz znajomym o akcji i zbierzcie więcej rzeczy w jedno miejsce!' : 'Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu bedziemy wiedzieć komu najlepiej je przekazać.'}/>
                     <div className='leaveThingsForm' id='section-form'>
                         <form onSubmit={handleStep1}>
-                            {/* <div className='step1'>
-                                
-                            </div> */}
 
                             <span>krok 1/4</span>
                             
@@ -294,8 +294,10 @@ const LeaveThingsForm = () => {
                                 <button type='submit' className='btn btnCorrect' >Dalej</button>
                             </div>
                         </form>
-
+                        
                     </div>  
+                    <EnderBox />
+                    <FooterBox/>          
                 </>
             );
             
@@ -325,6 +327,8 @@ const LeaveThingsForm = () => {
                             <button className='btn btnCorrect' onClick={handleStep2}>Dalej</button>
                         </div>
                     </div>
+                    <EnderBox />
+                    <FooterBox/>          
                 </>
             );
 
@@ -393,6 +397,8 @@ const LeaveThingsForm = () => {
                             <button className='btn btnCorrect' onClick={handleStep3}>Dalej</button>
                         </div>
                     </div>
+                    <EnderBox />
+                    <FooterBox/>          
                 </>
             );
 
@@ -401,6 +407,9 @@ const LeaveThingsForm = () => {
                 <>
                     <YellowBelt text='Sprawdź dokładnie wpisane dane.'/>
                     <div className='leaveThingsForm'>
+
+                        <span>krok 4/4</span>
+
                         <div className='formDateBoxes'>
 
                             <div className='dateBox'>
@@ -439,46 +448,53 @@ const LeaveThingsForm = () => {
                             <button className='btn btnCorrect' onClick={handleStep4}>Dalej</button>
                         </div>
                     </div>
+                    <EnderBox />
+                    <FooterBox/>          
                 </>
             );
 
         case 5:
             return (
-                <div className='leaveThingsForm'>
+                <>
+                {/* <div className='emptyBelt'></div> */}
+                    <div className='leaveThingsForm'>
 
-                    <div className='sumUp'>
-                        <h1 className='h1Padding'>Podsumowanie twojej darowizny</h1>
+                        <div className='sumUp'>
+                            <h1 className='h1Padding'>Podsumowanie twojej darowizny</h1>
 
-                        <strong>Oddajesz:</strong>
-                        <p>{quantOfBags} {quantOfBags==1 ? "worek" : "worki"}, {kindOfThings}, {whoHelp.map( (element,index) => <p key={index}>{element} </p> )}</p>
-                        <p>dla lokalizacji: {town}</p>
-                    </div>
-
-                    <div className='formDateBoxes'>
-                        <div className='dateBox'>
-                            <h2>Adres odbioru:</h2>
-
-                            <p>Ulica: {userData.street}</p>
-                            <p>Miasto: {userData.city}</p>
-                            <p>Kod pocztowy: {userData.zipCode}</p>
-                            <p>Numer telefonu: {userData.phoneNo}</p>
-
+                            <strong>Oddajesz:</strong>
+                            <p>{quantOfBags} {quantOfBags==1 ? "worek" : "worki"}, {kindOfThings}, {whoHelp.map( (element,index) => <p key={index}>{element} </p> )}</p>
+                            <p>dla lokalizacji: {town}</p>
                         </div>
 
-                        <div className='dateBox'>
+                        <div className='formDateBoxes'>
+                            <div className='dateBox'>
+                                <h2>Adres odbioru:</h2>
 
-                            <h2>Data odbioru:</h2>
-                            <p>Data: {userData.date}</p>
-                            <p>Godzina: {userData.hour}</p>
-                            <p>Uwagi dla kuriera: {userData.comments}</p>
+                                <p>Ulica: {userData.street}</p>
+                                <p>Miasto: {userData.city}</p>
+                                <p>Kod pocztowy: {userData.zipCode}</p>
+                                <p>Numer telefonu: {userData.phoneNo}</p>
 
+                            </div>
+
+                            <div className='dateBox'>
+
+                                <h2>Data odbioru:</h2>
+                                <p>Data: {userData.date}</p>
+                                <p>Godzina: {userData.hour}</p>
+                                <p>Uwagi dla kuriera: {userData.comments}</p>
+
+                            </div>
                         </div>
-                    </div>
-                    <div className='btnBox btnBoxCorrect'>
-                        <button className='btn btnCorrect' onClick={() => setStep(4)}>Wstecz</button>
-                        <button className='btn btnCorrect' onClick={handleStep5}>Potwierdzam</button>
-                    </div>
-                </div>                
+                        <div className='btnBox btnBoxCorrect'>
+                            <button className='btn btnCorrect' onClick={() => setStep(4)}>Wstecz</button>
+                            <button className='btn btnCorrect' onClick={handleStep5}>Potwierdzam</button>
+                        </div>
+                    </div>   
+                    <EnderBox correctPosition='correctPosition'/>
+                    <FooterBox footerCorrectPosition='footerCorrectPosition'/>          
+                </>             
             );
 
         case 6:
@@ -492,6 +508,8 @@ const LeaveThingsForm = () => {
                     <div className='decorationBox' style={{backgroundColor:'#F0F1F1', padding:'5vw'}}>
                         <img src={decoration} alt='decoration'/>
                     </div>
+                    <EnderBox correctPosition2='correctPosition2'/>
+                    <FooterBox footerCorrectPosition2='footerCorrectPosition2'/>          
                 </>
             )
             default: 

@@ -711,7 +711,7 @@ a:hover{
         }
         textarea {
             font-size: 2.1vw;
-            background: transparent;
+                background-color: transparent;
         }
     }
 
@@ -1274,6 +1274,7 @@ a:hover{
             height: 3vw;
             margin-top: 2vw;
             font-size: 1.3vw;
+            background-color: transparent;
         }
     }
 
@@ -1313,6 +1314,7 @@ a:hover{
         background-color: #F0F1F1;
         border: 0.1vw solid #737373;
         margin-top: 2vw;
+        background-color: transparent;
     }
 
     .formDateBoxes .dateBox {
@@ -1357,7 +1359,47 @@ a:hover{
     }
 
     .sumUp {
-        padding: 3vw 0vw;
+        padding: 3vw 0 3vw 0;
+        p{
+            margin: 0.5vw 0
+        }
+    }
+
+    .lastStepThanks h1, .lastStepThanks p {
+        font-size: 1.6vw;
+    }
+
+    .lastStepThanks {
+        padding: 0vw;
+        padding-top: 9vw;
+    }
+
+    .correctPosition{
+        top: 103vw;
+    }
+
+    .footerCorrectPosition{
+        top: 149vw;
+    }
+
+    .correctPosition2{
+        top: 81vw;
+    }
+
+    .footerCorrectPosition2{
+        top: 126vw;
+    }
+
+    .leaveThingsForm {
+        background-image: url(../assets/Background-Form.jpg);
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .successText {
+        font-size: 1vw;
+        margin-top: 2vw;
     }
 }    
 
@@ -1409,7 +1451,6 @@ a:hover{
     .mainPage{
         padding: 2vw;
     }
-
 }
 
 

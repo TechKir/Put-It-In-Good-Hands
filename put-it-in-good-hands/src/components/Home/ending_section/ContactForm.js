@@ -2,7 +2,8 @@ import React,{useState, useContext} from 'react';
 import decoration from '../../../assets/Decoration.svg';
 import classnames from 'classnames';
 import {AuthContext} from '../../../App';
-export default () => {
+
+export default (props) => {
 
     const {isForm} = useContext(AuthContext);
 
@@ -79,7 +80,7 @@ export default () => {
     };
 //className='formHomeBox'
     return (
-        <div  className={classnames('formHomeBox',{formHomeBox2:isForm})}>
+        <div  className={classnames('formHomeBox',{formHomeBox2:isForm},{correctPosition:props.correctPosition},{correctPosition2:props.correctPosition2})}>
             <h2 className='textUpDecoration'>
                 Skontaktuj się z nami
             </h2>
