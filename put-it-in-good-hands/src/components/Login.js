@@ -12,6 +12,12 @@ import {
     NavLink,
     } from 'react-router-dom';
 
+// Firebase App (the core Firebase SDK) is always required and
+// must be listed before other Firebase SDKs
+import firebase from "firebase/app";
+// Add the Firebase services that you want to use
+import 'firebase/database';
+
 export default () => {
     const history = useHistory();
     const { setUser,setIsHome,setIsForm } = useContext(AuthContext);
@@ -56,21 +62,40 @@ export default () => {
             setAlertText('Wprowadzone hasło jest za krótkie!')
             setPasswordWarning(true)
         } else {
-            fetch(`http://localhost:3005/users?email=${email}&password=${password}`)
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:',data);
-                    if(data.length>0){
-                        history.push('/')
-                        setUser(data[0])
-                    } else if ( data.length==0){
-                        setAlertText('Wprowadzone hasło jest nieprawidłowe lub nie założyłeś jeszcze konta')
-                        setPasswordWarning(true)
-                    }
-                })
-                .catch(error => {
-                    console.log('Error',error);
-                })
+        //CODE IS IMPLEMENTED BY TWO SOLUTION: JSONSERVER AND FIREBASE. DEFAULT IS FIREBASE. YOU CAN COMMENT FIRST SOLUTION AND UNCOMMENT SECOND TO CHECK HOW DOES IT WORK.
+        
+        //FIREBASE:
+        firebase.database().ref('users').once('value')
+        .then( (snapshot) => {
+            let users = snapshot.val();
+            for (let i=0; i<users.length;i++){
+                if (users[i].email===email && users[i].password===password ){
+                    history.push('/')
+                    setUser({email: users[i].email, password: users[i].password, actualOrder: users[i].actualOrder || null, id: i})
+                } else {
+                    setAlertText('Wprowadzone dane są nieprawidłowe ')
+                    setPasswordWarning(true)
+                }
+            }
+        }) 
+
+        //JSONSERVER:
+        // fetch(`http://localhost:3005/users?email=${email}&password=${password}`)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         console.log('Success:',data);
+        //         console.log('Success:',data[0]);
+        //         if(data.length>0){
+        //             history.push('/')
+        //             setUser(data[0])
+        //         } else if ( data.length==0){
+        //             setAlertText('Wprowadzone hasło jest nieprawidłowe lub nie założyłeś jeszcze konta')
+        //             setPasswordWarning(true)
+        //         }
+        //     })
+        //     .catch(error => {
+        //         console.log('Error',error);
+        //     })
         };
     };
 

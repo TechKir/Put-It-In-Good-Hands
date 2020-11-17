@@ -27,6 +27,7 @@ export default () => {
         setIsActive(prevState => !prevState)
     };
 
+    // TODO: STICKY NAV - BREAKES LAYOUT 
     // useEffect ( () => {
     //     window.addEventListener('scroll', () => {
     //         const isTop = window.scrollY < 170;           

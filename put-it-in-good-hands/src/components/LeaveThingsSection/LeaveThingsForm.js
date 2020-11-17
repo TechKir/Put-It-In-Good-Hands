@@ -11,10 +11,15 @@ import YellowBelt from './YellowBelt';
 import EnderBox from '../Home/ending_section/EnderBox';
 import FooterBox from '../Home/ending_section/footer/FooterBox';
 import BearImg from './BearImg';
+// Firebase App (the core Firebase SDK) is always required and
+// must be listed before other Firebase SDKs
+import firebase from "firebase/app";
+// Add the Firebase services that you want to use
+import 'firebase/database';
 
 const LeaveThingsForm = () => {
 
-    //Logic:
+    //LOGIC:
     const [step,setStep]=useState(1);
     const {user,setIsHome,isTogether} = useContext(AuthContext);
     const [alert,setAlert]=useState(false);
@@ -23,7 +28,7 @@ const LeaveThingsForm = () => {
         setIsHome(false);
     },[])
 
-    //Step 1:
+    //STEP 1:
     const [kindOfThings,setKindOfThings]=useState(null);
 
     const handleThings = (e) => {
@@ -41,7 +46,7 @@ const LeaveThingsForm = () => {
         };
     }; 
 
-    //Step 2:
+    //STEP 2:
     const [quantOfBags,setQuantOfBags]=useState('wybierz');
     const handleBags = (e) => {
         const {value} = e.target;
@@ -65,7 +70,7 @@ const LeaveThingsForm = () => {
         setAlert(false);
     }
 
-    //Step 3:
+    //STEP 3:
     const [town,setTown]=useState('wybierz');
     const handleTown = (e) => {
         const {value} = e.target;
@@ -119,8 +124,7 @@ const LeaveThingsForm = () => {
         setAlert(false);
     }
 
-    //Step 4:
-
+    //STEP 4:
     const [userData,setUserData]=useState({street:'',city:'', zipCode:'', phoneNo:'',date:'', hour:'', comments:''});
     const [alertText,setAlertText]=useState('')
 
@@ -137,7 +141,7 @@ const LeaveThingsForm = () => {
 
     const handleStep4 = () => {
 
-        //validation functions:
+        //VALIDATION FUNCTIONS:
         const hasNumber = (myString) => {
             return /\d/.test(myString);
         };
@@ -162,9 +166,9 @@ const LeaveThingsForm = () => {
             return /^\d\d:\d\d$/.test(hour)
         };
         const hourResult = isHour(userData.hour);
-        //end validation functions:
+        //END VALIDATION FUNCTIONS//
 
-        //Validation:
+        //VALIDATION:
         if (userData.street.length<2){
             setAlert(true);
             setAlertText('Nazwa ulicy musi mieć conajmniej 2 znaki')
@@ -191,7 +195,7 @@ const LeaveThingsForm = () => {
             setAlertText('');
             setStep(5);
         }
-        // End Validation
+        // END VALIDATION //
     } 
 
     const prevStep4 = () => {
@@ -199,42 +203,28 @@ const LeaveThingsForm = () => {
         setAlert(false);
     }
 
-    //Step 5:
-    //https://api.jsonbin.io/b/5f33d16adddf413f95c29b5a/1/users/${user.id}`
-    //`http://localhost:3005/users/${user.id}`
-    
+    //STEP 5:   
     const handleStep5 = () => {
         setStep(6);
-        //try:
-        //  const orderData={email:user.email, password: user.password, actualOrder:{ kindOfThings:kindOfThings, quantOfBags:quantOfBags, town:town, whoHelp:whoHelp, whatOrg:whatOrg, street:userData.street ,city:userData.city, zipCode:userData.zipCode, phoneNo:userData.phoneNo,date:userData.date, hour:userData.hour, comments:userData.comments}}
 
+        const orderData={id:user.id, email:user.email, password: user.password, actualOrder:{ kindOfThings:kindOfThings, quantOfBags:quantOfBags, town:town, whoHelp:whoHelp, whatOrg:whatOrg, street:userData.street ,city:userData.city, zipCode:userData.zipCode, phoneNo:userData.phoneNo,date:userData.date, hour:userData.hour, comments:userData.comments}}
 
-        // let req = new XMLHttpRequest();
+        //CODE IS IMPLEMENTED BY TWO SOLUTION: JSONSERVER AND FIREBASE. DEFAULT IS FIREBASE. YOU CAN COMMENT FIRST SOLUTION AND UNCOMMENT SECOND TO CHECK HOW DOES IT WORK.
 
-        // req.onreadystatechange = () => {
-        // if (req.readyState == XMLHttpRequest.DONE) {
-        //     console.log(req.responseText);
-        // }
-        // };
+        //FIREBASE:
+        firebase.database().ref(`users/${user.id}`).set(orderData)
 
-        // req.open("PUT", "https://api.jsonbin.io/b/5f366d20af209d1016bb551b", false);
-        // req.setRequestHeader("Content-Type", "application/json");
-        // req.setRequestHeader("secret-key", '$2b$10$M6Q4bMpPEsBhfFlxLJYb7.n2rEhov49oqpT6bvKJDGvlNYvjXlqj6')
-        // req.setRequestHeader("versioning", false)
-        // req.send(JSON.stringify(orderData));
-
-        const orderData={email:user.email, password: user.password, actualOrder:{ kindOfThings:kindOfThings, quantOfBags:quantOfBags, town:town, whoHelp:whoHelp, whatOrg:whatOrg, street:userData.street ,city:userData.city, zipCode:userData.zipCode, phoneNo:userData.phoneNo,date:userData.date, hour:userData.hour, comments:userData.comments}}
-
-        fetch(`http://localhost:3005/users/${user.id}`,{
-            method:'PUT',
-            headers:{
-                'Content-Type': 'application/json',
-            },
-            body:JSON.stringify(orderData),
-        })
-        .then(response => response.json())
-        .then(data => console.log('Success:',data))
-        .catch(error => console.log('Error',error))
+        //JSONSERVER:
+        // fetch(`http://localhost:3005/users/${user.id}`,{
+        //     method:'PUT',
+        //     headers:{
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body:JSON.stringify(orderData),
+        // })
+        // .then(response => response.json())
+        // .then(data => console.log('Success:',data))
+        // .catch(error => console.log('Error',error))
 
         //Cleaning:
         setKindOfThings(null);
@@ -249,9 +239,9 @@ const LeaveThingsForm = () => {
         setWhatOrg('');
         setUserData({street:'',city:'', zipCode:'', phoneNo:'',date:'', hour:'', comments:''});
     }
-    //End Logic
+    //END LOGIC//
     
-    //Display:
+    //DISPLAY CASES:
     switch (step) {
         case 1:
             return (

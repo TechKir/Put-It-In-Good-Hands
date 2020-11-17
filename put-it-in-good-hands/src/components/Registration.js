@@ -11,6 +11,11 @@ import {
     NavLink,
     } from 'react-router-dom';
 
+// Firebase App (the core Firebase SDK) is always required and
+// must be listed before other Firebase SDKs
+import firebase from "firebase/app";
+// Add the Firebase services that you want to use
+import 'firebase/database';
 
 export default () => {
 
@@ -70,34 +75,59 @@ export default () => {
         } else {
 
             const userData={email:email, password: password}
-            fetch(`http://localhost:3005/users?email=${email}`)
-                .then(response => response.json())
-                .then(data => {
-                    //console.log('Success:',data);
-                    if(data.length > 0){
+            //CODE IS IMPLEMENTED BY TWO SOLUTION: JSONSERVER AND FIREBASE. DEFAULT IS FIREBASE. YOU CAN COMMENT FIRST SOLUTION AND UNCOMMENT SECOND TO CHECK HOW DOES IT WORK.
+            //FIREBASE:
+            firebase.database().ref('users').once('value')
+            .then( (snapshot) => {
+                let users = snapshot.val();
+                console.log(users, users.length)
+                for (let i=0; i<users.length;i++){
+                    if (users[i].email===userData.email){
                         setAlertText('Istnieje już konto pod podanym adresem email. Jeżeli nie pamiętasz hasła wypełnij formularz kontaktowy.');
                         setRepeatPasswordWarning(true);
-                    } else {
-                        fetch('http://localhost:3005/users', {
-                            method:'POST',
-                            headers:{
-                                'Content-Type': 'application/json'
-                            },
-                            body:JSON.stringify(userData)
-                        })
-                        .then(response => response.json())
-                        .then(data => {                            
-                            //console.log('Success:',data);
-                            setShowSuccessText(true);
-                            setEmail('');
-                            setPassword('');
-                            setRepeatPassword('');
-                        })
-                        .catch(error => {
-                            console.log('Error',error);
-                        })
+                        return
                     }
+                }
+                firebase.database().ref(`users/${users.length}`).set({
+                    "email": email,
+                    "password":password,
+                    "id":users.length+1                 
                 })
+                setShowSuccessText(true);
+                setEmail('');
+                setPassword('');
+                setRepeatPassword('');
+            }) 
+
+            //JSONSERVER:
+            // fetch(`http://localhost:3005/users?email=${email}`)
+            //     .then(response => response.json())
+            //     .then(data => {
+            //         //console.log('Success:',data);
+            //         if(data.length > 0){
+            //             setAlertText('Istnieje już konto pod podanym adresem email. Jeżeli nie pamiętasz hasła wypełnij formularz kontaktowy.');
+            //             setRepeatPasswordWarning(true);
+            //         } else {
+            //             fetch('http://localhost:3005/users', {
+            //                 method:'POST',
+            //                 headers:{
+            //                     'Content-Type': 'application/json'
+            //                 },
+            //                 body:JSON.stringify(userData)
+            //             })
+            //             .then(response => response.json())
+            //             .then(data => {                            
+            //                 //console.log('Success:',data);
+            //                 setShowSuccessText(true);
+            //                 setEmail('');
+            //                 setPassword('');
+            //                 setRepeatPassword('');
+            //             })
+            //             .catch(error => {
+            //                 console.log('Error',error);
+            //             })
+            //         }
+            //     })
         }
     };
 

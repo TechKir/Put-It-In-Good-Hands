@@ -2,6 +2,12 @@ import React,{useState,useEffect} from 'react';
 import Pagination from './Paginantion';
 import classnames from 'classnames';
 
+// Firebase App (the core Firebase SDK) is always required and
+// must be listed before other Firebase SDKs
+import firebase from "firebase/app";
+// Add the Firebase services that you want to use
+import 'firebase/database';
+
 export default () =>{
     const [currentTypeOrg, setCurrentTypeOrg] = useState(1);
     const [organizations, setOrganizations] = useState(null);
@@ -9,10 +15,20 @@ export default () =>{
     const [orgsPerPage]=useState(3);
     
     useEffect(() => {
-        fetch('http://localhost:3005/organizations')
-            .then(res => res.json())
-            .then(data => setOrganizations(data) )
+        //CODE IS IMPLEMENTED BY TWO SOLUTION: JSONSERVER AND FIREBASE. DEFAULT IS FIREBASE. YOU CAN COMMENT FIRST SOLUTION AND UNCOMMENT SECOND TO CHECK HOW DOES IT WORK.
+        
+        //FIREBASE:
+        firebase.database().ref('organizations').once('value')
+            .then( (snapshot) => {
+            let dataFromFireBase = snapshot.val();
+            setOrganizations(dataFromFireBase)})            
             .catch(error => console.log('error'))
+
+        //JSONSERVER:
+        // fetch('http://localhost:3005/organizations',{mode:"no-cors"})
+        //     .then(res => res.json())
+        //     .then(data => setOrganizations(data) )
+        //     .catch(error => console.log('error'))
     }, []);
 
     const handleCurrentTypeOrg = (e) => {

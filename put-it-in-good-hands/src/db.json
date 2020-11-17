@@ -135,20 +135,19 @@
       "email": "wojciech.kiryk@gmail.com",
       "password": "aaaaaa",
       "actualOrder": {
-        "kindOfThings": "ubrania, które nadają się do ponownego użycia",
+        "kindOfThings": "zabawki",
         "quantOfBags": "2",
-        "town": "Warszawa",
+        "town": "Kraków",
         "whoHelp": [
-          "samotnym matkom",
-          "osobom starszym"
+          "samotnym matkom"
         ],
         "whatOrg": "",
         "street": "Zwierz 33",
         "city": "Kraków",
         "zipCode": "31-105",
         "phoneNo": "667949351",
-        "date": "2020-08-12",
-        "hour": "16:19",
+        "date": "2020-11-18",
+        "hour": "13:44",
         "comments": ""
       },
       "id": 1
