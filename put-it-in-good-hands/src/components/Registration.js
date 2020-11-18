@@ -1,14 +1,9 @@
 import React,{useState, useEffect, useContext} from 'react';
 import decoration from '../assets/Decoration.svg';
 import classnames from 'classnames';
-import LoginNav from './LoginNav';
 import {AuthContext} from '../App';
 import {
-    HashRouter,
-    Route,
-    Link,
-    Switch,
-    NavLink,
+    Link
     } from 'react-router-dom';
 
 // Firebase App (the core Firebase SDK) is always required and
@@ -56,11 +51,11 @@ export default () => {
         setRepeatPasswordWarning(false);
 
         function validateEmail(email) {
-            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            const re = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(String(email).toLowerCase());
         }
 
-        if(validateEmail(email) == false){
+        if(validateEmail(email) === false){
             e.preventDefault()
             setAlertText('Podany email jest nieprawidłowy!')
             setEmailWarning(true)
@@ -178,7 +173,7 @@ export default () => {
                         </Link>                 
                     </button>
 
-                    <button type='submit' className={classnames('noBorderBtn', { active: activeRegBtn == true })}>
+                    <button type='submit' className={classnames('noBorderBtn', { active: activeRegBtn === true })}>
                         Załóż konto             
                     </button>
 

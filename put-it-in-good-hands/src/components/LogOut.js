@@ -1,13 +1,8 @@
 import React,{useEffect, useContext} from 'react';
 import {AuthContext} from '../App';
 import decoration from '../assets/Decoration.svg';
-import ThingsImg from './Home/welcome_section/ThingsImg';
 import {
-    HashRouter,
-    Route,
-    Link,
-    Switch,
-    NavLink,
+    Link
     } from 'react-router-dom';
 
 export default () => {

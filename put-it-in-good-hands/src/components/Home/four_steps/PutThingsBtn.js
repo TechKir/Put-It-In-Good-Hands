@@ -1,11 +1,7 @@
 import React, {useContext} from 'react';
 import {AuthContext} from '../../../App';
 import {
-    HashRouter,
-    Route,
-    Link,
-    Switch,
-    useHistory,
+    useHistory
     } from 'react-router-dom';
     
 export default () =>{

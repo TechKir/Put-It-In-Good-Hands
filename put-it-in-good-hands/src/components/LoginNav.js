@@ -1,11 +1,7 @@
 import React from 'react';
 import ThingsImg from './Home/welcome_section/ThingsImg';
 import {
-    useHistory,
-    Route,
-    Link,
-    Switch,
-    NavLink,
+    Link
     } from 'react-router-dom';
 
 export default () => {

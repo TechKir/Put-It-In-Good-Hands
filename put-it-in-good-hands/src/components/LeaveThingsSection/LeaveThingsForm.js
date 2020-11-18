@@ -2,19 +2,9 @@ import React,{useState, useEffect, useContext} from 'react';
 import {AuthContext} from '../../App';
 import decoration from '../../assets/Decoration.svg';
 import YellowBelt from './YellowBelt';
-//import Step1 from './Steps/Step1';
-// import Step2 from './Steps/Step2';
-// import Step3 from './Steps/Step3';
-// import Step4 from './Steps/Step4';
-// import Summary from './Steps/Summary';
-// import Thanks from './Steps/Thanks';
 import EnderBox from '../Home/ending_section/EnderBox';
 import FooterBox from '../Home/ending_section/footer/FooterBox';
-import BearImg from './BearImg';
-// Firebase App (the core Firebase SDK) is always required and
-// must be listed before other Firebase SDKs
 import firebase from "firebase/app";
-// Add the Firebase services that you want to use
 import 'firebase/database';
 
 const LeaveThingsForm = () => {
@@ -54,9 +44,8 @@ const LeaveThingsForm = () => {
         setAlert(false);
     };
 
-
     const handleStep2 = () => {
-        if(quantOfBags != 'wybierz'){           
+        if(quantOfBags !== 'wybierz'){           
             setAlert(false);
             setAlertText('');
             setStep(3);
@@ -84,7 +73,7 @@ const LeaveThingsForm = () => {
         const has  = copy.includes(value);
         let result;
         if (has) {
-            result = copy.filter(item => item != value)
+            result = copy.filter(item => item !== value)
         } else {
             result = [...copy, value]
         };
@@ -106,10 +95,10 @@ const LeaveThingsForm = () => {
     }
 
     const handleStep3 = () => {
-        if (town=='wybierz'){
+        if (town==='wybierz'){
             setAlertText('Wybierz miasto')
             setAlert(true)
-        } else if(whoHelp.length==0){
+        } else if(whoHelp.length===0){
             setAlertText('Wybierz komu chcesz pomóc')
             setAlert(true)
         } else {
@@ -172,22 +161,22 @@ const LeaveThingsForm = () => {
         if (userData.street.length<2){
             setAlert(true);
             setAlertText('Nazwa ulicy musi mieć conajmniej 2 znaki')
-        } else if (streetResult==false){
+        } else if (streetResult===false){
             setAlert(true);
             setAlertText('musisz podać numer domu lub mieszkania')
         } else if (userData.city.length<2){
             setAlert(true);
             setAlertText('Nazwa miasta musi mieć conajmniej 2 znaki')
-        } else if (zipCodeResult==false){
+        } else if (zipCodeResult===false){
             setAlert(true);
             setAlertText('Wpisz poprawny kod pocztowy')
-        } else if (phoneResult==false){
+        } else if (phoneResult===false){
             setAlert(true);
             setAlertText('Wpisz poprawny numer telefonu')
-        } else if (dateResult==false){
+        } else if (dateResult===false){
             setAlert(true);
             setAlertText('Wpisz poprawny format daty - użyj ikony kalendarza')
-        } else if (hourResult==false){
+        } else if (hourResult===false){
             setAlert(true);
             setAlertText('Wpisz poprawny format godziny - użyj ikony zegara')
         } else{
@@ -255,27 +244,27 @@ const LeaveThingsForm = () => {
                             <h1>Zaznacz co chcesz oddać:</h1><br/>
 
                             <div className='chooseElement'>
-                                <input checked={kindOfThings=='ubrania, które nadają się do ponownego użycia'} type="radio" name="things" value='ubrania, które nadają się do ponownego użycia' onChange={handleThings}></input>
+                                <input checked={kindOfThings==='ubrania, które nadają się do ponownego użycia'} type="radio" name="things" value='ubrania, które nadają się do ponownego użycia' onChange={handleThings}></input>
                                 <label> ubrania, które nadają się do ponownego użycia</label><br/>
                             </div>
 
                             <div className='chooseElement'>
-                                <input checked={kindOfThings=='ubrania do wyrzucenia'} type="radio" name="things" value='ubrania do wyrzucenia' onChange={handleThings}></input>
+                                <input checked={kindOfThings==='ubrania do wyrzucenia'} type="radio" name="things" value='ubrania do wyrzucenia' onChange={handleThings}></input>
                                 <label> ubrania do wyrzucenia</label><br/>
                             </div>
 
                             <div className='chooseElement'>
-                                <input checked={kindOfThings=='zabawki'} type="radio" name="things" value='zabawki' onChange={handleThings}></input>
+                                <input checked={kindOfThings==='zabawki'} type="radio" name="things" value='zabawki' onChange={handleThings}></input>
                                 <label> zabawki</label><br/>
                             </div>
 
                             <div className='chooseElement'>
-                                <input checked={kindOfThings=='książki'} type="radio" name="things" value='książki' onChange={handleThings}></input>
+                                <input checked={kindOfThings==='książki'} type="radio" name="things" value='książki' onChange={handleThings}></input>
                                 <label> książki</label><br/>
                             </div>
 
                             <div className='chooseElement'>
-                                <input checked={kindOfThings=='inne'} type="radio" name="things" value='inne' onChange={handleThings}></input>
+                                <input checked={kindOfThings==='inne'} type="radio" name="things" value='inne' onChange={handleThings}></input>
                                 <label> inne</label><br/>
                             </div>
 
@@ -303,11 +292,11 @@ const LeaveThingsForm = () => {
                             <select onChange={handleBags}>
                                 <option value='wybierz'>---wybierz---</option>
                                 {/* i used 'selected' to change permament input color (when we click next and then prev, input lost his color)*/}
-                                <option selected={quantOfBags=='1'} value="1">1</option>
-                                <option selected={quantOfBags=='2'} value="2">2</option>
-                                <option selected={quantOfBags=='3'} value="3">3</option>
-                                <option selected={quantOfBags=='4'} value="4">4</option>
-                                <option selected={quantOfBags=='5'} value="5">5</option>
+                                <option selected={quantOfBags==='1'} value="1">1</option>
+                                <option selected={quantOfBags==='2'} value="2">2</option>
+                                <option selected={quantOfBags==='3'} value="3">3</option>
+                                <option selected={quantOfBags==='4'} value="4">4</option>
+                                <option selected={quantOfBags==='5'} value="5">5</option>
                             </select>
                         </div>
 
@@ -334,11 +323,11 @@ const LeaveThingsForm = () => {
                         <select className='citySelect' onChange={handleTown}>
                             <option value='wybierz'>---wybierz---</option>
                             {/* i used 'selected' to change permament input color (when we click next and then prev, input lost his color)*/}
-                            <option selected={town=="Poznań"} value="Poznań">Poznań</option>
-                            <option selected={town=="Warszawa"} value="Warszawa">Warszawa</option>
-                            <option selected={town=="Kraków"} value="Kraków">Kraków</option>
-                            <option selected={town=="Wrocław"} value="Wrocław">Wrocław</option>
-                            <option selected={town=="Katowice"} value="Katowice">Katowice</option>
+                            <option selected={town==="Poznań"} value="Poznań">Poznań</option>
+                            <option selected={town==="Warszawa"} value="Warszawa">Warszawa</option>
+                            <option selected={town==="Kraków"} value="Kraków">Kraków</option>
+                            <option selected={town==="Wrocław"} value="Wrocław">Wrocław</option>
+                            <option selected={town==="Katowice"} value="Katowice">Katowice</option>
                         </select>
 
                         <h2>Komu chcesz pomóc:</h2>
@@ -453,7 +442,7 @@ const LeaveThingsForm = () => {
                             <h1 className='h1Padding'>Podsumowanie twojej darowizny</h1>
 
                             <strong>Oddajesz:</strong>
-                            <p>{quantOfBags} {quantOfBags==1 ? "worek" : "worki"}, {kindOfThings}, {whoHelp.map( (element,index) => <p key={index}>{element} </p> )}</p>
+                            <p>{quantOfBags} {quantOfBags===1 ? "worek" : "worki"}, {kindOfThings}, {whoHelp.map( (element,index) => <p key={index}>{element} </p> )}</p>
                             <p>dla lokalizacji: {town}</p>
                         </div>
 

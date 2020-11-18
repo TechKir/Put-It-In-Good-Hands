@@ -1,4 +1,4 @@
-import React,{useState, useEffect,useContext} from 'react';
+import React,{useEffect,useContext} from 'react';
 import HomeNav from '../Home/welcome_section/HomeNav';
 import MainTheme from './MainTheme';
 import StepsInstruction from './StepsInstruction';

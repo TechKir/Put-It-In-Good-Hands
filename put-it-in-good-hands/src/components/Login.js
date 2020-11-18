@@ -1,21 +1,12 @@
 import React,{useState, useEffect, useContext} from 'react';
 import decoration from '../assets/Decoration.svg';
-import LoginNav from './LoginNav';
 import {AuthContext} from '../App';
 import classnames from 'classnames';
-import ThingsImg from './Home/welcome_section/ThingsImg';
 import {
     useHistory,
-    Route,
-    Link,
-    Switch,
-    NavLink,
+    Link
     } from 'react-router-dom';
-
-// Firebase App (the core Firebase SDK) is always required and
-// must be listed before other Firebase SDKs
 import firebase from "firebase/app";
-// Add the Firebase services that you want to use
 import 'firebase/database';
 
 export default () => {
@@ -49,11 +40,11 @@ export default () => {
         setPasswordWarning(false);
 
         function validateEmail(email) {
-            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            const re = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(String(email).toLowerCase());
         };
 
-        if(validateEmail(email) == false){
+        if(validateEmail(email) === false){
             e.preventDefault()
             setAlertText('Wprowadzony email jest nieprawidłowy')
             setEmailWarning(true)

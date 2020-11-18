@@ -37,14 +37,14 @@ export default (props) => {
         setMessageWarning(false);
         
         function validateEmail(email) {
-            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            const re = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(String(email).toLowerCase());
         };
 
-        if((userName.indexOf(' ') > -1) || userName.length==0){
+        if((userName.indexOf(' ') > -1) || userName.length===0){
             e.preventDefault()
             setNameWarning(true)
-        } else if(validateEmail(email) == false){
+        } else if(validateEmail(email) === false){
             e.preventDefault()
             setEmailWarning(true)
         } else if(message.length < 120){

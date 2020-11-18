@@ -1,4 +1,4 @@
-import React,{useState, useContext, useEffect} from 'react';
+import React,{useState, useContext} from 'react';
 import classnames from 'classnames';
 import ThingsImg from './ThingsImg';
 import FormImg1 from '../../LeaveThingsSection/FormImg1';
@@ -8,11 +8,7 @@ import {AuthContext} from '../../../App';
 
 import { Link, animateScroll as scroll } from "react-scroll";
 import {
-    HashRouter,
-    Route,
     Link as Link2,
-    Switch,
-    NavLink,
     } from 'react-router-dom';
 
 export default () => {
