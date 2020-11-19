@@ -402,7 +402,7 @@ const LeaveThingsForm = () => {
                                 <label>Kod pocztowy:</label>
                                 <input name='zipCode' value={userData.zipCode} onChange={handleChange}></input>
 
-                                <label>Telefon:</label>
+                                <label>Telefon komórkowy:</label>
                                 <input name='phoneNo' value={userData.phoneNo} onChange={handleChange}></input>
                             </div>
 
