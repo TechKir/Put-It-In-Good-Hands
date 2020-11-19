@@ -147,11 +147,19 @@ const LeaveThingsForm = () => {
         const phoneResult = isPhoneNo(userData.phoneNo);
 
         const isDate = (date) => {
+            const now = new Date();
+            const actualDate = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`
+            if(date<actualDate){
+                return false
+            }
             return /^202\d-\d\d-\d\d$/.test(date)
         };
         const dateResult = isDate(userData.date);
 
         const isHour = (hour) => {
+            if(hour<"08:00" || hour>"18:00"){
+                return false
+            }
             return /^\d\d:\d\d$/.test(hour)
         };
         const hourResult = isHour(userData.hour);
@@ -175,10 +183,10 @@ const LeaveThingsForm = () => {
             setAlertText('Wpisz poprawny numer telefonu')
         } else if (dateResult===false){
             setAlert(true);
-            setAlertText('Wpisz poprawny format daty - użyj ikony kalendarza')
+            setAlertText('Wpisz poprawną datę - użyj ikony kalendarza')
         } else if (hourResult===false){
             setAlert(true);
-            setAlertText('Wpisz poprawny format godziny - użyj ikony zegara')
+            setAlertText('Wpisz godzinę z zakresu 8.00-18.00 - użyj ikony zegara')
         } else{
             setAlert(false);
             setAlertText('');
