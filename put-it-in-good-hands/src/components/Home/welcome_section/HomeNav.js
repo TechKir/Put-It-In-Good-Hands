@@ -56,7 +56,7 @@ export default () => {
                 {isForm ? <FormImg1/> : <ThingsImg/> }
                 {user ?                                             
                     <div className='loginBox'>
-                            <h1>Witaj {user.email} !</h1>              
+                            <h1 className={classnames({positionRightCorrect:isForm})}>Witaj {user.email} !</h1>              
                         {/* <button className="btnLogin">     TODO: tylko w desktop                                  
                             <Link2
                                 to="/leave-things">

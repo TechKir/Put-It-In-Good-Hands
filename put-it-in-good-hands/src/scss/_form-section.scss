@@ -4,11 +4,11 @@
     background-color: $attentionColor;
     color:$boldFontColor;
     width:100vw;
-    padding:4vw 2vw;
+    padding:2vw 6vw;
     display:inline-block;
     h1{
         padding-bottom:1vw;
-        font-size: 4.5vw;
+        font-size: 4vw;
         font-weight: bolder;
     }
     p{
@@ -44,11 +44,11 @@
 .leaveThingsForm{
     span{
         font-size: 2.5vw;
-        padding-bottom: 8vw;
+        padding-bottom: 4vw;
         display: block;
     }
     h1{
-        font-size: 4.5vw;
+        font-size: 4vw;
         font-weight: bolder;
         color: $boldFontColor;
     }
@@ -69,7 +69,7 @@
     // background-repeat: no-repeat;
     // //background-size: cover;
     // background-position: left;
-    padding: 4vw 2vw;;
+    padding: 4vw 6vw;;
     background-color: $altBackgroundColor;
 }
 

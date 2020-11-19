@@ -303,7 +303,7 @@ const LeaveThingsForm = () => {
                     {alert ? <div className='alert'><strong >Wybierz ilość worków do oddania</strong></div> : null}
                     <div className='btnBox btnBoxCorrect'>
                             <button className='btn btnCorrect' onClick={prevStep2}>Wstecz</button>
-                            <button className='btn btnCorrect' onClick={handleStep2}>Dalej</button>
+                            <button className='btn btnCorrect btnRightCorrect' onClick={handleStep2}>Dalej</button>
                         </div>
                     </div>
                     <EnderBox />
@@ -373,7 +373,7 @@ const LeaveThingsForm = () => {
                         {alert ? <div className='alert'><strong >{alertText}</strong></div> : null}
                         <div className='btnBox btnBoxCorrect'>
                             <button className='btn btnCorrect' onClick={prevStep3}>Wstecz</button>
-                            <button className='btn btnCorrect' onClick={handleStep3}>Dalej</button>
+                            <button className='btn btnCorrect btnRightCorrect' onClick={handleStep3}>Dalej</button>
                         </div>
                     </div>
                     <EnderBox />
@@ -424,7 +424,7 @@ const LeaveThingsForm = () => {
 
                         <div className='btnBox btnBoxCorrect'>
                             <button className='btn btnCorrect' onClick={prevStep4}>Wstecz</button>
-                            <button className='btn btnCorrect' onClick={handleStep4}>Dalej</button>
+                            <button className='btn btnCorrect btnRightCorrect' onClick={handleStep4}>Dalej</button>
                         </div>
                     </div>
                     <EnderBox />
@@ -468,7 +468,7 @@ const LeaveThingsForm = () => {
                         </div>
                         <div className='btnBox btnBoxCorrect'>
                             <button className='btn btnCorrect' onClick={() => setStep(4)}>Wstecz</button>
-                            <button className='btn btnCorrect' onClick={handleStep5}>Potwierdzam</button>
+                            <button className='btn btnCorrect btnRightCorrect' onClick={handleStep5}>Potwierdzam</button>
                         </div>
                     </div>   
                     <EnderBox correctPosition='correctPosition'/>

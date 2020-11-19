@@ -571,6 +571,10 @@ a:hover{
     margin-top: 15vw;
 }
 
+.btnRightCorrect{
+    margin-left: 3vw;
+}
+
 @media screen and (min-width:576px) and (max-width:768px){
 
     .mainIdea h1 {
@@ -983,10 +987,13 @@ a:hover{
             font-size: 1.3vw;
             position: absolute;
             top: -17vw;
-            right: -8vw;
+            right: -18.5vw;
             width: 50vw;
-            font-weight: bolder;
             text-align: center;
+            color:black;
+        }
+        .positionRightCorrect{
+            right: -10.3vw;
         }
     }
 
@@ -1196,7 +1203,7 @@ a:hover{
     }
 
     .leaveThingsForm h1 {
-        font-size: 1.6vw;
+        font-size: 1.4vw;
         font-weight: bolder;
         color: #3C3C3C;
     }
@@ -1240,13 +1247,13 @@ a:hover{
     .formHomeBox2 {
         position: absolute;
         left: 60vw;
-        top: 115vw;
+        top: 110vw;
     }
 
     .footerBoxCorrect {
         position: absolute;
         left: 12vw;
-        top: 161vw;
+        top: 157vw;
         padding-bottom: 0vw;
     }
 
@@ -1301,7 +1308,7 @@ a:hover{
     .chooseElements {
         padding: 1vw 1vw 1vw 0;
         label {
-            font-size: 1.3vw;
+            font-size: 1.2vw;
             padding: 0.5vw;
         }
     }
