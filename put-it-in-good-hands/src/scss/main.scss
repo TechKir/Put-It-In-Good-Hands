@@ -47,7 +47,7 @@ body, html {
     font-size: 4vw;
     color: $regularFontColor;
     border:1px solid $regularFontColor;
-    width: 25vw;
+    width: 30vw;
 }
 
 //home section :
@@ -361,6 +361,10 @@ a:hover{
     }
 }
 
+.paddingTopCorrect{
+    padding-top: 0;
+}
+
 .btnBoxMenu{
     padding: 6vw;
     display: flex;
@@ -375,11 +379,11 @@ a:hover{
 
 .aboutUsBox{
     width: 100vw;
-    height: 60vw;
+    height: 68vw;
     display: flex;
     .aboutUs{
         width: 50vw;
-        height: 60vw;
+        height: 68vw;
         background-color: $altBackgroundColor;
     }
     .happyPeopleImg{
@@ -394,7 +398,7 @@ a:hover{
     color: $boldFontColor;
     text-align: center;
     h2{
-        padding-top: 6vw;       
+        padding-top: 8vw;       
         font-size: 4vw;
     }
     div{
@@ -501,7 +505,7 @@ a:hover{
         color: $boldFontColor;
     }
     input{
-        font-size: 4vw;
+        font-size: 3.5vw;
         color: $boldFontColor;
         width: 61vw;
         opacity: 0.5;
@@ -510,7 +514,7 @@ a:hover{
     }
     textarea{
         font-family: $font-base;
-        font-size: 4vw;
+        font-size: 3.5vw;
         color: $boldFontColor;
         opacity: 0.5;
         border: none;
@@ -657,11 +661,11 @@ a:hover{
     }
     .aboutUsBox{
         width: 100vw;
-        height: 49vw;
+        height: 54vw;
         display: flex;
         .aboutUs{
             width: 50vw;
-            height: 49vw;
+            height: 54vw;
             background-color: $altBackgroundColor;
         }
         .happyPeopleImg{
@@ -716,7 +720,7 @@ a:hover{
     }
 
     .paginationBox button {
-        font-size: 3vw;
+        font-size: 2.5vw;
     }
 
     .homeImg {
@@ -739,7 +743,7 @@ a:hover{
             font-weight: normal;
         }
         p{
-            font-size: 1.1vw;
+            font-size: 1vw;
             padding: 1vw;
         }
     }
@@ -874,20 +878,20 @@ a:hover{
     // }
 
     .orgBtn {
-        margin:2vw;
+        margin:1.2vw;
         font-size: 1.3vw;
         width: 11vw;
     }
 
     .orgText {
-        padding: 2vw 23vw 7vw 23vw;
+        padding: 2vw 23vw 2vw 23vw;
         width: 90vw;
         font-size: 1.2vw;
         margin-left: 3.5vw;
     }
 
     .orgBox .orgItem {
-        padding: 1.5vw 0;
+        padding: 0.2vw 0;
         margin: 0 13vw;
         h3{
             font-size: 1.3vw;
@@ -933,7 +937,7 @@ a:hover{
     .formHomeBox{
         position: absolute;
         left: 60vw;
-        top: 230vw;
+        top: 220vw;
     }
 
     .thingsImg2 {
@@ -944,7 +948,7 @@ a:hover{
     .footerBox {
         position: absolute;
         left: 12vw;
-        top: 277vw;
+        top: 267vw;
         padding-bottom: 0vw;
         p{
             font-size: 1vw;
@@ -1220,6 +1224,10 @@ a:hover{
     .btnBoxCorrect{
         justify-content: flex-start;
         align-items: center;
+    }
+
+    .marginTopCorrect{
+        margin: 2vw 0 2vw 0;
     }
 
     .btnCorrect{

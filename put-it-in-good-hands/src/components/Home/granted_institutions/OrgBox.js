@@ -48,7 +48,7 @@ export default () =>{
 
     return (
         <>
-            <div className='btnBox'>
+            <div className='btnBox paddingTopCorrect'>
                 {organizations?.map((org,index) => (
                     <button className={classnames('orgBtn', { active: org.id == currentTypeOrg })} key={index} id={org.id} onClick={handleCurrentTypeOrg}>{org.name}</button>
                 ))}
