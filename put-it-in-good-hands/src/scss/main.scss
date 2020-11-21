@@ -10,6 +10,12 @@
     margin:0;
 }
 
+input{
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
 .unvisible{
     opacity:0;
 }
@@ -356,7 +362,7 @@ a:hover{
     align-items: center;
     //button:focus {outline:0;border: 0.1vw solid $altBackgroundColor;}
     .active{
-        border: 0.1vw solid $altBackgroundColor;
+        border: 0.2vw solid $attentionColor;
         padding: 0.9vw 0;
     }
 }
@@ -485,9 +491,9 @@ a:hover{
         font-size: 4vw;
         color: $regularFontColor;
     }
-    button:focus {outline:0;border: 2px solid $altBackgroundColor;}
+    button:focus {outline:0;border: 0.2vw solid $attentionColor;}
     .active{
-        border: 2px solid $altBackgroundColor
+        border: 0.2vw solid $attentionColor
     }
 }
 
@@ -1216,6 +1222,7 @@ a:hover{
     .chooseElement input:before {
         width: 2vw;
         height: 2vw;
+        border-radius: 1vw;
     }
     .chooseElement input {
         margin-right: 2vw;

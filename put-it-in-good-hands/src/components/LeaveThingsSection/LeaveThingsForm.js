@@ -294,7 +294,7 @@ const LeaveThingsForm = () => {
                     <YellowBelt text='Wszystkie rzeczy zapakuj w 60l worki.'/>
                     <div className='leaveThingsForm'>
                         <span>krok 2/4</span>
-                        <h1>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h1><br/>
+                        <h1>Podaj liczbę wykorzystanych worków:</h1><br/>
                         <div className='step2Box'>
                             <p>Liczba 60l worków:</p>
                             <select onChange={handleBags}>
@@ -408,10 +408,10 @@ const LeaveThingsForm = () => {
                                 <input name='city' value={userData.city} onChange={handleChange}></input>
 
                                 <label>Kod pocztowy:</label>
-                                <input name='zipCode' value={userData.zipCode} onChange={handleChange}></input>
+                                <input name='zipCode' value={userData.zipCode} type='tel' placeholder="00-000" onChange={handleChange}></input>
 
                                 <label>Telefon komórkowy:</label>
-                                <input name='phoneNo' value={userData.phoneNo} onChange={handleChange}></input>
+                                <input name='phoneNo' value={userData.phoneNo} type='tel' placeholder="000-000-000" onChange={handleChange}></input>
                             </div>
 
                             <div className='dateBox'>
@@ -447,11 +447,15 @@ const LeaveThingsForm = () => {
                     <div className='leaveThingsForm'>
 
                         <div className='sumUp'>
-                            <h1 className='h1Padding'>Podsumowanie twojej darowizny</h1>
+                            <h1 className='h1Padding'>Podsumowanie twojej darowizny:</h1>
 
-                            <strong>Oddajesz:</strong>
+                            <p>Ilość worków: {quantOfBags}</p>
+                            <p>Zawartość: {kindOfThings}</p>
+                            <p>Zostanie darowane: {whoHelp.map( (element,index) => <p style={{display:'inline'}} key={index}>{index===whoHelp.length-1 ? element : element+', '} </p> )}</p>
+                            <p>Dla lokalizacji: {town}</p>
+                            {/* <strong>Oddajesz:</strong>
                             <p>{quantOfBags} {quantOfBags===1 ? "worek" : "worki"}, {kindOfThings}, {whoHelp.map( (element,index) => <p key={index}>{element} </p> )}</p>
-                            <p>dla lokalizacji: {town}</p>
+                            <p>dla lokalizacji: {town}</p> */}
                         </div>
 
                         <div className='formDateBoxes'>

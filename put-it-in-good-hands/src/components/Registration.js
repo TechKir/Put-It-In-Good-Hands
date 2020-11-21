@@ -3,6 +3,7 @@ import decoration from '../assets/Decoration.svg';
 import classnames from 'classnames';
 import {AuthContext} from '../App';
 import {
+    useHistory,
     Link
     } from 'react-router-dom';
 
@@ -13,7 +14,7 @@ import firebase from "firebase/app";
 import 'firebase/database';
 
 export default () => {
-
+    const history = useHistory();
     const {setIsHome, setIsForm} = useContext(AuthContext);
     useEffect( () => {
         setIsHome(false);
@@ -57,15 +58,15 @@ export default () => {
 
         if(validateEmail(email) === false){
             e.preventDefault()
-            setAlertText('Podany email jest nieprawidłowy!')
+            setAlertText('Wprowadź poprawny adres e-mail')
             setEmailWarning(true)
         } else if(password.length < 6){
             e.preventDefault()
-            setAlertText('Podane hasło jest za krótkie!')
+            setAlertText('Podane hasło jest za krótkie')
             setPasswordWarning(true)
         } else if(repeatPassword !== password){
             e.preventDefault()
-            setAlertText('Hasła różnią się od siebie!')
+            setAlertText('Podane hasła różnią się od siebie')
             setRepeatPasswordWarning(true)
         } else {
 
@@ -75,7 +76,6 @@ export default () => {
             firebase.database().ref('users').once('value')
             .then( (snapshot) => {
                 let users = snapshot.val();
-                console.log(users, users.length)
                 for (let i=0; i<users.length;i++){
                     if (users[i].email===userData.email){
                         setAlertText('Istnieje już konto pod podanym adresem email. Jeżeli nie pamiętasz hasła wypełnij formularz kontaktowy.');
@@ -92,6 +92,7 @@ export default () => {
                 setEmail('');
                 setPassword('');
                 setRepeatPassword('');
+                setTimeout( () => history.push('/login'),4000)
             }) 
 
             //JSONSERVER:
@@ -144,19 +145,19 @@ export default () => {
             </div>
 
             <form onSubmit={handleSubmit} className='formMargin'>
-                <div className='successText'>{showSuccessText ? <strong>Konto zostało założone!<br/>Możesz się zalogować.</strong> : null}</div>
+                <div className='successText'>{showSuccessText ? <strong>Konto zostało założone!<br/>Zaraz zostaniesz przekierowany<br/> do strony logowania.</strong> : null}</div>
 
                 <div className='logFormBox'>
                     <div className='userBox userBoxReg'>
 
-                        <label>Email</label>
+                        <label>E-mail</label>
                         <input type="text" name="email" placeholder='e-mail' value={email} onChange={handleEmail}></input>
 
                         <label>Hasło</label>
                         <input type="password" name="hasło" placeholder='hasło' value={password} onChange={handlePassword}></input>                       
 
                         <label>Powtórz hasło</label>
-                        <input type="password" name="Powtórz hasło" placeholder='Powtórz hasło' value={repeatPassword} onChange={handleRepeatPassword}></input>
+                        <input type="password" name="Powtórz hasło" placeholder='powtórz hasło' value={repeatPassword} onChange={handleRepeatPassword}></input>
                         <div>{emailWarning ? <strong>{alertText}</strong> : null}</div>
                         <div>{passwordWarning ? <strong>{alertText}</strong> : null}</div>
                         <div>{repeatPasswordWarning ? <strong>{alertText}</strong> : null}</div>

@@ -136,6 +136,7 @@
             border: 1px solid $regularFontColor;
             width: 4.5vw;
             height: 4.5vw;
+            border-radius: 3vw;
             box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .7), 0px 0px 1px rgba(255, 255, 255, .8);
         }
         &:checked {

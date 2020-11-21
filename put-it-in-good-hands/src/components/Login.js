@@ -46,11 +46,11 @@ export default () => {
 
         if(validateEmail(email) === false){
             e.preventDefault()
-            setAlertText('Wprowadzony email jest nieprawidłowy')
+            setAlertText('Wprowadź poprawny adres e-mail')
             setEmailWarning(true)
         } else if(password.length < 6){
             e.preventDefault()
-            setAlertText('Wprowadzone hasło jest za krótkie!')
+            setAlertText('Wprowadzone hasło jest za krótkie')
             setPasswordWarning(true)
         } else {
         //CODE IS IMPLEMENTED BY TWO SOLUTION: JSONSERVER AND FIREBASE. DEFAULT IS FIREBASE. YOU CAN COMMENT FIRST SOLUTION AND UNCOMMENT SECOND TO CHECK HOW DOES IT WORK.
@@ -111,7 +111,7 @@ export default () => {
                 <div className='logFormBox'>
                     <div className='userBox boxSizeCorrect'>
 
-                        <label>Email</label>
+                        <label>E-mail</label>
                         <input type="text" name="email" placeholder='e-mail' value={email} onChange={handleEmail}></input>
                         
 

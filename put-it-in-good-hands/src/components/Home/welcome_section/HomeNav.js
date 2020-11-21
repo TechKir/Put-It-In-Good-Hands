@@ -157,7 +157,7 @@ export default () => {
                         smooth={true}
                         offset={-70}
                         duration={500}>
-                        o nas
+                        O nas
                     </Link>
                 </li>
                 <li className="navOptions">

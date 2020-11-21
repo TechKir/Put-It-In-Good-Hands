@@ -1,0 +1,225 @@
+{
+  "organizations" : [  {
+    "desc" : "Organizacja Pozarządowa",
+    "id" : 1,
+    "name" : "Organizacjom pozarzadowym",
+    "items" : [ {
+      "mission" : "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+      "name" : "\"LOREM1\"",
+      "stuff" : "ubrania, jedzenie, sprzęt AGD, meble, zabawki",
+      "type" : "Organizacja Pozarządowa"
+    }, {
+      "mission" : "Pomoc dzieciom ubogich rodzin",
+      "name" : "\"LOREM2\"",
+      "stuff" : "ubrania, meble, zabawki",
+      "type" : "Organizacja Pozarządowa"
+    }, {
+      "mission" : "Pomoc osobom nie posiadających miejsca zamieszkania.",
+      "name" : "\"LOREM3\"",
+      "stuff" : "ubrania, jedzenie, ciepłe koce",
+      "type" : "Organizacja Pozarządowa"
+    }, {
+      "mission" : "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+      "name" : "\"LOREM4\"",
+      "stuff" : "ubrania, jedzenie, sprzęt AGD, meble, zabawki",
+      "type" : "Organizacja Pozarządowa"
+    }, {
+      "mission" : "Pomoc dzieciom ubogich rodzin",
+      "name" : "\"LOREM5\"",
+      "stuff" : "ubrania, meble, zabawki",
+      "type" : "Organizacja Pozarządowa"
+    }, {
+      "mission" : "Pomoc osobom nie posiadających miejsca zamieszkania.",
+      "name" : "\"LOREM6\"",
+      "stuff" : "ubrania, jedzenie, ciepłe koce",
+      "type" : "Organizacja Pozarządowa"
+    } ]
+  }, {
+    "desc" : "Zbiórka Lokalna",
+    "id" : 2,
+    "name" : "Zbiórkom Lokalnym",
+    "items" : [ {
+      "mission" : "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+      "name" : "\"IPSUM1\"",
+      "stuff" : "ubrania, jedzenie, sprzęt AGD, meble, zabawki",
+      "type" : "Zbiórka Lokalna"
+    }, {
+      "mission" : "Pomoc dzieciom ubogich rodzin",
+      "name" : "\"IPSUM2\"",
+      "stuff" : "ubrania, meble, zabawki",
+      "type" : "Zbiórka Lokalna"
+    }, {
+      "mission" : "Pomoc osobom nie posiadających miejsca zamieszkania.",
+      "name" : "\"IPSUM3\"",
+      "stuff" : "ubrania, jedzenie, ciepłe koce",
+      "type" : "Zbiórka Lokalna"
+    } ]
+  },{
+    "desc" : "Fundacja",
+    "id" : 3,
+    "name" : "Fundacjom",
+    "items" : [ {
+      "mission" : "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+      "name" : "\"Dbam o Zdrowie\"",
+      "stuff" : "ubrania, jedzenie, sprzęt AGD, meble, zabawki",
+      "type" : "Fundacja"
+    }, {
+      "mission" : "Pomoc dzieciom ubogich rodzin",
+      "name" : "\"Dla Dzieci\"",
+      "stuff" : "ubrania, meble, zabawki",
+      "type" : "Fundacja"
+    }, {
+      "mission" : "Pomoc osobom nie posiadającym miejsca zamieszkania.",
+      "name" : "\"Bez Domu\"",
+      "stuff" : "ubrania, jedzenie, ciepłe koce",
+      "type" : "Fundacja"
+    }, {
+      "mission" : "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+      "name" : "\"Szansa\"",
+      "stuff" : "ubrania, jedzenie, sprzęt AGD, meble, zabawki",
+      "type" : "Fundacja"
+    }, {
+      "mission" : "Pomoc dzieciom ubogich rodzin",
+      "name" : "\"Promyk nadzieji\"",
+      "stuff" : "ubrania, meble, zabawki",
+      "type" : "Fundacja"
+    }, {
+      "mission" : "Pomoc osobom nie posiadających miejsca zamieszkania.",
+      "name" : "\"Razem\"",
+      "stuff" : "ubrania, jedzenie, ciepłe koce",
+      "type" : "Fundacja"
+    }, {
+      "mission" : "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+      "name" : "\"Nieść Pomoc\"",
+      "stuff" : "ubrania, jedzenie, sprzęt AGD, meble, zabawki",
+      "type" : "Fundacja"
+    }, {
+      "mission" : "Pomoc dzieciom ubogich rodzin",
+      "name" : "\"Nadzieja\"",
+      "stuff" : "ubrania, meble, zabawki",
+      "type" : "Fundacja"
+    }, {
+      "mission" : "Pomoc osobom nie posiadających miejsca zamieszkania.",
+      "name" : "\"Jesteśmy z Tobą\"",
+      "stuff" : "ubrania, jedzenie, ciepłe koce",
+      "type" : "Fundacja"
+    } ]
+  } ],
+  "users" : [ {
+    "actualOrder" : {
+      "city" : "Jjjbb",
+      "comments" : "",
+      "date" : "2020-11-20",
+      "hour" : "17:57",
+      "kindOfThings" : "ubrania, które nadają się do ponownego użycia",
+      "phoneNo" : "333444555",
+      "quantOfBags" : "2",
+      "street" : "Hh 4",
+      "town" : "Kraków",
+      "whatOrg" : "",
+      "whoHelp" : [ "dzieciom" ],
+      "zipCode" : "30-300"
+    },
+    "email" : "wojciech.kiryk@gmail.com",
+    "id" : 0,
+    "password" : "aaaaaa"
+  }, {
+    "actualOrder" : {
+      "city" : "Kraków",
+      "comments" : "",
+      "date" : "2020-08-14",
+      "hour" : "14:56",
+      "kindOfThings" : "zabawki",
+      "phoneNo" : "884779582",
+      "quantOfBags" : "2",
+      "street" : "Wesele, 26",
+      "town" : "Warszawa",
+      "whatOrg" : "",
+      "whoHelp" : [ "samotnym matkom", "osobom starszym" ],
+      "zipCode" : "30-127"
+    },
+    "email" : "gabriela.tlomak@uj.edu.pl",
+    "id" : 2,
+    "password" : "zzzzzz"
+  }, {
+    "email" : "ada.dee@op.pl",
+    "id" : 3,
+    "password" : "vvvvvv"
+  }, {
+    "actualOrder" : {
+      "city" : "Kraków",
+      "comments" : "",
+      "date" : "2020-11-12",
+      "hour" : "20:22",
+      "kindOfThings" : "ubrania, które nadają się do ponownego użycia",
+      "phoneNo" : "667949351",
+      "quantOfBags" : "1",
+      "street" : "Zwierz 33",
+      "town" : "Kraków",
+      "whatOrg" : "",
+      "whoHelp" : [ "samotnym matkom" ],
+      "zipCode" : "31-105"
+    },
+    "email" : "babajaga@o2.pl",
+    "id" : 3,
+    "password" : "llllll"
+  }, {
+    "actualOrder" : {
+      "city" : "Kraków",
+      "comments" : "kkk",
+      "date" : "2020-11-30",
+      "hour" : "12:36",
+      "kindOfThings" : "inne",
+      "phoneNo" : "667949351",
+      "quantOfBags" : "5",
+      "street" : "Zwierzyniecka 24 ING",
+      "town" : "Katowice",
+      "whatOrg" : "",
+      "whoHelp" : [ "niepełnosprawnym" ],
+      "zipCode" : "31-105"
+    },
+    "email" : "krysia@lesniczka.pl",
+    "id" : 4,
+    "password" : "kkkkkk"
+  }, {
+    "actualOrder" : {
+      "city" : "Karakow",
+      "comments" : "Zzz",
+      "date" : "2020-11-18",
+      "hour" : "11:48",
+      "kindOfThings" : "ubrania do wyrzucenia",
+      "phoneNo" : "444555666",
+      "quantOfBags" : "3",
+      "street" : "Kupa 20",
+      "town" : "Kraków",
+      "whatOrg" : "",
+      "whoHelp" : [ "dzieciom" ],
+      "zipCode" : "20-000"
+    },
+    "email" : "Mic@o2.pl",
+    "id" : 5,
+    "password" : "rrrrrr"
+  }, {
+    "actualOrder" : {
+      "city" : "Jsjsjd",
+      "comments" : "Sdd",
+      "date" : "2020-11-21",
+      "hour" : "04:05",
+      "kindOfThings" : "ubrania, które nadają się do ponownego użycia",
+      "phoneNo" : "500500500",
+      "quantOfBags" : "3",
+      "street" : "Ku 2",
+      "town" : "Warszawa",
+      "whatOrg" : "Edd",
+      "whoHelp" : [ "dzieciom" ],
+      "zipCode" : "30-333"
+    },
+    "email" : "baba@gmail.com",
+    "id" : 6,
+    "password" : "kwiatek"
+  }, {
+    "email" : "Lania@o2.pl",
+    "id" : 8,
+    "password" : "llllll"
+  } ]
+}
