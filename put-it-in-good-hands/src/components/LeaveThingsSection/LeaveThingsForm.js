@@ -6,11 +6,13 @@ import EnderBox from '../Home/ending_section/EnderBox';
 import FooterBox from '../Home/ending_section/footer/FooterBox';
 import firebase from "firebase/app";
 import 'firebase/database';
+import $ from 'jquery';
+import Inputmask from 'inputmask';
 
 const LeaveThingsForm = () => {
 
     //LOGIC:
-    const [step,setStep]=useState(1);
+    const [step,setStep]=useState(4);
     const {user,setIsHome,isTogether} = useContext(AuthContext);
     const [alert,setAlert]=useState(false);
 
@@ -127,6 +129,12 @@ const LeaveThingsForm = () => {
             }
         })
     }
+    //INPUT MASKS (Inputmask library):
+    const zipCodeMask = new Inputmask("99-999");
+    zipCodeMask.mask($("#zipCode"));        
+    const phoneMask = new Inputmask("999-999-999");
+    phoneMask.mask($("#phone"));
+
 
     const handleStep4 = () => {
 
@@ -408,10 +416,10 @@ const LeaveThingsForm = () => {
                                 <input name='city' value={userData.city} onChange={handleChange}></input>
 
                                 <label>Kod pocztowy:</label>
-                                <input name='zipCode' value={userData.zipCode} type='tel' placeholder="00-000" onChange={handleChange}></input>
+                                <input id='zipCode' name='zipCode' value={userData.zipCode} type='tel' placeholder="__-___" onChange={handleChange}></input>
 
                                 <label>Telefon komórkowy:</label>
-                                <input name='phoneNo' value={userData.phoneNo} type='tel' placeholder="000-000-000" onChange={handleChange}></input>
+                                <input id='phone' name='phoneNo' value={userData.phoneNo} type='tel' placeholder="___- ___-___" onChange={handleChange}></input>
                             </div>
 
                             <div className='dateBox'>
