@@ -32,10 +32,12 @@ export default (props) => {
     //Form validation:
     const handleSubmit = (e) => {
         e.preventDefault()
+        console.log('ustawienie wszystkich warningow na falsy')
         setNameWarning(false);
         setEmailWarning(false);
         setMessageWarning(false);
-        
+        let sendMessage = true;
+
         function validateEmail(email) {
             const re = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(String(email).toLowerCase());
@@ -44,13 +46,22 @@ export default (props) => {
         if((userName.indexOf(' ') > -1) || userName.length===0){
             e.preventDefault()
             setNameWarning(true)
-        } else if(validateEmail(email) === false){
+            sendMessage = false;
+        } 
+        if(validateEmail(email) === false){
             e.preventDefault()
             setEmailWarning(true)
-        } else if(message.length < 120){
+            sendMessage = false;
+        } 
+        if(message.length < 120){
             e.preventDefault()
             setMessageWarning(true)
-        } else {
+            sendMessage = false;
+        } 
+        //!nameWarning && !emailWarning && !messageWarning
+        if(sendMessage){
+            console.log('stop sent jest na false wiec wiadomosc wyslana')
+            //console.log('nie ma warningow wiec wiadomosc powinna zostac wyslana')
             const formData={name:userName, email:email, message: message}
             fetch('https://fer-api.coderslab.pl/v1/portfolio/contact', {
                 method:'POST',

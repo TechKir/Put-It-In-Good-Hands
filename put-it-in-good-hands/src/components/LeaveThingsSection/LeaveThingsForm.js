@@ -409,7 +409,7 @@ const LeaveThingsForm = () => {
 
                             <div className='dateBox'>
                             <h2>Adres odbioru:</h2>
-                                <label>Ulica:</label>
+                                <label>Ulica i numer:</label>
                                 <input name='street' value={userData.street} onChange={handleChange}></input>
 
                                 <label>Miasto:</label>
