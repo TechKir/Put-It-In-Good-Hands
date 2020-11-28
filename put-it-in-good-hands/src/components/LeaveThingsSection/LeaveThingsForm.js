@@ -12,9 +12,18 @@ import Inputmask from 'inputmask';
 const LeaveThingsForm = () => {
 
     //LOGIC:
-    const [step,setStep]=useState(4);
+    const [step,setStep]=useState(1);
     const {user,setIsHome,isTogether} = useContext(AuthContext);
+    //WARNINGS STATES:
     const [alert,setAlert]=useState(false);
+    const [cityAlert,setCityAlert]=useState(false);
+    const [beneficiaryAlert,setBeneficiaryAlert]=useState(false);
+    const [streetAlert,setStreetAlert]=useState(false);
+    const [townAlert,setTownAlert]=useState(false);
+    const [zipCodeAlert,setZipCodeAlert]=useState(false);
+    const [numberAlert,setNumberAlert]=useState(false);
+    const [dateAlert,setDateAlert]=useState(false);
+    const [hourAlert,setHourAlert]=useState(false);
 
     useEffect( () => {
         setIsHome(false);
@@ -66,6 +75,7 @@ const LeaveThingsForm = () => {
     const handleTown = (e) => {
         const {value} = e.target;
         setTown(value);
+        setCityAlert(false);
     };
 
     const [whoHelp,setWhoHelp]=useState([]);
@@ -80,7 +90,7 @@ const LeaveThingsForm = () => {
             result = [...copy, value]
         };
         setWhoHelp(result);
-        setAlert(false);
+        setBeneficiaryAlert(false);
     };
 
     const [isActiveColor1,setIsActiveColor1]=useState(false);
@@ -99,11 +109,13 @@ const LeaveThingsForm = () => {
     const handleStep3 = () => {
         if (town==='wybierz'){
             setAlertText('Wybierz miasto')
-            setAlert(true)
-        } else if(whoHelp.length===0){
+            setCityAlert(true)
+        }
+        if(whoHelp.length===0){
             setAlertText('Wybierz komu chcesz pomóc')
-            setAlert(true)
-        } else {
+            setBeneficiaryAlert(true)
+        }
+        if(town!=='wybierz' && whoHelp.length!==0){
             setAlert(false)
             setAlertText('')
             setStep(4)
@@ -150,7 +162,7 @@ const LeaveThingsForm = () => {
         const zipCodeResult = isZipCode(userData.zipCode);
 
         const isPhoneNo = (phoneNo) => {
-            return /^\d{9}$/.test(phoneNo)
+            return /^\d{3}\-\d{3}\-\d{3}$/.test(phoneNo)
         };
         const phoneResult = isPhoneNo(userData.phoneNo);
 
@@ -174,29 +186,43 @@ const LeaveThingsForm = () => {
         //END VALIDATION FUNCTIONS//
 
         //VALIDATION:
-        if (userData.street.length<2){
-            setAlert(true);
-            setAlertText('Nazwa ulicy musi mieć conajmniej 2 znaki')
-        } else if (streetResult===false){
-            setAlert(true);
-            setAlertText('musisz podać numer domu lub mieszkania')
-        } else if (userData.city.length<2){
-            setAlert(true);
-            setAlertText('Nazwa miasta musi mieć conajmniej 2 znaki')
-        } else if (zipCodeResult===false){
-            setAlert(true);
-            setAlertText('Wpisz poprawny kod pocztowy')
-        } else if (phoneResult===false){
-            setAlert(true);
-            setAlertText('Wpisz poprawny numer telefonu')
-        } else if (dateResult===false){
-            setAlert(true);
-            setAlertText('Wpisz poprawną datę - użyj ikony kalendarza')
-        } else if (hourResult===false){
-            setAlert(true);
-            setAlertText('Wpisz godzinę z zakresu 8.00-18.00 - użyj ikony zegara')
-        } else{
-            setAlert(false);
+        if (userData.street.length<2 || !streetResult){
+            setStreetAlert(true);
+        }else{
+            setStreetAlert(false);
+        }
+
+        if (userData.city.length<2){
+            setTownAlert(true);
+        }else{
+            setTownAlert(false);
+        }
+
+        if (!zipCodeResult){
+            setZipCodeAlert(true);
+        }else{
+            setZipCodeAlert(false);
+        }
+
+        if (!phoneResult){
+            setNumberAlert(true);
+        }else{
+            setNumberAlert(false);
+        }
+
+        if (!dateResult){
+            setDateAlert(true);
+        }else{
+            setDateAlert(false);
+        }
+
+        if (!hourResult){
+            setHourAlert(true);
+        }else{
+            setHourAlert(false);
+        }
+
+        if(userData.street.length>=2 && streetResult && userData.city.length>=2 && zipCodeResult && phoneResult && dateResult && hourResult){
             setAlertText('');
             setStep(5);
         }
@@ -283,8 +309,7 @@ const LeaveThingsForm = () => {
                                 <input checked={kindOfThings==='inne'} type="radio" name="things" value='inne' onChange={handleThings}></input>
                                 <label> inne</label><br/>
                             </div>
-
-                            {alert ? <div className='alert'><strong >Wybierz kategorie, którą chcesz oddać</strong></div> : null}
+                            <div className='warningFormDivs'>{alert ? <strong className='formAlert'>Wybierz kategorie, którą chcesz oddać</strong> : null}</div>
                             <div className='btnBox btnBoxCorrect'>
                                 <button type='submit' className='btn btnCorrect' >Dalej</button>
                             </div>
@@ -316,7 +341,7 @@ const LeaveThingsForm = () => {
                             </select>
                         </div>
 
-                    {alert ? <div className='alert'><strong >Wybierz ilość worków do oddania</strong></div> : null}
+                    <div className='warningFormDivs'>{alert ? <strong className='formAlert'>Wybierz ilość worków do oddania</strong> : null}</div>
                     <div className='btnBox btnBoxCorrect'>
                             <button className='btn btnCorrect' onClick={prevStep2}>Wstecz</button>
                             <button className='btn btnCorrect btnRightCorrect' onClick={handleStep2}>Dalej</button>
@@ -345,10 +370,9 @@ const LeaveThingsForm = () => {
                             <option selected={town==="Wrocław"} value="Wrocław">Wrocław</option>
                             <option selected={town==="Katowice"} value="Katowice">Katowice</option>
                         </select>
+                        <div className='warningFormDivs'>{cityAlert ? <strong className='formAlert'>Wybierz miasto</strong> : null}</div>
 
                         <h2>Komu chcesz pomóc:</h2>
-
-
                         <div className='chooseElementsBox'>
                             <div className='chooseElements'>
                                 <label style={ isActiveColor1 ? {backgroundColor:'#FAD648'} : { backgroundColor:'#F0F1F1'}}>dzieciom
@@ -381,12 +405,11 @@ const LeaveThingsForm = () => {
                                 </label>
                             </div>
                         </div>
-                                                                
+                        <div className='warningFormDivs'>{beneficiaryAlert ? <strong className='formAlert'>Wybierz komu chcesz pomóc</strong> : null}</div>                                                             
 
                         <h2>Wpisz nazwę konretnej organizacji (opcjonalnie):</h2>
                         <textarea value={whatOrg} onChange={handleOrg}></textarea>
 
-                        {alert ? <div className='alert'><strong >{alertText}</strong></div> : null}
                         <div className='btnBox btnBoxCorrect'>
                             <button className='btn btnCorrect' onClick={prevStep3}>Wstecz</button>
                             <button className='btn btnCorrect btnRightCorrect' onClick={handleStep3}>Dalej</button>
@@ -411,24 +434,30 @@ const LeaveThingsForm = () => {
                             <h2>Adres odbioru:</h2>
                                 <label>Ulica i numer:</label>
                                 <input name='street' value={userData.street} onChange={handleChange}></input>
+                                <div className='warningFormDivs'>{streetAlert ? <strong className='formAlert'>Podaj ulice wraz z numerem</strong> : null}</div>  
 
                                 <label>Miasto:</label>
                                 <input name='city' value={userData.city} onChange={handleChange}></input>
+                                <div className='warningFormDivs'>{townAlert ? <strong className='formAlert'>Wpisz nazwe miasta </strong> : null}</div>  
 
                                 <label>Kod pocztowy:</label>
                                 <input id='zipCode' name='zipCode' value={userData.zipCode} type='tel' placeholder="__-___" onChange={handleChange}></input>
+                                <div className='warningFormDivs'>{zipCodeAlert ? <strong className='formAlert'>Wprowadź kod pocztowy</strong> : null}</div>  
 
                                 <label>Telefon komórkowy:</label>
-                                <input id='phone' name='phoneNo' value={userData.phoneNo} type='tel' placeholder="___- ___-___" onChange={handleChange}></input>
+                                <input id='phone' name='phoneNo' value={userData.phoneNo} type='tel' placeholder="___-___-___" onChange={handleChange}></input>
+                                <div className='warningFormDivs'>{numberAlert ? <strong className='formAlert'>Wprowadź numer telefonu</strong> : null}</div>  
                             </div>
 
                             <div className='dateBox'>
                                 <h2>Data odbioru:</h2>
                                 <label>Data:</label>
                                 <input type='date' name='date' value={userData.date} onChange={handleChange}></input>
+                                <div className='warningFormDivs'>{dateAlert? <strong className='formAlert'>Wprowadź poprawną datę</strong> : null}</div>  
 
                                 <label>Godzina:</label>
                                 <input type='time' name='hour' value={userData.hour} onChange={handleChange}></input>
+                                <div className='warningFormDivs'>{hourAlert ? <strong className='formAlert'>Wprowadź godzinę z zakresu 8-18</strong> : null}</div>  
 
                                 <label>Uwagi dla kuriera:</label>
                                 <input className='lastInput' name='comments' value={userData.comments} onChange={handleChange}></input>
@@ -436,7 +465,7 @@ const LeaveThingsForm = () => {
                             
                         </div>
 
-                        {alert ? <div className='alert'> <strong>{alertText}</strong></div> : null}
+                        {/* {alert ? <div className='alert'> <strong>{alertText}</strong></div> : null} */}
 
                         <div className='btnBox btnBoxCorrect'>
                             <button className='btn btnCorrect' onClick={prevStep4}>Wstecz</button>
@@ -473,8 +502,7 @@ const LeaveThingsForm = () => {
                                 <p>Ulica: {userData.street}</p>
                                 <p>Miasto: {userData.city}</p>
                                 <p>Kod pocztowy: {userData.zipCode}</p>
-                                <p>Numer telefonu: {userData.phoneNo}</p>
-
+                                <p>Numer telefonu:{userData.phoneNo}</p>
                             </div>
 
                             <div className='dateBox'>

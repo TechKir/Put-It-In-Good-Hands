@@ -581,6 +581,23 @@ a:hover{
     margin-left: 3vw;
 }
 
+.warningDivs{
+    width: 54vw;
+    height: 4vw;
+    padding: 1vw 0;
+}
+.warningFormDivs{
+    width: 45vw;
+    height: 4vw;
+    padding: 1vw 0;
+}
+.formAlert{
+    color:red;
+    font-weight: bolder;
+    font-size: 2.2vw;
+    display: block;
+}
+
 @media screen and (min-width:576px) and (max-width:768px){
 
     .mainIdea h1 {
@@ -738,6 +755,11 @@ a:hover{
         height: 16vw;
     }
 
+    .warningDivs{
+        width: 54vw;
+        height: 4vw;
+        padding: 1vw 0;
+    }
 }
 
 @media screen and (min-width:769px){
@@ -1097,7 +1119,7 @@ a:hover{
         }
         input {
             font-size: 1.6vw;
-            margin: 1.5vw 0;
+            margin: 0.7vw 0;
             width: 28vw;
         }
         strong {
@@ -1107,7 +1129,7 @@ a:hover{
     }
 
     .logFormBox .userBoxReg {
-        height: 38vw;
+        height: 41vw;
     }
 
     .noBorderBtn {
@@ -1245,6 +1267,7 @@ a:hover{
     }
 
     .btnCorrect{
+        margin-top: 0;
         width: 10vw;
         height: 3vw;
         padding: 0;
@@ -1301,7 +1324,7 @@ a:hover{
     }
 
     .citySelect {
-        margin: 2vw 0 2vw 0;
+        margin: 2vw 0 0vw 0;
         width: 14vw;
         height: 2vw;
         font-size: 1.3vw;
@@ -1351,7 +1374,7 @@ a:hover{
 
     .formDateBoxes .dateBox label {
         font-size: 1.6vw;
-        margin-top: 1vw;
+        margin-top: 0vw;
         display: block;
     }
 
@@ -1423,6 +1446,18 @@ a:hover{
         font-size: 1vw;
         margin-top: 2vw;
     }
+
+    .warningDivs{
+        width: 27vw;
+        height: 4vw;
+        padding: 1vw 0;
+    }
+    .formAlert{
+        color:red;
+        font-weight: bolder;
+        font-size: 1.2vw;
+        display: block;
+    }
 }    
 
 @media screen and (min-width:1020px){
@@ -1435,7 +1470,7 @@ a:hover{
         }
         input {
             font-size: 1vw;
-            margin: 1.5vw 0;
+            margin: 0.7vw 0;
             width: 19vw;
             height: 2vw;
         }
@@ -1447,7 +1482,7 @@ a:hover{
 
     }
     .logFormBox .userBoxReg {
-        height: 25vw;
+        height: 30vw;
     }
 
     .noBorderBtn {
@@ -1473,6 +1508,20 @@ a:hover{
     .mainPage{
         padding: 2vw;
     }
+
+    .warningDivs{
+        width: 21vw;
+        height: 4vw;
+        padding: 1vw 0;
+    }
+
+    .formAlert{
+        color:red;
+        font-weight: bolder;
+        font-size: 1.2vw;
+        display: block;
+    }
+    
 }
 
 

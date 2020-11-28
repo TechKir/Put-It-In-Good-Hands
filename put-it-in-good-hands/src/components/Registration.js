@@ -50,6 +50,7 @@ export default () => {
         setEmailWarning(false);
         setPasswordWarning(false);
         setRepeatPasswordWarning(false);
+        let validationPass = true;
 
         function validateEmail(email) {
             const re = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -60,15 +61,21 @@ export default () => {
             e.preventDefault()
             setAlertText('Wprowadź poprawny adres e-mail')
             setEmailWarning(true)
-        } else if(password.length < 6){
+            validationPass = false;
+        }
+        if(password.length < 6){
             e.preventDefault()
             setAlertText('Podane hasło jest za krótkie')
             setPasswordWarning(true)
-        } else if(repeatPassword !== password){
+            validationPass = false;
+        }
+        if(repeatPassword !== password){
             e.preventDefault()
             setAlertText('Podane hasła różnią się od siebie')
             setRepeatPasswordWarning(true)
-        } else {
+            validationPass = false;
+        } 
+        if(validationPass) {
 
             const userData={email:email, password: password}
             //CODE IS IMPLEMENTED BY TWO SOLUTION: JSONSERVER AND FIREBASE. DEFAULT IS FIREBASE. YOU CAN COMMENT FIRST SOLUTION AND UNCOMMENT SECOND TO CHECK HOW DOES IT WORK.
@@ -152,15 +159,15 @@ export default () => {
 
                         <label>E-mail</label>
                         <input type="text" name="email" placeholder='e-mail' value={email} onChange={handleEmail}></input>
+                        <div className='warningDivs'>{emailWarning ? <strong>Wprowadź poprawny adres e-mail</strong> : null}</div>
 
                         <label>Hasło</label>
                         <input type="password" name="hasło" placeholder='hasło' value={password} onChange={handlePassword}></input>                       
+                        <div className='warningDivs'>{passwordWarning ? <strong>{alertText}</strong> : null}</div>
 
                         <label>Powtórz hasło</label>
-                        <input type="password" name="Powtórz hasło" placeholder='powtórz hasło' value={repeatPassword} onChange={handleRepeatPassword}></input>
-                        <div>{emailWarning ? <strong>{alertText}</strong> : null}</div>
-                        <div>{passwordWarning ? <strong>{alertText}</strong> : null}</div>
-                        <div>{repeatPasswordWarning ? <strong>{alertText}</strong> : null}</div>
+                        <input type="password" name="Powtórz hasło" placeholder='powtórz hasło' value={repeatPassword} onChange={handleRepeatPassword}></input>                     
+                        <div className='warningDivs'>{repeatPasswordWarning ? <strong>{alertText}</strong> : null}</div>
 
                     </div>
                 </div>

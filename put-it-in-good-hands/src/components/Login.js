@@ -38,7 +38,7 @@ export default () => {
         e.preventDefault();
         setEmailWarning(false);
         setPasswordWarning(false);
-
+        let validationPass = true;
         function validateEmail(email) {
             const re = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(String(email).toLowerCase());
@@ -46,13 +46,16 @@ export default () => {
 
         if(validateEmail(email) === false){
             e.preventDefault()
-            setAlertText('Wprowadź poprawny adres e-mail')
             setEmailWarning(true)
-        } else if(password.length < 6){
+            validationPass = false;
+        } 
+        if(password.length < 6){
             e.preventDefault()
             setAlertText('Wprowadzone hasło jest za krótkie')
             setPasswordWarning(true)
-        } else {
+            validationPass = false;
+        } 
+        if(validationPass) {
         //CODE IS IMPLEMENTED BY TWO SOLUTION: JSONSERVER AND FIREBASE. DEFAULT IS FIREBASE. YOU CAN COMMENT FIRST SOLUTION AND UNCOMMENT SECOND TO CHECK HOW DOES IT WORK.
         
         //FIREBASE:
@@ -113,12 +116,11 @@ export default () => {
 
                         <label>E-mail</label>
                         <input type="text" name="email" placeholder='e-mail' value={email} onChange={handleEmail}></input>
+                        <div className='warningDivs'>{emailWarning ? <strong>Wprowadź poprawny adres e-mail</strong> : null}</div>
                         
-
                         <label>Hasło</label>
                         <input type="password" name="hasło" placeholder='hasło' value={password} onChange={handlePassword}></input>
-                        <div>{emailWarning ? <strong>{alertText}</strong> : null}</div>
-                        <div>{passwordWarning ? <strong>{alertText}</strong> : null}</div>
+                        <div className='warningDivs'>{passwordWarning ? <strong>{alertText}</strong> : null}</div>
 
                     </div>
                 </div>
