@@ -99,7 +99,7 @@ export default () => {
                 setEmail('');
                 setPassword('');
                 setRepeatPassword('');
-                setTimeout( () => history.push('/login'),4000)
+                setTimeout( () => history.push('/login'),3000)
             }) 
 
             //JSONSERVER:

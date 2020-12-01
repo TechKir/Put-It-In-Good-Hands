@@ -128,7 +128,8 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     .navOptions{
         list-style: none;
         padding: 2vw;
-        border: 1px solid black;
+        border-left: 1px solid black;
+        border-bottom: 1px solid black;
         width: 45vw;
     }
 }
@@ -238,7 +239,9 @@ a:hover{
 
 .btnLogin{
     @include button;
-    font-size: 3vw;;
+    font-size: 3vw;
+    margin-right: 1vw;
+    width:24vw;
     a{
         transition: color 0.2s ease-in-out;
         text-decoration: none;
@@ -744,6 +747,12 @@ a:hover{
             font-size: 2.1vw;
                 background-color: transparent;
         }
+        strong{
+            color:red;
+            font-weight: bolder;
+            font-family: $font-base;
+            font-size: 1.5vw;
+        }
     }
 
     .paginationBox button {
@@ -1015,7 +1024,7 @@ a:hover{
             font-size: 1.3vw;
             position: absolute;
             top: -17vw;
-            right: -18.5vw;
+            right: -1.5vw;
             width: 50vw;
             text-align: center;
             color:black;

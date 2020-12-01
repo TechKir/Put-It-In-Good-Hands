@@ -12,7 +12,7 @@ import Inputmask from 'inputmask';
 const LeaveThingsForm = () => {
 
     //LOGIC:
-    const [step,setStep]=useState(1);
+    const [step,setStep]=useState(4);
     const {user,setIsHome,isTogether} = useContext(AuthContext);
     //WARNINGS STATES:
     const [alert,setAlert]=useState(false);
@@ -168,12 +168,16 @@ const LeaveThingsForm = () => {
 
         const isDate = (date) => {
             const now = new Date();
-            const actualDate = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`
+            const actualDate = `${now.getFullYear()}-${removeZeros(now.getMonth()+1)}-${removeZeros(now.getDate()+1)}`
+            
             if(date<actualDate){
                 return false
             }
-            return /^202\d-\d\d-\d\d$/.test(date)
+            if( /^202\d-\d\d-\d\d$/.test(date) || /^\d\d-\d\d-202\d$/.test(date)){
+                return true
+            }
         };
+
         const dateResult = isDate(userData.date);
 
         const isHour = (hour) => {
@@ -271,8 +275,18 @@ const LeaveThingsForm = () => {
         setUserData({street:'',city:'', zipCode:'', phoneNo:'',date:'', hour:'', comments:''});
     }
     //END LOGIC//
-    
+
     //DISPLAY CASES:
+    const now = new Date();
+    const removeZeros = (calendarNumber) => {
+        if(calendarNumber<10){
+            return "0"+calendarNumber
+        }
+        return calendarNumber
+    }
+
+    const afterActualDate = `${now.getFullYear()}-${removeZeros(now.getMonth()+1)}-${removeZeros(now.getDate()+1)}`
+
     switch (step) {
         case 1:
             return (
@@ -452,7 +466,7 @@ const LeaveThingsForm = () => {
                             <div className='dateBox'>
                                 <h2>Data odbioru:</h2>
                                 <label>Data:</label>
-                                <input type='date' name='date' value={userData.date} onChange={handleChange}></input>
+                                <input type='date' name='date' min={afterActualDate} value={userData.date} onChange={handleChange}></input>
                                 <div className='warningFormDivs'>{dateAlert? <strong className='formAlert'>Wprowadź poprawną datę</strong> : null}</div>  
 
                                 <label>Godzina:</label>
@@ -464,8 +478,6 @@ const LeaveThingsForm = () => {
                             </div>
                             
                         </div>
-
-                        {/* {alert ? <div className='alert'> <strong>{alertText}</strong></div> : null} */}
 
                         <div className='btnBox btnBoxCorrect'>
                             <button className='btn btnCorrect' onClick={prevStep4}>Wstecz</button>
