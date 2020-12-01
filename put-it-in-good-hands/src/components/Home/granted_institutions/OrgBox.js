@@ -36,7 +36,9 @@ export default () =>{
         setCurrentPage(1)
     };
 
-    const getOrg = () => organizations?.find(org => org.id == currentTypeOrg)
+    const getOrg = () => organizations?.find(org => {
+        return org.id === parseInt(currentTypeOrg)
+    })
     
     //Get current orgs (only 3 per page):
     const indexOfLastOrg = currentPage * orgsPerPage;
@@ -45,12 +47,12 @@ export default () =>{
 
     //Change page:
     const paginate = pageNumber => setCurrentPage(pageNumber);
-
+ 
     return (
         <>
             <div className='btnBox paddingTopCorrect'>
                 {organizations?.map((org,index) => (
-                    <button className={classnames('orgBtn', { active: org.id == currentTypeOrg })} key={index} id={org.id} onClick={handleCurrentTypeOrg}>{org.name}</button>
+                    <button className={classnames('orgBtn', { active: org.id === currentTypeOrg })} key={index} id={org.id} onClick={handleCurrentTypeOrg}>{org.name}</button>
                 ))}
             </div>
 

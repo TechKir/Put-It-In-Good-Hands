@@ -16,7 +16,7 @@ export default () => {
     useEffect( () => {
         setIsHome(false);
         setIsForm(false);
-    },[])
+    },[setUser,setIsHome,setIsForm])
 
     const [activeLoginBtn]=useState(true);
     const [email,setEmail]=useState('');
@@ -65,6 +65,7 @@ export default () => {
             for (let i=0; i<users.length;i++){
                 if (users[i].email===email && users[i].password===password ){
                     setTimeout( () => history.push('/'),500)
+                    setAlertText('')
                     setUser({email: users[i].email, password: users[i].password, actualOrder: users[i].actualOrder || null, id: i})
                     return
                 } else {

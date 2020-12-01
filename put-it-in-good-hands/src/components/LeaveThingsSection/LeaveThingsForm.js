@@ -27,7 +27,7 @@ const LeaveThingsForm = () => {
 
     useEffect( () => {
         setIsHome(false);
-    },[])
+    },[setIsHome])
 
     //STEP 1:
     const [kindOfThings,setKindOfThings]=useState(null);
@@ -41,7 +41,6 @@ const LeaveThingsForm = () => {
     const handleStep1 = (e) => {
         e.preventDefault()
         if(kindOfThings != null){
-            setAlertText('');
             setStep(2);
         } else {
             setAlert(true);
@@ -59,7 +58,6 @@ const LeaveThingsForm = () => {
     const handleStep2 = () => {
         if(quantOfBags !== 'wybierz'){           
             setAlert(false);
-            setAlertText('');
             setStep(3);
         } else {
             setAlert(true);
@@ -109,17 +107,14 @@ const LeaveThingsForm = () => {
 
     const handleStep3 = () => {
         if (town==='wybierz'){
-            setAlertText('Wybierz miasto')
-            setCityAlert(true)
+            setCityAlert(true);
         }
         if(whoHelp.length===0){
-            setAlertText('Wybierz komu chcesz pomóc')
-            setBeneficiaryAlert(true)
+            setBeneficiaryAlert(true);
         }
         if(town!=='wybierz' && whoHelp.length!==0){
-            setAlert(false)
-            setAlertText('')
-            setStep(4)
+            setAlert(false);
+            setStep(4);
         };
     };
 
@@ -130,7 +125,6 @@ const LeaveThingsForm = () => {
 
     //STEP 4:
     const [userData,setUserData]=useState({street:'',city:'', zipCode:'', phoneNo:'',date:'', hour:'', comments:''});
-    const [alertText,setAlertText]=useState('')
 
     const handleChange = (e) =>{
         const {name, value}=e.target;
@@ -163,7 +157,7 @@ const LeaveThingsForm = () => {
         const zipCodeResult = isZipCode(userData.zipCode);
 
         const isPhoneNo = (phoneNo) => {
-            return /^\d{3}\-\d{3}\-\d{3}$/.test(phoneNo)
+            return /^\d{3}-\d{3}-\d{3}$/.test(phoneNo)
         };
         const phoneResult = isPhoneNo(userData.phoneNo);
 
@@ -228,7 +222,6 @@ const LeaveThingsForm = () => {
         }
 
         if(userData.street.length>=2 && streetResult && userData.city.length>=2 && zipCodeResult && phoneResult && dateResult && hourResult){
-            setAlertText('');
             setStep(5);
         }
         // END VALIDATION //

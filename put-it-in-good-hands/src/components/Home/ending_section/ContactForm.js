@@ -32,7 +32,6 @@ export default (props) => {
     //Form validation:
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('ustawienie wszystkich warningow na falsy')
         setNameWarning(false);
         setEmailWarning(false);
         setMessageWarning(false);
@@ -60,8 +59,6 @@ export default (props) => {
         } 
         //!nameWarning && !emailWarning && !messageWarning
         if(sendMessage){
-            console.log('stop sent jest na false wiec wiadomosc wyslana')
-            //console.log('nie ma warningow wiec wiadomosc powinna zostac wyslana')
             const formData={name:userName, email:email, message: message}
             fetch('https://fer-api.coderslab.pl/v1/portfolio/contact', {
                 method:'POST',

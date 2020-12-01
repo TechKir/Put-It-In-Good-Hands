@@ -2,24 +2,26 @@ import React,{useState, useContext} from 'react';
 import classnames from 'classnames';
 import ThingsImg from './ThingsImg';
 import FormImg1 from '../../LeaveThingsSection/FormImg1';
+import {AuthContext} from '../../../App';
 //import { CSSTransition } from 'react-transition-group';
 //import Navigation from 'react-sticky-nav';
-import {AuthContext} from '../../../App';
-
-import { Link, animateScroll as scroll } from "react-scroll";
+//ADD THIS ON BELOW IMPORT IF YOU WANT TO WORK WITH STICKY NAV: animateScroll as scroll 
+import { Link } from "react-scroll";
 import {
     Link as Link2,
     } from 'react-router-dom';
 
 export default () => {
-    const [isOpen, setIsOpen] = useState(false);
+    //USE THIS IF YOU WANT TO WORK WITH STICKY NAV:
+    //const [isOpen, setIsOpen] = useState(false);
+    //const [scrooled, setScrooled]=useState(false);
+    //const [isHide,setIsHide]=useState(false);
     const [isActive, setIsActive]=useState(false);
-    const [scrooled, setScrooled]=useState(false);
-    const [isHide,setIsHide]=useState(false);
-    const { user, isForm, setIsForm} = useContext(AuthContext);
+    const { user, isForm } = useContext(AuthContext);
 
     const showNav = () =>{
-        setIsOpen(prevState => !prevState)
+        //USE THIS IF YOU WANT TO WORK WITH STICKY NAV:
+        //setIsOpen(prevState => !prevState)
         setIsActive(prevState => !prevState)
     };
 
@@ -50,8 +52,10 @@ export default () => {
     // },[])
 
 //className={scrooled ? 'scrolled' : 'notScrolled'} className={isHide ? 'hideNav' : ''}
+//USE THIS BELOV ON DIV IF YOU WANT TO WORK WITH STICKY NAV: className={classnames({hideNav: isHide, scrolled:scrooled})}
+
     return (
-        <div className={classnames({hideNav: isHide,scrolled:scrooled})} id='section1'>
+        <div id='section1'>
             <nav className={classnames('navigation',{hamburgerActive: isActive})}>
                 {isForm ? <FormImg1/> : <ThingsImg/> }
                 {user ?                                             

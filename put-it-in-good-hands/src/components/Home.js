@@ -19,7 +19,7 @@ export default () => {
     useEffect( () => {
         setIsForm(false);
         setIsHome(true);
-    },[])
+    },[setIsHome,setIsForm])
 
     return (
         <>

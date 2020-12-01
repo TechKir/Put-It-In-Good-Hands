@@ -19,7 +19,7 @@ export default () => {
     useEffect( () => {
         setIsHome(false);
         setIsForm(false);
-    },[])
+    },[setIsHome, setIsForm])
 
     const [activeRegBtn]=useState(true);
     const [email,setEmail]=useState('');
