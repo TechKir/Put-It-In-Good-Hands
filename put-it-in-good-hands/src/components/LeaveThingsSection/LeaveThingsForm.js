@@ -12,7 +12,7 @@ import Inputmask from 'inputmask';
 const LeaveThingsForm = () => {
 
     //LOGIC:
-    const [step,setStep]=useState(4);
+    const [step,setStep]=useState(1);
     const {user,setIsHome,isTogether} = useContext(AuthContext);
     //WARNINGS STATES:
     const [alert,setAlert]=useState(false);
@@ -38,7 +38,8 @@ const LeaveThingsForm = () => {
         setAlert(false);
     };
 
-    const handleStep1 = () => {
+    const handleStep1 = (e) => {
+        e.preventDefault()
         if(kindOfThings != null){
             setAlertText('');
             setStep(2);
@@ -169,7 +170,7 @@ const LeaveThingsForm = () => {
         const isDate = (date) => {
             const now = new Date();
             const actualDate = `${now.getFullYear()}-${removeZeros(now.getMonth()+1)}-${removeZeros(now.getDate()+1)}`
-            
+
             if(date<actualDate){
                 return false
             }

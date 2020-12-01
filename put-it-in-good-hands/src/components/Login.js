@@ -64,15 +64,16 @@ export default () => {
             let users = snapshot.val();
             for (let i=0; i<users.length;i++){
                 if (users[i].email===email && users[i].password===password ){
-                    history.push('/')
+                    setTimeout( () => history.push('/'),500)
                     setUser({email: users[i].email, password: users[i].password, actualOrder: users[i].actualOrder || null, id: i})
+                    return
                 } else {
                     setAlertText('Wprowadzone dane są nieprawidłowe ')
                     setPasswordWarning(true)
                 }
             }
         }) 
-
+        
         //JSONSERVER:
         // fetch(`http://localhost:3005/users?email=${email}&password=${password}`)
         //     .then(response => response.json())
