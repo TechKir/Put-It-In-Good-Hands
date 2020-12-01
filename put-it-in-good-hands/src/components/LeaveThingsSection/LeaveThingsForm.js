@@ -338,14 +338,14 @@ const LeaveThingsForm = () => {
                         <h1>Podaj liczbę wykorzystanych worków:</h1><br/>
                         <div className='step2Box'>
                             <p>Liczba 60l worków:</p>
-                            <select onChange={handleBags}>
+                            <select value={quantOfBags} onChange={handleBags}>
                                 <option value='wybierz'>---wybierz---</option>
                                 {/* i used 'selected' to change permament input color (when we click next and then prev, input lost his color)*/}
-                                <option selected={quantOfBags==='1'} value="1">1</option>
-                                <option selected={quantOfBags==='2'} value="2">2</option>
-                                <option selected={quantOfBags==='3'} value="3">3</option>
-                                <option selected={quantOfBags==='4'} value="4">4</option>
-                                <option selected={quantOfBags==='5'} value="5">5</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                         </div>
 
@@ -369,14 +369,14 @@ const LeaveThingsForm = () => {
                         <span>krok 3/4</span>
 
                         <h1>Lokalizacja:</h1>                    
-                        <select className='citySelect' onChange={handleTown}>
+                        <select value={town} className='citySelect' onChange={handleTown}>
                             <option value='wybierz'>---wybierz---</option>
                             {/* i used 'selected' to change permament input color (when we click next and then prev, input lost his color)*/}
-                            <option selected={town==="Poznań"} value="Poznań">Poznań</option>
-                            <option selected={town==="Warszawa"} value="Warszawa">Warszawa</option>
-                            <option selected={town==="Kraków"} value="Kraków">Kraków</option>
-                            <option selected={town==="Wrocław"} value="Wrocław">Wrocław</option>
-                            <option selected={town==="Katowice"} value="Katowice">Katowice</option>
+                            <option value="Poznań">Poznań</option>
+                            <option value="Warszawa">Warszawa</option>
+                            <option value="Kraków">Kraków</option>
+                            <option value="Wrocław">Wrocław</option>
+                            <option value="Katowice">Katowice</option>
                         </select>
                         <div className='warningFormDivs'>{cityAlert ? <strong className='formAlert'>Wybierz miasto</strong> : null}</div>
 
@@ -494,7 +494,7 @@ const LeaveThingsForm = () => {
 
                             <p>Ilość worków: {quantOfBags}</p>
                             <p>Zawartość: {kindOfThings}</p>
-                            <p>Zostanie darowane: {whoHelp.map( (element,index) => <p style={{display:'inline'}} key={index}>{index===whoHelp.length-1 ? element : element+', '} </p> )}</p>
+                            <p>Zostanie darowane: {whoHelp.map( (element,index) => <strong style={{display:'inline'}} key={index}>{index===whoHelp.length-1 ? element : element+', '} </strong> )}</p>
                             <p>Dla lokalizacji: {town}</p>
                             {/* <strong>Oddajesz:</strong>
                             <p>{quantOfBags} {quantOfBags===1 ? "worek" : "worki"}, {kindOfThings}, {whoHelp.map( (element,index) => <p key={index}>{element} </p> )}</p>
