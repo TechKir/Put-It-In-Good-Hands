@@ -98,7 +98,7 @@
         width: 19.5vw;
         height: 19.5vw;
         border:1px solid $altBackgroundColor;
-        box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .7), 0px 0px 1px rgba(255, 255, 255, .8);
+        //box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .7), 0px 0px 1px rgba(255, 255, 255, .8);
         transform:rotate(45deg);
         div{
             transform:rotate(-45deg);
@@ -137,7 +137,7 @@
             width: 4.5vw;
             height: 4.5vw;
             border-radius: 3vw;
-            box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .7), 0px 0px 1px rgba(255, 255, 255, .8);
+            //box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .7), 0px 0px 1px rgba(255, 255, 255, .8);
         }
         &:checked {
             &:before{
@@ -161,6 +161,11 @@
     input{
         display: none;
         margin-right: 3vw;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        -webkit-border-radius: 0;
+        border-radius: 0;
         // width: 4.5vw;
         // height: 4.5vw;
         //color:$attentionColor;
@@ -173,7 +178,7 @@
             border: 1px solid $regularFontColor;
             // width: 4.5vw;
             // height: 4.5vw;
-            box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .7), 0px 0px 1px rgba(255, 255, 255, .8);
+            //box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .7), 0px 0px 1px rgba(255, 255, 255, .8);
         }
     }
 }
