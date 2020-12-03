@@ -611,6 +611,16 @@ a:hover{
     display: block;
 }
 
+.chooseElement .checkmark {
+    width: 5vw;
+    height: 5vw;
+    top: 1.7vw;
+}
+.chooseElement label {
+    font-size: 3.5vw;
+    padding-left: 6.5vw;
+}
+
 @media screen and (min-width:576px) and (max-width:768px){
 
     .mainIdea h1 {
@@ -1260,20 +1270,21 @@ a:hover{
         font-size: 1.3vw;
     }
 
-    .chooseElement input:before {
-        width: 2vw;
-        height: 2vw;
-        border-radius: 1vw;
-    }
+    // .chooseElement input:before {
+    //     width: 2vw;
+    //     height: 2vw;
+    //     border-radius: 1vw;
+    // }
     .chooseElement input {
         margin-right: 2vw;
-        width: 2vw;
-        height: 2vw;
+        width: 0vw;
+        height: 0vw;
     }
     .chooseElement {
         display: flex;
         align-items: center;
         padding: 1vw 0;
+        padding-left: 2.5vw;
     }
 
     .btnBoxCorrect{
@@ -1476,6 +1487,16 @@ a:hover{
         font-weight: bolder;
         font-size: 1.2vw;
         display: block;
+    }
+
+    .chooseElement .checkmark {
+        width: 2vw;
+        height: 2vw;
+        top: 0.8vw;
+    }
+    .chooseElement label {
+        font-size: 1.7vw;
+        padding-left: 1.5vw;
     }
 }    
 

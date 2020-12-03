@@ -294,29 +294,40 @@ const LeaveThingsForm = () => {
                             <h1>Zaznacz co chcesz oddać:</h1><br/>
 
                             <div className='chooseElement'>
-                                <input checked={kindOfThings==='ubrania, które nadają się do ponownego użycia'} type="radio" name="things" value='ubrania, które nadają się do ponownego użycia' onChange={handleThings}></input>
-                                <label> ubrania, które nadają się do ponownego użycia</label><br/>
+                                <label> ubrania, które nadają się do ponownego użycia
+                                    <input checked={kindOfThings==='ubrania, które nadają się do ponownego użycia'} type="radio" name="things" value='ubrania, które nadają się do ponownego użycia' onChange={handleThings}></input>
+                                    <p className='checkmark'></p>
+                                </label><br/>
                             </div>
 
                             <div className='chooseElement'>
-                                <input checked={kindOfThings==='ubrania do wyrzucenia'} type="radio" name="things" value='ubrania do wyrzucenia' onChange={handleThings}></input>
-                                <label> ubrania do wyrzucenia</label><br/>
+                                <label> ubrania do wyrzucenia
+                                    <input checked={kindOfThings==='ubrania do wyrzucenia'} type="radio" name="things" value='ubrania do wyrzucenia' onChange={handleThings}></input> 
+                                    <p className='checkmark'></p>  
+                                </label><br/>
                             </div>
 
                             <div className='chooseElement'>
-                                <input checked={kindOfThings==='zabawki'} type="radio" name="things" value='zabawki' onChange={handleThings}></input>
-                                <label> zabawki</label><br/>
+                                <label> zabawki
+                                    <input checked={kindOfThings==='zabawki'} type="radio" name="things" value='zabawki' onChange={handleThings}></input>  
+                                    <p className='checkmark'></p>
+                                </label><br/>
                             </div>
 
                             <div className='chooseElement'>
-                                <input checked={kindOfThings==='książki'} type="radio" name="things" value='książki' onChange={handleThings}></input>
-                                <label> książki</label><br/>
+                                <label> książki
+                                    <input checked={kindOfThings==='książki'} type="radio" name="things" value='książki' onChange={handleThings}></input> 
+                                    <p className='checkmark'></p>                                
+                                </label><br/>
                             </div>
 
                             <div className='chooseElement'>
-                                <input checked={kindOfThings==='inne'} type="radio" name="things" value='inne' onChange={handleThings}></input>
-                                <label> inne</label><br/>
+                                <label> inne
+                                    <input checked={kindOfThings==='inne'} type="radio" name="things" value='inne' onChange={handleThings}></input> 
+                                    <p className='checkmark'></p>
+                                </label><br/>
                             </div>
+
                             <div className='warningFormDivs'>{alert ? <strong className='formAlert'>Wybierz kategorie, którą chcesz oddać</strong> : null}</div>
                             <div className='btnBox btnBoxCorrect'>
                                 <button type='submit' className='btn btnCorrect' >Dalej</button>
