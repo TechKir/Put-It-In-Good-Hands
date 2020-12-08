@@ -250,8 +250,8 @@ a:hover{
 .btnLogin{
     @include button;
     font-size: 3vw;
-    margin-right: 1vw;
     width:24vw;
+    margin-right: 1vw;
     a{
         transition: color 0.2s ease-in-out;
         text-decoration: none;
@@ -1056,6 +1056,7 @@ a:hover{
 
     .btnLogin{
         border: none;
+        margin-right: 0vw;
     }
 
     .navMenu {
