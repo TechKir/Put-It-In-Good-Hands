@@ -18,7 +18,7 @@ export default () =>{
 
     return (
         <div className='btnBox'>
-            <button className='putThingsBtn' onClick={handleOnClick}>
+            <button className='btn marginTopCorrect' onClick={handleOnClick}>
                 ODDAJ RZECZY
             </button>
         </div>

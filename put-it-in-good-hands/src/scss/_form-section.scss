@@ -4,11 +4,11 @@
     background-color: $attentionColor;
     color:$boldFontColor;
     width:100vw;
-    padding:4vw 2vw;
+    padding:2vw 6vw;
     display:inline-block;
     h1{
         padding-bottom:1vw;
-        font-size: 4.5vw;
+        font-size: 4vw;
         font-weight: bolder;
     }
     p{
@@ -44,11 +44,11 @@
 .leaveThingsForm{
     span{
         font-size: 2.5vw;
-        padding-bottom: 8vw;
+        padding-bottom: 3vw;
         display: block;
     }
     h1{
-        font-size: 4.5vw;
+        font-size: 4vw;
         font-weight: bolder;
         color: $boldFontColor;
     }
@@ -69,7 +69,7 @@
     // background-repeat: no-repeat;
     // //background-size: cover;
     // background-position: left;
-    padding: 4vw 2vw;;
+    padding: 4vw 6vw;;
     background-color: $altBackgroundColor;
 }
 
@@ -98,7 +98,7 @@
         width: 19.5vw;
         height: 19.5vw;
         border:1px solid $altBackgroundColor;
-        box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .7), 0px 0px 1px rgba(255, 255, 255, .8);
+        //box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .7), 0px 0px 1px rgba(255, 255, 255, .8);
         transform:rotate(45deg);
         div{
             transform:rotate(-45deg);
@@ -118,33 +118,35 @@
 .chooseElement{
     display: flex;
     align-items: center;
+    position: relative;
     padding: 2vw 0;
+    padding-left: 1.5vw;
     label{
-        font-size: 3.5vw;
+        font-size: 4.5vw;
+        padding-left: 1.5vw;
+    }
+    .checkmark{
+        position: absolute;
+        background-color: $altBackgroundColor;
+        transition: background-color 0.5s ease;
+        border: 1px solid $regularFontColor;
+        width: 2vw;
+        height: 2vw;
+        top: 0.7vw;
+        left: 0;
+        border-radius: 50%;
     }
     input{
-        margin-right: 3vw;
-        width: 4.5vw;
-        height: 4.5vw;
-        color:$attentionColor;
-        &:before{
-            content: '';
-            display: block;
-            background-color: $altBackgroundColor;
-            transition: background-color 0.5s ease;
-            //border-radius: 5vw;
-            border: 1px solid $regularFontColor;
-            width: 4.5vw;
-            height: 4.5vw;
-            box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .7), 0px 0px 1px rgba(255, 255, 255, .8);
-        }
-        &:checked {
-            &:before{
-                background-color: $attentionColor;
-            }
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        opacity: 0;
+        &:checked ~ .checkmark {
+            background-color:$attentionColor;
         }
     }
 }
+
 
 .chooseElements{
     display: flex;
@@ -159,9 +161,14 @@
     }
     input{
         display: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
         margin-right: 3vw;
-        // width: 4.5vw;
-        // height: 4.5vw;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        width: 4.5vw;
+        height: 4.5vw;
         //color:$attentionColor;
         &:before{
             content: '';
@@ -172,7 +179,7 @@
             border: 1px solid $regularFontColor;
             // width: 4.5vw;
             // height: 4.5vw;
-            box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .7), 0px 0px 1px rgba(255, 255, 255, .8);
+            //box-shadow: inset 0px 0px 1px rgba(0, 0, 0, .7), 0px 0px 1px rgba(255, 255, 255, .8);
         }
     }
 }
@@ -180,6 +187,7 @@
 .step2Box{
     display: flex;
     align-items: center;
+    padding-bottom: 2vw;
     p{
         font-size: 3vw;;
     }
@@ -223,7 +231,8 @@
         }
         label{
             font-size: 3.5vw;
-            margin-top:2vw;
+            margin-top:0vw;
+            display: block;
         }
         input{
             margin-right: 3vw;

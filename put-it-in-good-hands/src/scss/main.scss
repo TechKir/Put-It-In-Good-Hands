@@ -10,6 +10,22 @@
     margin:0;
 }
 
+input{
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    appearance: none;
+    border-radius: 0;
+}
+
+textarea{
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
 .unvisible{
     opacity:0;
 }
@@ -47,7 +63,7 @@ body, html {
     font-size: 4vw;
     color: $regularFontColor;
     border:1px solid $regularFontColor;
-    width: 25vw;
+    width: 30vw;
 }
 
 //home section :
@@ -122,7 +138,8 @@ button:focus {outline:0;border: 2px solid $attentionColor;}
     .navOptions{
         list-style: none;
         padding: 2vw;
-        border: 1px solid black;
+        border-left: 1px solid black;
+        border-bottom: 1px solid black;
         width: 45vw;
     }
 }
@@ -232,7 +249,9 @@ a:hover{
 
 .btnLogin{
     @include button;
-    font-size: 3vw;;
+    font-size: 3vw;
+    width:24vw;
+    margin-right: 1vw;
     a{
         transition: color 0.2s ease-in-out;
         text-decoration: none;
@@ -356,9 +375,13 @@ a:hover{
     align-items: center;
     //button:focus {outline:0;border: 0.1vw solid $altBackgroundColor;}
     .active{
-        border: 0.1vw solid $altBackgroundColor;
+        border: 0.2vw solid $attentionColor;
         padding: 0.9vw 0;
     }
+}
+
+.paddingTopCorrect{
+    padding-top: 0;
 }
 
 .btnBoxMenu{
@@ -375,11 +398,11 @@ a:hover{
 
 .aboutUsBox{
     width: 100vw;
-    height: 60vw;
+    height: 68vw;
     display: flex;
     .aboutUs{
         width: 50vw;
-        height: 60vw;
+        height: 68vw;
         background-color: $altBackgroundColor;
     }
     .happyPeopleImg{
@@ -394,7 +417,7 @@ a:hover{
     color: $boldFontColor;
     text-align: center;
     h2{
-        padding-top: 6vw;       
+        padding-top: 8vw;       
         font-size: 4vw;
     }
     div{
@@ -481,9 +504,9 @@ a:hover{
         font-size: 4vw;
         color: $regularFontColor;
     }
-    button:focus {outline:0;border: 2px solid $altBackgroundColor;}
+    button:focus {outline:0;border: 0.2vw solid $attentionColor;}
     .active{
-        border: 2px solid $altBackgroundColor
+        border: 0.2vw solid $attentionColor
     }
 }
 
@@ -501,7 +524,7 @@ a:hover{
         color: $boldFontColor;
     }
     input{
-        font-size: 4vw;
+        font-size: 3.5vw;
         color: $boldFontColor;
         width: 61vw;
         opacity: 0.5;
@@ -510,7 +533,7 @@ a:hover{
     }
     textarea{
         font-family: $font-base;
-        font-size: 4vw;
+        font-size: 3.5vw;
         color: $boldFontColor;
         opacity: 0.5;
         border: none;
@@ -565,6 +588,37 @@ a:hover{
 
 .logMarginCorrect{
     margin-top: 15vw;
+}
+
+.btnRightCorrect{
+    margin-left: 3vw;
+}
+
+.warningDivs{
+    width: 54vw;
+    height: 4vw;
+    padding: 1vw 0;
+}
+.warningFormDivs{
+    width: 45vw;
+    height: 4vw;
+    padding: 1vw 0;
+}
+.formAlert{
+    color:red;
+    font-weight: bolder;
+    font-size: 2.2vw;
+    display: block;
+}
+
+.chooseElement .checkmark {
+    width: 5vw;
+    height: 5vw;
+    top: 1.7vw;
+}
+.chooseElement label {
+    font-size: 3.5vw;
+    padding-left: 6.5vw;
 }
 
 @media screen and (min-width:576px) and (max-width:768px){
@@ -657,11 +711,11 @@ a:hover{
     }
     .aboutUsBox{
         width: 100vw;
-        height: 49vw;
+        height: 54vw;
         display: flex;
         .aboutUs{
             width: 50vw;
-            height: 49vw;
+            height: 54vw;
             background-color: $altBackgroundColor;
         }
         .happyPeopleImg{
@@ -711,12 +765,18 @@ a:hover{
         }
         textarea {
             font-size: 2.1vw;
-                background-color: transparent;
+            background-color: transparent;
+        }
+        strong{
+            color:red;
+            font-weight: bolder;
+            font-family: $font-base;
+            font-size: 1.5vw;
         }
     }
 
     .paginationBox button {
-        font-size: 3vw;
+        font-size: 2.5vw;
     }
 
     .homeImg {
@@ -724,6 +784,11 @@ a:hover{
         height: 16vw;
     }
 
+    .warningDivs{
+        width: 54vw;
+        height: 4vw;
+        padding: 1vw 0;
+    }
 }
 
 @media screen and (min-width:769px){
@@ -739,7 +804,7 @@ a:hover{
             font-weight: normal;
         }
         p{
-            font-size: 1.1vw;
+            font-size: 1vw;
             padding: 1vw;
         }
     }
@@ -874,20 +939,20 @@ a:hover{
     // }
 
     .orgBtn {
-        margin:2vw;
+        margin:1.2vw;
         font-size: 1.3vw;
         width: 11vw;
     }
 
     .orgText {
-        padding: 2vw 23vw 7vw 23vw;
+        padding: 2vw 23vw 2vw 23vw;
         width: 90vw;
         font-size: 1.2vw;
         margin-left: 3.5vw;
     }
 
     .orgBox .orgItem {
-        padding: 1.5vw 0;
+        padding: 0.2vw 0;
         margin: 0 13vw;
         h3{
             font-size: 1.3vw;
@@ -933,7 +998,7 @@ a:hover{
     .formHomeBox{
         position: absolute;
         left: 60vw;
-        top: 230vw;
+        top: 220vw;
     }
 
     .thingsImg2 {
@@ -944,7 +1009,7 @@ a:hover{
     .footerBox {
         position: absolute;
         left: 12vw;
-        top: 277vw;
+        top: 267vw;
         padding-bottom: 0vw;
         p{
             font-size: 1vw;
@@ -979,15 +1044,19 @@ a:hover{
             font-size: 1.3vw;
             position: absolute;
             top: -17vw;
-            right: -8vw;
+            right: -1.5vw;
             width: 50vw;
-            font-weight: bolder;
             text-align: center;
+            color:black;
+        }
+        .positionRightCorrect{
+            right: -10.3vw;
         }
     }
 
     .btnLogin{
         border: none;
+        margin-right: 0vw;
     }
 
     .navMenu {
@@ -1069,7 +1138,7 @@ a:hover{
     }
 
     .formHome strong {
-        font-size: 1vw;
+        font-size: 0.9vw;
     }
 
     .logFormBox .userBox {
@@ -1080,7 +1149,7 @@ a:hover{
         }
         input {
             font-size: 1.6vw;
-            margin: 1.5vw 0;
+            margin: 0.7vw 0;
             width: 28vw;
         }
         strong {
@@ -1090,7 +1159,7 @@ a:hover{
     }
 
     .logFormBox .userBoxReg {
-        height: 38vw;
+        height: 41vw;
     }
 
     .noBorderBtn {
@@ -1192,7 +1261,7 @@ a:hover{
     }
 
     .leaveThingsForm h1 {
-        font-size: 1.6vw;
+        font-size: 1.4vw;
         font-weight: bolder;
         color: #3C3C3C;
     }
@@ -1202,19 +1271,21 @@ a:hover{
         font-size: 1.3vw;
     }
 
-    .chooseElement input:before {
-        width: 2vw;
-        height: 2vw;
-    }
+    // .chooseElement input:before {
+    //     width: 2vw;
+    //     height: 2vw;
+    //     border-radius: 1vw;
+    // }
     .chooseElement input {
         margin-right: 2vw;
-        width: 2vw;
-        height: 2vw;
+        width: 0vw;
+        height: 0vw;
     }
     .chooseElement {
         display: flex;
         align-items: center;
         padding: 1vw 0;
+        padding-left: 2.5vw;
     }
 
     .btnBoxCorrect{
@@ -1222,7 +1293,12 @@ a:hover{
         align-items: center;
     }
 
+    .marginTopCorrect{
+        margin: 2vw 0 2vw 0;
+    }
+
     .btnCorrect{
+        margin-top: 0;
         width: 10vw;
         height: 3vw;
         padding: 0;
@@ -1232,13 +1308,13 @@ a:hover{
     .formHomeBox2 {
         position: absolute;
         left: 60vw;
-        top: 115vw;
+        top: 110vw;
     }
 
     .footerBoxCorrect {
         position: absolute;
         left: 12vw;
-        top: 161vw;
+        top: 157vw;
         padding-bottom: 0vw;
     }
 
@@ -1279,7 +1355,7 @@ a:hover{
     }
 
     .citySelect {
-        margin: 2vw 0 2vw 0;
+        margin: 2vw 0 0vw 0;
         width: 14vw;
         height: 2vw;
         font-size: 1.3vw;
@@ -1293,7 +1369,7 @@ a:hover{
     .chooseElements {
         padding: 1vw 1vw 1vw 0;
         label {
-            font-size: 1.3vw;
+            font-size: 1.2vw;
             padding: 0.5vw;
         }
     }
@@ -1329,7 +1405,7 @@ a:hover{
 
     .formDateBoxes .dateBox label {
         font-size: 1.6vw;
-        margin-top: 1vw;
+        margin-top: 0vw;
         display: block;
     }
 
@@ -1401,6 +1477,28 @@ a:hover{
         font-size: 1vw;
         margin-top: 2vw;
     }
+
+    .warningDivs{
+        width: 27vw;
+        height: 4vw;
+        padding: 1vw 0;
+    }
+    .formAlert{
+        color:red;
+        font-weight: bolder;
+        font-size: 1.2vw;
+        display: block;
+    }
+
+    .chooseElement .checkmark {
+        width: 2vw;
+        height: 2vw;
+        top: 0.8vw;
+    }
+    .chooseElement label {
+        font-size: 1.7vw;
+        padding-left: 1.5vw;
+    }
 }    
 
 @media screen and (min-width:1020px){
@@ -1413,7 +1511,7 @@ a:hover{
         }
         input {
             font-size: 1vw;
-            margin: 1.5vw 0;
+            margin: 0.7vw 0;
             width: 19vw;
             height: 2vw;
         }
@@ -1425,7 +1523,7 @@ a:hover{
 
     }
     .logFormBox .userBoxReg {
-        height: 25vw;
+        height: 30vw;
     }
 
     .noBorderBtn {
@@ -1451,6 +1549,20 @@ a:hover{
     .mainPage{
         padding: 2vw;
     }
+
+    .warningDivs{
+        width: 21vw;
+        height: 4vw;
+        padding: 1vw 0;
+    }
+
+    .formAlert{
+        color:red;
+        font-weight: bolder;
+        font-size: 1.2vw;
+        display: block;
+    }
+    
 }
 
 

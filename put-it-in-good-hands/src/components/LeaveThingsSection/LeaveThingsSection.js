@@ -3,9 +3,9 @@ import HomeNav from '../Home/welcome_section/HomeNav';
 import MainTheme from './MainTheme';
 import StepsInstruction from './StepsInstruction';
 import LeaveThingsForm from './LeaveThingsForm';
-import EnderBox from '../Home/ending_section/EnderBox';
-import FooterBox from '../Home/ending_section/footer/FooterBox';
 import {AuthContext} from '../../App';
+// import EnderBox from '../Home/ending_section/EnderBox';
+// import FooterBox from '../Home/ending_section/footer/FooterBox';
 
 
 
@@ -16,7 +16,7 @@ const LeaveThingsSection = () => {
     useEffect ( () => {
         setIsForm(true);
         setIsHome(false);
-    },[])
+    },[setIsForm, setIsHome])
 
     return (
         <>

@@ -8,6 +8,8 @@
     "@testing-library/user-event": "^7.2.1",
     "classnames": "^2.2.6",
     "firebase": "^8.0.2",
+    "inputmask": "^5.0.6-beta.20",
+    "jquery": "^3.5.1",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

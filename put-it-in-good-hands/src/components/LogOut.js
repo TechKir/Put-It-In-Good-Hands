@@ -12,7 +12,7 @@ export default () => {
         setUser(null);
         setIsHome(false);
         setIsForm(false);
-    }, []);
+    }, [setUser, setIsHome, setIsForm ]);
 
     return(
         <> 

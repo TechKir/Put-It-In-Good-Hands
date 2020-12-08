@@ -6,17 +6,28 @@ import EnderBox from '../Home/ending_section/EnderBox';
 import FooterBox from '../Home/ending_section/footer/FooterBox';
 import firebase from "firebase/app";
 import 'firebase/database';
+import $ from 'jquery';
+import Inputmask from 'inputmask';
 
 const LeaveThingsForm = () => {
 
     //LOGIC:
     const [step,setStep]=useState(1);
     const {user,setIsHome,isTogether} = useContext(AuthContext);
+    //WARNINGS STATES:
     const [alert,setAlert]=useState(false);
+    const [cityAlert,setCityAlert]=useState(false);
+    const [beneficiaryAlert,setBeneficiaryAlert]=useState(false);
+    const [streetAlert,setStreetAlert]=useState(false);
+    const [townAlert,setTownAlert]=useState(false);
+    const [zipCodeAlert,setZipCodeAlert]=useState(false);
+    const [numberAlert,setNumberAlert]=useState(false);
+    const [dateAlert,setDateAlert]=useState(false);
+    const [hourAlert,setHourAlert]=useState(false);
 
     useEffect( () => {
         setIsHome(false);
-    },[])
+    },[setIsHome])
 
     //STEP 1:
     const [kindOfThings,setKindOfThings]=useState(null);
@@ -27,9 +38,9 @@ const LeaveThingsForm = () => {
         setAlert(false);
     };
 
-    const handleStep1 = () => {
+    const handleStep1 = (e) => {
+        e.preventDefault()
         if(kindOfThings != null){
-            setAlertText('');
             setStep(2);
         } else {
             setAlert(true);
@@ -47,7 +58,6 @@ const LeaveThingsForm = () => {
     const handleStep2 = () => {
         if(quantOfBags !== 'wybierz'){           
             setAlert(false);
-            setAlertText('');
             setStep(3);
         } else {
             setAlert(true);
@@ -64,6 +74,7 @@ const LeaveThingsForm = () => {
     const handleTown = (e) => {
         const {value} = e.target;
         setTown(value);
+        setCityAlert(false);
     };
 
     const [whoHelp,setWhoHelp]=useState([]);
@@ -78,7 +89,7 @@ const LeaveThingsForm = () => {
             result = [...copy, value]
         };
         setWhoHelp(result);
-        setAlert(false);
+        setBeneficiaryAlert(false);
     };
 
     const [isActiveColor1,setIsActiveColor1]=useState(false);
@@ -96,15 +107,14 @@ const LeaveThingsForm = () => {
 
     const handleStep3 = () => {
         if (town==='wybierz'){
-            setAlertText('Wybierz miasto')
-            setAlert(true)
-        } else if(whoHelp.length===0){
-            setAlertText('Wybierz komu chcesz pomóc')
-            setAlert(true)
-        } else {
-            setAlert(false)
-            setAlertText('')
-            setStep(4)
+            setCityAlert(true);
+        }
+        if(whoHelp.length===0){
+            setBeneficiaryAlert(true);
+        }
+        if(town!=='wybierz' && whoHelp.length!==0){
+            setAlert(false);
+            setStep(4);
         };
     };
 
@@ -115,7 +125,6 @@ const LeaveThingsForm = () => {
 
     //STEP 4:
     const [userData,setUserData]=useState({street:'',city:'', zipCode:'', phoneNo:'',date:'', hour:'', comments:''});
-    const [alertText,setAlertText]=useState('')
 
     const handleChange = (e) =>{
         const {name, value}=e.target;
@@ -127,6 +136,12 @@ const LeaveThingsForm = () => {
             }
         })
     }
+    //INPUT MASKS (Inputmask library):
+    const zipCodeMask = new Inputmask("99-999");
+    zipCodeMask.mask($("#zipCode"));        
+    const phoneMask = new Inputmask("999-999-999");
+    phoneMask.mask($("#phone"));
+
 
     const handleStep4 = () => {
 
@@ -142,46 +157,71 @@ const LeaveThingsForm = () => {
         const zipCodeResult = isZipCode(userData.zipCode);
 
         const isPhoneNo = (phoneNo) => {
-            return /^\d{9}$/.test(phoneNo)
+            return /^\d{3}-\d{3}-\d{3}$/.test(phoneNo)
         };
         const phoneResult = isPhoneNo(userData.phoneNo);
 
         const isDate = (date) => {
-            return /^202\d-\d\d-\d\d$/.test(date)
+            const now = new Date();
+            const actualDate = `${now.getFullYear()}-${removeZeros(now.getMonth()+1)}-${removeZeros(now.getDate()+1)}`
+
+            if(date<actualDate){
+                return false
+            }
+            if( /^202\d-\d\d-\d\d$/.test(date) || /^\d\d-\d\d-202\d$/.test(date)){
+                return true
+            }
         };
+
         const dateResult = isDate(userData.date);
 
         const isHour = (hour) => {
+            if(hour<"08:00" || hour>"18:00"){
+                return false
+            }
             return /^\d\d:\d\d$/.test(hour)
         };
         const hourResult = isHour(userData.hour);
         //END VALIDATION FUNCTIONS//
 
         //VALIDATION:
-        if (userData.street.length<2){
-            setAlert(true);
-            setAlertText('Nazwa ulicy musi mieć conajmniej 2 znaki')
-        } else if (streetResult===false){
-            setAlert(true);
-            setAlertText('musisz podać numer domu lub mieszkania')
-        } else if (userData.city.length<2){
-            setAlert(true);
-            setAlertText('Nazwa miasta musi mieć conajmniej 2 znaki')
-        } else if (zipCodeResult===false){
-            setAlert(true);
-            setAlertText('Wpisz poprawny kod pocztowy')
-        } else if (phoneResult===false){
-            setAlert(true);
-            setAlertText('Wpisz poprawny numer telefonu')
-        } else if (dateResult===false){
-            setAlert(true);
-            setAlertText('Wpisz poprawny format daty - użyj ikony kalendarza')
-        } else if (hourResult===false){
-            setAlert(true);
-            setAlertText('Wpisz poprawny format godziny - użyj ikony zegara')
-        } else{
-            setAlert(false);
-            setAlertText('');
+        if (userData.street.length<2 || !streetResult){
+            setStreetAlert(true);
+        }else{
+            setStreetAlert(false);
+        }
+
+        if (userData.city.length<2){
+            setTownAlert(true);
+        }else{
+            setTownAlert(false);
+        }
+
+        if (!zipCodeResult){
+            setZipCodeAlert(true);
+        }else{
+            setZipCodeAlert(false);
+        }
+
+        if (!phoneResult){
+            setNumberAlert(true);
+        }else{
+            setNumberAlert(false);
+        }
+
+        if (!dateResult){
+            setDateAlert(true);
+        }else{
+            setDateAlert(false);
+        }
+
+        if (!hourResult){
+            setHourAlert(true);
+        }else{
+            setHourAlert(false);
+        }
+
+        if(userData.street.length>=2 && streetResult && userData.city.length>=2 && zipCodeResult && phoneResult && dateResult && hourResult){
             setStep(5);
         }
         // END VALIDATION //
@@ -229,8 +269,18 @@ const LeaveThingsForm = () => {
         setUserData({street:'',city:'', zipCode:'', phoneNo:'',date:'', hour:'', comments:''});
     }
     //END LOGIC//
-    
+
     //DISPLAY CASES:
+    const now = new Date();
+    const removeZeros = (calendarNumber) => {
+        if(calendarNumber<10){
+            return "0"+calendarNumber
+        }
+        return calendarNumber
+    }
+
+    const afterActualDate = `${now.getFullYear()}-${removeZeros(now.getMonth()+1)}-${removeZeros(now.getDate()+1)}`
+
     switch (step) {
         case 1:
             return (
@@ -244,31 +294,41 @@ const LeaveThingsForm = () => {
                             <h1>Zaznacz co chcesz oddać:</h1><br/>
 
                             <div className='chooseElement'>
-                                <input checked={kindOfThings==='ubrania, które nadają się do ponownego użycia'} type="radio" name="things" value='ubrania, które nadają się do ponownego użycia' onChange={handleThings}></input>
-                                <label> ubrania, które nadają się do ponownego użycia</label><br/>
+                                <label> ubrania, które nadają się do ponownego użycia
+                                    <input checked={kindOfThings==='ubrania, które nadają się do ponownego użycia'} type="radio" name="things" value='ubrania, które nadają się do ponownego użycia' onChange={handleThings}></input>
+                                    <p className='checkmark'></p>
+                                </label><br/>
                             </div>
 
                             <div className='chooseElement'>
-                                <input checked={kindOfThings==='ubrania do wyrzucenia'} type="radio" name="things" value='ubrania do wyrzucenia' onChange={handleThings}></input>
-                                <label> ubrania do wyrzucenia</label><br/>
+                                <label> ubrania do wyrzucenia
+                                    <input checked={kindOfThings==='ubrania do wyrzucenia'} type="radio" name="things" value='ubrania do wyrzucenia' onChange={handleThings}></input> 
+                                    <p className='checkmark'></p>  
+                                </label><br/>
                             </div>
 
                             <div className='chooseElement'>
-                                <input checked={kindOfThings==='zabawki'} type="radio" name="things" value='zabawki' onChange={handleThings}></input>
-                                <label> zabawki</label><br/>
+                                <label> zabawki
+                                    <input checked={kindOfThings==='zabawki'} type="radio" name="things" value='zabawki' onChange={handleThings}></input>  
+                                    <p className='checkmark'></p>
+                                </label><br/>
                             </div>
 
                             <div className='chooseElement'>
-                                <input checked={kindOfThings==='książki'} type="radio" name="things" value='książki' onChange={handleThings}></input>
-                                <label> książki</label><br/>
+                                <label> książki
+                                    <input checked={kindOfThings==='książki'} type="radio" name="things" value='książki' onChange={handleThings}></input> 
+                                    <p className='checkmark'></p>                                
+                                </label><br/>
                             </div>
 
                             <div className='chooseElement'>
-                                <input checked={kindOfThings==='inne'} type="radio" name="things" value='inne' onChange={handleThings}></input>
-                                <label> inne</label><br/>
+                                <label> inne
+                                    <input checked={kindOfThings==='inne'} type="radio" name="things" value='inne' onChange={handleThings}></input> 
+                                    <p className='checkmark'></p>
+                                </label><br/>
                             </div>
 
-                            {alert ? <div className='alert'><strong >Wybierz kategorie, którą chcesz oddać</strong></div> : null}
+                            <div className='warningFormDivs'>{alert ? <strong className='formAlert'>Wybierz kategorie, którą chcesz oddać</strong> : null}</div>
                             <div className='btnBox btnBoxCorrect'>
                                 <button type='submit' className='btn btnCorrect' >Dalej</button>
                             </div>
@@ -286,24 +346,24 @@ const LeaveThingsForm = () => {
                     <YellowBelt text='Wszystkie rzeczy zapakuj w 60l worki.'/>
                     <div className='leaveThingsForm'>
                         <span>krok 2/4</span>
-                        <h1>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h1><br/>
+                        <h1>Podaj liczbę wykorzystanych worków:</h1><br/>
                         <div className='step2Box'>
                             <p>Liczba 60l worków:</p>
-                            <select onChange={handleBags}>
+                            <select value={quantOfBags} onChange={handleBags}>
                                 <option value='wybierz'>---wybierz---</option>
                                 {/* i used 'selected' to change permament input color (when we click next and then prev, input lost his color)*/}
-                                <option selected={quantOfBags==='1'} value="1">1</option>
-                                <option selected={quantOfBags==='2'} value="2">2</option>
-                                <option selected={quantOfBags==='3'} value="3">3</option>
-                                <option selected={quantOfBags==='4'} value="4">4</option>
-                                <option selected={quantOfBags==='5'} value="5">5</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                         </div>
 
-                    {alert ? <div className='alert'><strong >Wybierz ilość worków do oddania</strong></div> : null}
+                    <div className='warningFormDivs'>{alert ? <strong className='formAlert'>Wybierz ilość worków do oddania</strong> : null}</div>
                     <div className='btnBox btnBoxCorrect'>
                             <button className='btn btnCorrect' onClick={prevStep2}>Wstecz</button>
-                            <button className='btn btnCorrect' onClick={handleStep2}>Dalej</button>
+                            <button className='btn btnCorrect btnRightCorrect' onClick={handleStep2}>Dalej</button>
                         </div>
                     </div>
                     <EnderBox />
@@ -320,19 +380,18 @@ const LeaveThingsForm = () => {
                         <span>krok 3/4</span>
 
                         <h1>Lokalizacja:</h1>                    
-                        <select className='citySelect' onChange={handleTown}>
+                        <select value={town} className='citySelect' onChange={handleTown}>
                             <option value='wybierz'>---wybierz---</option>
                             {/* i used 'selected' to change permament input color (when we click next and then prev, input lost his color)*/}
-                            <option selected={town==="Poznań"} value="Poznań">Poznań</option>
-                            <option selected={town==="Warszawa"} value="Warszawa">Warszawa</option>
-                            <option selected={town==="Kraków"} value="Kraków">Kraków</option>
-                            <option selected={town==="Wrocław"} value="Wrocław">Wrocław</option>
-                            <option selected={town==="Katowice"} value="Katowice">Katowice</option>
+                            <option value="Poznań">Poznań</option>
+                            <option value="Warszawa">Warszawa</option>
+                            <option value="Kraków">Kraków</option>
+                            <option value="Wrocław">Wrocław</option>
+                            <option value="Katowice">Katowice</option>
                         </select>
+                        <div className='warningFormDivs'>{cityAlert ? <strong className='formAlert'>Wybierz miasto</strong> : null}</div>
 
                         <h2>Komu chcesz pomóc:</h2>
-
-
                         <div className='chooseElementsBox'>
                             <div className='chooseElements'>
                                 <label style={ isActiveColor1 ? {backgroundColor:'#FAD648'} : { backgroundColor:'#F0F1F1'}}>dzieciom
@@ -365,15 +424,14 @@ const LeaveThingsForm = () => {
                                 </label>
                             </div>
                         </div>
-                                                                
+                        <div className='warningFormDivs'>{beneficiaryAlert ? <strong className='formAlert'>Wybierz komu chcesz pomóc</strong> : null}</div>                                                             
 
                         <h2>Wpisz nazwę konretnej organizacji (opcjonalnie):</h2>
                         <textarea value={whatOrg} onChange={handleOrg}></textarea>
 
-                        {alert ? <div className='alert'><strong >{alertText}</strong></div> : null}
                         <div className='btnBox btnBoxCorrect'>
                             <button className='btn btnCorrect' onClick={prevStep3}>Wstecz</button>
-                            <button className='btn btnCorrect' onClick={handleStep3}>Dalej</button>
+                            <button className='btn btnCorrect btnRightCorrect' onClick={handleStep3}>Dalej</button>
                         </div>
                     </div>
                     <EnderBox />
@@ -393,26 +451,32 @@ const LeaveThingsForm = () => {
 
                             <div className='dateBox'>
                             <h2>Adres odbioru:</h2>
-                                <label>Ulica:</label>
+                                <label>Ulica i numer:</label>
                                 <input name='street' value={userData.street} onChange={handleChange}></input>
+                                <div className='warningFormDivs'>{streetAlert ? <strong className='formAlert'>Podaj ulice wraz z numerem</strong> : null}</div>  
 
                                 <label>Miasto:</label>
                                 <input name='city' value={userData.city} onChange={handleChange}></input>
+                                <div className='warningFormDivs'>{townAlert ? <strong className='formAlert'>Wpisz nazwe miasta </strong> : null}</div>  
 
                                 <label>Kod pocztowy:</label>
-                                <input name='zipCode' value={userData.zipCode} onChange={handleChange}></input>
+                                <input id='zipCode' name='zipCode' value={userData.zipCode} type='tel' placeholder="__-___" onChange={handleChange}></input>
+                                <div className='warningFormDivs'>{zipCodeAlert ? <strong className='formAlert'>Wprowadź kod pocztowy</strong> : null}</div>  
 
                                 <label>Telefon komórkowy:</label>
-                                <input name='phoneNo' value={userData.phoneNo} onChange={handleChange}></input>
+                                <input id='phone' name='phoneNo' value={userData.phoneNo} type='tel' placeholder="___-___-___" onChange={handleChange}></input>
+                                <div className='warningFormDivs'>{numberAlert ? <strong className='formAlert'>Wprowadź numer telefonu</strong> : null}</div>  
                             </div>
 
                             <div className='dateBox'>
                                 <h2>Data odbioru:</h2>
                                 <label>Data:</label>
-                                <input type='date' name='date' value={userData.date} onChange={handleChange}></input>
+                                <input type='date' name='date' min={afterActualDate} value={userData.date} onChange={handleChange}></input>
+                                <div className='warningFormDivs'>{dateAlert? <strong className='formAlert'>Wprowadź poprawną datę</strong> : null}</div>  
 
                                 <label>Godzina:</label>
                                 <input type='time' name='hour' value={userData.hour} onChange={handleChange}></input>
+                                <div className='warningFormDivs'>{hourAlert ? <strong className='formAlert'>Wprowadź godzinę z zakresu 8-18</strong> : null}</div>  
 
                                 <label>Uwagi dla kuriera:</label>
                                 <input className='lastInput' name='comments' value={userData.comments} onChange={handleChange}></input>
@@ -420,11 +484,9 @@ const LeaveThingsForm = () => {
                             
                         </div>
 
-                        {alert ? <div className='alert'> <strong>{alertText}</strong></div> : null}
-
                         <div className='btnBox btnBoxCorrect'>
                             <button className='btn btnCorrect' onClick={prevStep4}>Wstecz</button>
-                            <button className='btn btnCorrect' onClick={handleStep4}>Dalej</button>
+                            <button className='btn btnCorrect btnRightCorrect' onClick={handleStep4}>Dalej</button>
                         </div>
                     </div>
                     <EnderBox />
@@ -439,11 +501,15 @@ const LeaveThingsForm = () => {
                     <div className='leaveThingsForm'>
 
                         <div className='sumUp'>
-                            <h1 className='h1Padding'>Podsumowanie twojej darowizny</h1>
+                            <h1 className='h1Padding'>Podsumowanie twojej darowizny:</h1>
 
-                            <strong>Oddajesz:</strong>
+                            <p>Ilość worków: {quantOfBags}</p>
+                            <p>Zawartość: {kindOfThings}</p>
+                            <p>Zostanie darowane: {whoHelp.map( (element,index) => <strong style={{display:'inline'}} key={index}>{index===whoHelp.length-1 ? element : element+', '} </strong> )}</p>
+                            <p>Dla lokalizacji: {town}</p>
+                            {/* <strong>Oddajesz:</strong>
                             <p>{quantOfBags} {quantOfBags===1 ? "worek" : "worki"}, {kindOfThings}, {whoHelp.map( (element,index) => <p key={index}>{element} </p> )}</p>
-                            <p>dla lokalizacji: {town}</p>
+                            <p>dla lokalizacji: {town}</p> */}
                         </div>
 
                         <div className='formDateBoxes'>
@@ -453,8 +519,7 @@ const LeaveThingsForm = () => {
                                 <p>Ulica: {userData.street}</p>
                                 <p>Miasto: {userData.city}</p>
                                 <p>Kod pocztowy: {userData.zipCode}</p>
-                                <p>Numer telefonu: {userData.phoneNo}</p>
-
+                                <p>Numer telefonu:{userData.phoneNo}</p>
                             </div>
 
                             <div className='dateBox'>
@@ -468,7 +533,7 @@ const LeaveThingsForm = () => {
                         </div>
                         <div className='btnBox btnBoxCorrect'>
                             <button className='btn btnCorrect' onClick={() => setStep(4)}>Wstecz</button>
-                            <button className='btn btnCorrect' onClick={handleStep5}>Potwierdzam</button>
+                            <button className='btn btnCorrect btnRightCorrect' onClick={handleStep5}>Potwierdzam</button>
                         </div>
                     </div>   
                     <EnderBox correctPosition='correctPosition'/>
