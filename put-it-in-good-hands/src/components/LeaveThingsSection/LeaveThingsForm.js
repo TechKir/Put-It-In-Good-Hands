@@ -382,7 +382,6 @@ const LeaveThingsForm = () => {
                         <h1>Lokalizacja:</h1>                    
                         <select value={town} className='citySelect' onChange={handleTown}>
                             <option value='wybierz'>---wybierz---</option>
-                            {/* i used 'selected' to change permament input color (when we click next and then prev, input lost his color)*/}
                             <option value="Poznań">Poznań</option>
                             <option value="Warszawa">Warszawa</option>
                             <option value="Kraków">Kraków</option>
@@ -497,7 +496,6 @@ const LeaveThingsForm = () => {
         case 5:
             return (
                 <>
-                {/* <div className='emptyBelt'></div> */}
                     <div className='leaveThingsForm'>
 
                         <div className='sumUp'>
@@ -507,9 +505,7 @@ const LeaveThingsForm = () => {
                             <p>Zawartość: {kindOfThings}</p>
                             <p>Zostanie darowane: {whoHelp.map( (element,index) => <strong style={{display:'inline'}} key={index}>{index===whoHelp.length-1 ? element : element+', '} </strong> )}</p>
                             <p>Dla lokalizacji: {town}</p>
-                            {/* <strong>Oddajesz:</strong>
-                            <p>{quantOfBags} {quantOfBags===1 ? "worek" : "worki"}, {kindOfThings}, {whoHelp.map( (element,index) => <p key={index}>{element} </p> )}</p>
-                            <p>dla lokalizacji: {town}</p> */}
+
                         </div>
 
                         <div className='formDateBoxes'>
@@ -549,15 +545,18 @@ const LeaveThingsForm = () => {
                         <p>Na maila prześlemy wszelkie</p>
                         <p>informacje o odbiorze.</p>
                     </div>
+
                     <div className='decorationBox' style={{backgroundColor:'#F0F1F1', padding:'5vw'}}>
                         <img src={decoration} alt='decoration'/>
                     </div>
+
                     <EnderBox correctPosition2='correctPosition2'/>
                     <FooterBox footerCorrectPosition2='footerCorrectPosition2'/>          
                 </>
             )
-            default: 
-                    return null;
+
+        default: 
+            return null;
     }
 }
 

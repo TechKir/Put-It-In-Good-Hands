@@ -3,56 +3,16 @@ import classnames from 'classnames';
 import ThingsImg from './ThingsImg';
 import FormImg1 from '../../LeaveThingsSection/FormImg1';
 import {AuthContext} from '../../../App';
-//import { CSSTransition } from 'react-transition-group';
-//import Navigation from 'react-sticky-nav';
-//ADD THIS ON BELOW IMPORT IF YOU WANT TO WORK WITH STICKY NAV: animateScroll as scroll 
 import { Link } from "react-scroll";
-import {
-    Link as Link2,
-    } from 'react-router-dom';
+import { Link as Link2} from 'react-router-dom';
 
 export default () => {
-    //USE THIS IF YOU WANT TO WORK WITH STICKY NAV:
-    //const [isOpen, setIsOpen] = useState(false);
-    //const [scrooled, setScrooled]=useState(false);
-    //const [isHide,setIsHide]=useState(false);
     const [isActive, setIsActive]=useState(false);
     const { user, isForm } = useContext(AuthContext);
 
     const showNav = () =>{
-        //USE THIS IF YOU WANT TO WORK WITH STICKY NAV:
-        //setIsOpen(prevState => !prevState)
         setIsActive(prevState => !prevState)
     };
-
-    // TODO: STICKY NAV - BREAKES LAYOUT 
-    // useEffect ( () => {
-    //     window.addEventListener('scroll', () => {
-    //         const isTop = window.scrollY < 170;           
-    //         if (isTop == false){
-    //             setScrooled(true)
-    //         } else{
-    //             setScrooled(false)
-    //         }
-
-    //         console.log(window.scrollY)
-    //         const isHide = (window.scrollY > 70 && window.scrollY < 270);
-    //         if(isHide == false){
-    //             setIsHide(false)
-    //         } else{
-    //             setIsHide(true)
-    //         }
-    //     })
-        
-    //     const clearWindow = () => {
-    //         window.removeEventListener('scroll')
-    //     } 
-        
-    //     return () => clearWindow
-    // },[])
-
-//className={scrooled ? 'scrolled' : 'notScrolled'} className={isHide ? 'hideNav' : ''}
-//USE THIS BELOV ON DIV IF YOU WANT TO WORK WITH STICKY NAV: className={classnames({hideNav: isHide, scrolled:scrooled})}
 
     return (
         <div id='section1'>
@@ -61,12 +21,6 @@ export default () => {
                 {user ?                                             
                     <div className='loginBox'>
                             <h1 className={classnames({positionRightCorrect:isForm})}>Witaj {user.email} !</h1>              
-                        {/* <button className="btnLogin">     TODO: tylko w desktop                                  
-                            <Link2
-                                to="/leave-things">
-                                Oddaj rzeczy
-                            </Link2>        
-                        </button> */}
                     </div> 
                     :
                     <div className={classnames('loginBox',{menuActive: isActive})}>

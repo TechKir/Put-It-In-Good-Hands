@@ -57,7 +57,7 @@ export default (props) => {
             setMessageWarning(true)
             sendMessage = false;
         } 
-        //!nameWarning && !emailWarning && !messageWarning
+
         if(sendMessage){
             const formData={name:userName, email:email, message: message}
             fetch('https://fer-api.coderslab.pl/v1/portfolio/contact', {
@@ -84,7 +84,7 @@ export default (props) => {
             })
         }
     };
-//className='formHomeBox'
+
     return (
         <div  className={classnames('formHomeBox',{formHomeBox2:isForm},{correctPosition:props.correctPosition},{correctPosition2:props.correctPosition2})}>
             <h2 className='textUpDecoration'>

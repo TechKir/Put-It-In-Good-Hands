@@ -5,26 +5,21 @@ import Login from './components/Login';
 import Registration from './components/Registration';
 import LogOut from './components/LogOut';
 import LeaveThingsSection from './components/LeaveThingsSection/LeaveThingsSection.js';
-
-// Firebase App (the core Firebase SDK) is always required and
-// must be listed before other Firebase SDKs
 import firebase from "firebase/app";
-// Add the Firebase services that you want to use
 import 'firebase/database';
-import firebaseConfig from './firebaseConfig'
+import firebaseConfig from './firebaseConfig';
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 export const AuthContext = createContext(null); 
-//Czy ten null dalej tam jest pod useContext a my mozemy sobie wybierac po nim i tak value takie jakie sobie wprowadzimy? Czy null dalej tam jest a my korzystamy tylko z value ktore destrukturyzujemy?
 
 function App() {
   const [isHome,setIsHome]=useState(false);
   const [isForm,setIsForm]=useState(false);
   const [isTogether, setIsTogether]=useState(false);
-  // const setHome = () => setIsHome(false);
-
   const [user, sUser] = useState(null);
+  
   const setUser = (value) => {
     sUser(value)
   }

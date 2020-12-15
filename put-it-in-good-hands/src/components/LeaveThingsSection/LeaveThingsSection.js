@@ -4,10 +4,6 @@ import MainTheme from './MainTheme';
 import StepsInstruction from './StepsInstruction';
 import LeaveThingsForm from './LeaveThingsForm';
 import {AuthContext} from '../../App';
-// import EnderBox from '../Home/ending_section/EnderBox';
-// import FooterBox from '../Home/ending_section/footer/FooterBox';
-
-
 
 const LeaveThingsSection = () => {
 
@@ -25,12 +21,7 @@ const LeaveThingsSection = () => {
                 <MainTheme/>
                 <StepsInstruction/>
             </div>
-            <LeaveThingsForm/>  
-
-            {/* it was necessery to set up below components deeper - it helps me push additional CSS classes in step 5 and 6. Exacly ~'correctPositions' */}
-            {/* <EnderBox />
-            <FooterBox/>           */}
-            
+            <LeaveThingsForm/>          
         </>
     )
 }

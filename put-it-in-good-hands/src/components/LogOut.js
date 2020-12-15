@@ -1,9 +1,7 @@
 import React,{useEffect, useContext} from 'react';
 import {AuthContext} from '../App';
 import decoration from '../assets/Decoration.svg';
-import {
-    Link
-    } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 export default () => {
 

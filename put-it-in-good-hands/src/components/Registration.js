@@ -2,15 +2,8 @@ import React,{useState, useEffect, useContext} from 'react';
 import decoration from '../assets/Decoration.svg';
 import classnames from 'classnames';
 import {AuthContext} from '../App';
-import {
-    useHistory,
-    Link
-    } from 'react-router-dom';
-
-// Firebase App (the core Firebase SDK) is always required and
-// must be listed before other Firebase SDKs
+import {useHistory, Link} from 'react-router-dom';
 import firebase from "firebase/app";
-// Add the Firebase services that you want to use
 import 'firebase/database';
 
 export default () => {

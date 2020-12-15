@@ -12,6 +12,5 @@ export default () => {
                     <div className="formStep"><div><strong className='strongMargin' ><span>4</span><br/>Zamów kuriera</strong></div></div>
                 </div>
             </>
-
     )
 }

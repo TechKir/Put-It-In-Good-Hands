@@ -1,5 +1,6 @@
 import React from 'react';
-import decoration from '../../assets/Decoration.svg'
+import decoration from '../../assets/Decoration.svg';
+
 export default () => {
     return(
         <>

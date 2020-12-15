@@ -1,11 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import Pagination from './Paginantion';
 import classnames from 'classnames';
-
-// Firebase App (the core Firebase SDK) is always required and
-// must be listed before other Firebase SDKs
 import firebase from "firebase/app";
-// Add the Firebase services that you want to use
 import 'firebase/database';
 
 export default () =>{
@@ -74,11 +70,6 @@ export default () =>{
             <div className='paginationBox'>
                 {getOrg()?.items.length && <Pagination orgsPerPage={orgsPerPage} totalOrgItems={getOrg()?.items.length} paginate={paginate} currentPage={currentPage}/>}
             </div>
-
         </>
     )
 }
-
-//prevous condition:
-//getOrg()?.items.length > orgsPerPage && 
-// i change that because when pagination is not rendered, lower section gets up and footer section what have 'position absolute' and seted up by 'top=277vw' goes to low and that broke layout. Without RWD this problem will not exist. Better to hide pagination in this case.
