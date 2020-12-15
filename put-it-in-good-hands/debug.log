@@ -1,2 +1,4 @@
 [1116/133041.206:ERROR:directory_reader_win.cc(43)] FindFirstFile: System nie mo¿e odnaleŸæ okreœlonej œcie¿ki. (0x3)
 [1117/144619.050:ERROR:directory_reader_win.cc(43)] FindFirstFile: System nie mo¿e odnaleŸæ okreœlonej œcie¿ki. (0x3)
+[1215/115735.826:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\dell2gen\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\120cd653-67d9-40cb-8377-1cc88c5f6778: System nie mo¿e odnaleŸæ okreœlonej œcie¿ki. (0x3)
+[1215/115735.890:ERROR:directory_reader_win.cc(43)] FindFirstFile: System nie mo¿e odnaleŸæ okreœlonej œcie¿ki. (0x3)

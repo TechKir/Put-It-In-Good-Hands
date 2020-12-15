@@ -1338,7 +1338,7 @@ a:hover{
     .leaveThingsForm {
         height: 47.2vw;
         h2 {
-            margin-top: 0;
+            margin-top: 1vw;
             padding: 0;
             font-size: 1.6vw;
             font-weight: bolder;
@@ -1378,11 +1378,6 @@ a:hover{
         font-size: 1.6vw;
     }
 
-    .formDateBoxes .dateBox label {
-        font-size: 1.6vw;
-        /* margin-top: 2vw; */
-    }
-
     .formDateBoxes .dateBox input {
         margin-right: 3vw;
         width: 15vw;
@@ -1404,8 +1399,8 @@ a:hover{
     }
 
     .formDateBoxes .dateBox label {
-        font-size: 1.6vw;
-        margin-top: 0vw;
+        font-size: 1.3vw;
+        margin-top: 0.5vw;
         display: block;
     }
 
@@ -1428,10 +1423,19 @@ a:hover{
     .sumUp strong, .sumUp h1, .sumUp p {
         font-size: 1.6vw;
     }
-    
+
+    .sumUp p {
+        font-size: 1.3vw;
+    }
+
+    .sumUp strong {
+        font-size: 1.3vw;
+    }
+
     .formDateBoxes .dateBox p {
+        margin-top: 0.5vw;
         padding: 0.5vw 0;
-        font-size: 1.6vw;
+        font-size: 1.3vw;
     }
 
     .sumUp {
@@ -1499,6 +1503,12 @@ a:hover{
         font-size: 1.7vw;
         padding-left: 1.5vw;
     }
+
+    .warningFormDivs{
+        width: 45vw;
+        height: 2.5vw;
+        padding: 1vw 0;
+    }
 }    
 
 @media screen and (min-width:1020px){
@@ -1561,53 +1571,5 @@ a:hover{
         font-weight: bolder;
         font-size: 1.2vw;
         display: block;
-    }
-    
+    } 
 }
-
-
-// @media screen and (min-width: 768px) {
-//     .hamburger {
-//       display: none;
-//     }
-//     .homeImg{
-//         width: 50vw;
-//         height: 50vw;
-//     }
-//     .loginBox {
-//         transition: transform .4s ease-in-out;
-//         transform: translateY(0vw);
-//         display: flex;
-//         align-items: center;
-//         justify-content: end;
-//     }
-//     .navMenu {
-//         transition: transform .4s ease-in-out;
-//         transform: translateY(0vw);
-//         font-size: 4vw;
-//         background-color: white;
-//         //position: absolute;
-//         display: flex;
-//         //float: right;
-//         margin-left: 56vw;
-//     }
-// }
-// xs - max-width: 575px,
-// sm - min-width: 576px,
-// md - min-width: 768px,
-// lg - min-width: 992px,
-// xl - min-width: 1200px,
-// hd - min-width: 1600px.
-
-// /* Small screens*/
-// @media only screen { } /* Define mobile styles */
-// @media only screen and (max-width: 40em) { }
-// /* Medium screens */
-// @media only screen and (min-width: 40.063em) { }
-// @media only screen and (min-width: 40.063em)
-// and (max-width: 64em) { }
-// /* Large screens*/
-// @media only screen and (min-width: 64.063em) { }
-// @media only screen and (min-width: 64.063em)
-// and (max-width: 90em) { }
-
