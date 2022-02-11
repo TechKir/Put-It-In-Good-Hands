@@ -10,7 +10,7 @@
     "firebase": "^8.0.2",
     "inputmask": "^5.0.6-beta.20",
     "jquery": "^3.5.1",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
